@@ -1,0 +1,19 @@
+/* Reef-specific additions beside the CFD shell. */
+.cfd-device{--cfd-accent:#2fd6c3;--cfd-surface:#052430;--cfd-surface-2:#0a3644;--cfd-text:#e6fbff;--cfd-muted:#83b5c2;--cfd-ok:#4ee6a4;--cfd-warn:#ffb36b;--cfd-radius:16px;--cfd-font:"Avenir Next","Segoe UI",system-ui,sans-serif;--cfd-bezel:#010e14;width:380px}
+.cfd-controls{grid-template-columns:1fr 1fr;gap:6px}
+.cfd-toggle{padding:9px 10px;font-size:.74rem}
+.cfd-toggle.paused{opacity:.55}
+.rf-sec{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cfd-muted);padding:10px 16px 0}
+.rf-caption{font-size:.66rem;color:var(--cfd-muted);padding:4px 16px 0;line-height:1.35}
+.rf-row{display:flex;gap:6px;padding:6px 14px;flex-wrap:wrap}
+.rf-pill{background:var(--cfd-surface-2);border-radius:99px;padding:6px 10px;font-size:.7rem;display:flex;align-items:center;gap:6px}
+.rf-pill b{font-weight:700}
+.rf-ok::before,.rf-warn::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cfd-ok)}
+.rf-warn::before{background:var(--cfd-warn)}
+.rf-chip{all:unset;cursor:pointer;background:var(--cfd-surface-2);border-radius:12px;padding:8px 10px;font-size:.7rem;flex:1;text-align:center}
+.rf-chip small{display:block;color:var(--cfd-muted);font-size:.6rem;margin-top:2px}
+.rf-chip:focus-visible,.rf-btn:focus-visible{outline:2px solid var(--cfd-accent)}
+.rf-btn{all:unset;cursor:pointer;flex:1;text-align:center;padding:9px;border-radius:12px;font-size:.74rem;font-weight:600;background:var(--cfd-surface-2)}
+.rf-btn[aria-pressed="true"]{background:var(--cfd-warn);color:#111}
+.rf-voice{font-size:.66rem;color:var(--cfd-muted);border:1px dashed var(--cfd-muted)}
+.cfd-toast{margin-top:6px}

@@ -4,7 +4,7 @@ Industry-specific public site / app shells. Private briefs stay in `controlfreak
 
 | Code | Product (Pro) | Status |
 |---|---|---|
-| O04 | Reef Control Pro | Shell TBD |
+| O04 | Reef Control Pro | Shell v1 — [`O04-reef/`](O04-reef/) |
 | C03 | Basement Guard Pro | Shell TBD |
 | O15 | Terrarium Control Pro | Shell TBD |
 | C01 | Sub Zero Control Pro | Shell TBD |

@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reef Control Pro — demo (simulation)</title>
+<link rel="stylesheet" href="demo.css"><link rel="stylesheet" href="reef.css">
+<style>body{margin:0;background:transparent}</style>
+<script>
+window.CFD_CONFIG={product:"Reef Control Pro",
+ readouts:[{label:"Tank temp",unit:"°F",min:74,max:82,value:78.2,jitter:.1},
+  {label:"Sump temp",unit:"°F",min:74,max:82,value:78.0,jitter:.1},
+  {label:"pH",unit:"",min:7.6,max:8.6,value:8.15,jitter:.02}],
+ controls:[{label:"Return",on:true},{label:"PH1",on:true},{label:"PH2",on:true},{label:"Heater",on:false},
+  {label:"Chiller/fan",on:false},{label:"Main light",on:false},{label:"Refugium light",on:false},{label:"Skimmer",on:false}],
+ notify:{label:"High temp alert",channels:["Push","Text","Email","Alarm"]}};
+</script></head><body>
+<div class="cfd-device" aria-label="Reef Control Pro demo simulation">
+  <div class="cfd-screen">
+    <header class="cfd-header">
+      <div class="cfd-product">Reef Control Pro</div>
+      <div class="cfd-badges"><span class="cfd-badge"><span class="cfd-dot"></span>Local (sim)</span><span class="cfd-badge cfd-badge--sim">Simulation</span></div>
+    </header>
+    <section class="cfd-readouts" aria-label="Readouts"></section>
+    <div class="rf-row"><span class="rf-pill rf-ok">ATO <b>Topped up</b></span><span class="rf-pill rf-ok">Leak <b>Clear</b></span></div>
+    <div class="rf-sec">Power Hub · 8 outlets</div>
+    <section class="cfd-controls" aria-label="Outlets"></section>
+    <p class="rf-caption">Fail-safe: if the controller loses power, Return and powerheads stay on; heater turns off and falls back to its own thermostat.</p>
+    <div class="rf-sec">Dosing · tap for next dose</div>
+    <div class="rf-row"><button class="rf-chip" type="button" data-dose="Ca">Ca<small>Calcium</small></button><button class="rf-chip" type="button" data-dose="Alk">Alk<small>Alkalinity</small></button><button class="rf-chip" type="button" data-dose="Mg">Mg<small>Magnesium</small></button></div>
+    <div class="rf-row"><button id="rf-feed" class="rf-btn" type="button" aria-pressed="false">Feed mode</button><button id="rf-maint" class="rf-btn" type="button" aria-pressed="false">Maintenance</button></div>
+    <div class="rf-row"><button id="rf-alert" class="rf-btn" type="button">Preview sample alert</button><span class="rf-pill rf-voice">“Hey Siri, feed the tank” · via HA bridges</span></div>
+    <div class="cfd-notify"><span></span><button type="button">Preview</button></div>
+    <div class="cfd-toast" role="status"></div>
+    <footer class="cfd-footer">
+      <img src="assets/brought-to-you-by-control-freak-horizontal-dark.svg" alt="brought to you by Control Freak">
+      <div class="cfd-disclaimer">Marketing simulation. Example data, not live hardware. Not the real app.</div>
+    </footer>
+  </div>
+</div>
+<script src="demo.js"></script><script src="reef.js"></script></body></html>
