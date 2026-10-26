@@ -9,14 +9,14 @@ Mark all concept visuals **Concept**.
 ## 1. One-line promise
 **A reef controller that plugs together.** Keeps working when the internet doesn’t. No subscription.
 
-Buyer open: *How many apps do you have to open to control your smart products?* Then: Home Assistant comes pre-installed with the Control Freak integration, so the tank and the rest of the home land in one place — and you can simplify to a single app. Alexa, Siri, Google Home, and a few other common platforms connect through Home Assistant’s normal bridges. Home Assistant itself stays on your home network.
+Buyer open: *How many apps do you have to open to control your smart products?* Then: Home Assistant comes pre-installed with the Control Freak integration, so the tank and the rest of the home land in one place — and you can simplify to a single app. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and receive automated voice alerts to let you know when something is out of balance. Home Assistant itself stays on your home network.
 
 ## 2. Who it’s for
 Reef hobbyists with a sump tank who want reliable control and alerts without wiring a DIY board or juggling five vendor apps. Hands-on keepers who often already run (or want) Home Assistant, and care that pumps and heaters keep doing the right thing when Wi-Fi or a cloud app hiccups.
 
 ## 3. Differentiator bullets (public-safe)
 - **Keeps working when the internet doesn’t** — the box under the stand runs the tank; Ethernet, Wi-Fi, and its own Wi-Fi fallback.
-- **Home Assistant pre-installed** — CF integration set up; one hub for tank and home; Alexa/Siri/Google via HA’s normal bridges.
+- **Home Assistant pre-installed** — CF integration set up; one hub for tank and home. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, get voice alerts.
 - **Auto water leveling and leak alarm in the kit** — tops up evaporation with overfill lockout; floor leak sensor; add only a reservoir.
 - **Pumps keep running if the controller loses power** — return + powerheads stay on; heater turns off / own thermostat.
 - **Heater cutoff** — probes watch tank; heater off above limit.
@@ -37,7 +37,7 @@ Wave 1 public story = **one Pro product**. No CF prices until announced.
 ## 5. In-site demo content
 Reef look, not pool reskin. Demo/example readings only — never live hardware.
 
-Home tiles: tank temp, sump temp, pH, 8-outlet strip (Return, PH1, PH2, Heater, Chiller/fan, Main light, Refugium light, Skimmer — Return+PHs on), fail-safe caption, ATO status, leak clear, dosing Ca/Alk/Mg chips, Feed/Maintenance mode, sample alerts (high temp / ATO lockout / leak), voice chip via HA bridges.
+Home tiles: tank temp, sump temp, pH, 8-outlet strip (Return, Powerhead 1, Powerhead 2, Heater, Chiller/fan, Main light, Refugium light, Skimmer — Return+PHs on), fail-safe caption, ATO status, leak clear, dosing Ca/Alk/Mg chips, Feed/Maintenance mode, sample alerts (high temp / ATO lockout / leak), multi-platform voice chip (Alexa / Google / voice alerts), leak + high-temp what-ifs.
 
 Light interactions: toggle outlet; Feed mode pause/resume; dosing next-dose example; optional alert example. No live cloud, no App Store, no login wall for demo. CTA beside/below demo.
 
@@ -47,3 +47,6 @@ Reef/aquarium industry-specific; product name first; *brought to you by Control 
 ## 7. CTA
 Primary: **Join the beta** — *We’re looking for reef keepers to test Reef Control Pro on their own tanks before launch.*
 
+
+## Voice (v1.1)
+Headline: **Put the Control Freak on it.** Sub: *Sit back and enjoy the reef—the system handles the rest.* Status line: *All Calm in the Reef.* Supporting promise: *A reef controller that plugs together.*

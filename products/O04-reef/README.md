@@ -1,6 +1,6 @@
 # O04 · Reef Control Pro — public shell
 
-**Status:** Shell v1 (static landing page + simulated in-site demo). Concept visuals, no prices, beta CTA only.
+**Status:** Shell v1.1 (polish: coral-teardrop product mark, PCB corporate attribution lockup v1.4, locked brochure voice) (static landing page + simulated in-site demo). Concept visuals, no prices, beta CTA only.
 
 - `PUBLIC_BRIEF.md` — marketing-safe brief (source of truth for copy + demo tiles)
 - `site/index.html` + `site/styles.css` — landing page (reef visual system: dark ocean / teal / coral)

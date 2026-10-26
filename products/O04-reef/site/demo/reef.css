@@ -17,3 +17,7 @@
 .rf-btn[aria-pressed="true"]{background:var(--cfd-warn);color:#111}
 .rf-voice{font-size:.66rem;color:var(--cfd-muted);border:1px dashed var(--cfd-muted)}
 .cfd-toast{margin-top:6px}
+.rf-status{padding:8px 16px 0;font-weight:700;color:var(--cfd-ok);font-size:.8rem}
+.rf-what{all:unset;cursor:pointer;background:var(--cfd-surface-2);border-radius:99px;padding:6px 10px;font-size:.7rem;display:flex;align-items:center;gap:6px}
+.rf-what::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cfd-ok)}
+.rf-alarm::before{background:#ff5a4f}.rf-alarm{outline:1px solid #ff5a4f}
