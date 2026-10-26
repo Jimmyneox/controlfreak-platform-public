@@ -1,4 +1,4 @@
-/* Design demo object (controlfreak-design 1559d14, DEMO_OBJECTS.md). SVG is inlined in index.html as svg.cf-demo-object;
+/* Design demo object (controlfreak-design f5aa8d7 photoreal, DEMO_OBJECTS.md). SVG is inlined in index.html as svg.cf-demo-object;
    state is toggled via root classes driven by the demo's existing controls. Simulation only. No network. */
 (function(){var root=document.querySelector(".cfd-device"),st=document.getElementById("cf-stage");if(!root||!st)return;
 var svg=st.querySelector("svg.cf-demo-object"),h=root.querySelector(".cfd-header");if(h&&h.nextSibling!==st)h.parentNode.insertBefore(st,h.nextSibling);

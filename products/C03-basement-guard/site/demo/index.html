@@ -4,22 +4,46 @@
 <style>body{margin:0;background:transparent}</style>
 <script>window.CFD_CONFIG={"product": "Basement Guard Pro", "readouts": [{"label": "Basement", "unit": "°F", "min": 30, "max": 90, "value": 58, "jitter": 0.2}, {"label": "Crawlspace", "unit": "°F", "min": 10, "max": 80, "value": 41, "jitter": 0.2}, {"label": "Outdoor", "unit": "°F", "min": -10, "max": 100, "value": 22, "jitter": 0.3}], "controls": [{"label": "Pump A", "on": true}, {"label": "Pump B", "on": true}, {"label": "Heat tape", "on": false}, {"label": "Dehumidifier", "on": true}], "notify": {"label": "High water in the pit", "channels": ["Push", "Text", "Email", "Alarm"]}};</script></head><body>
 <div class="cfd-device" aria-label="Basement Guard Pro demo simulation">
-<figure class="stage" id="cf-stage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" id="c03-basement" class="cf-demo-object" role="img" aria-label="Demo object" data-state="">
+<figure class="stage" id="cf-stage"><svg role="img" aria-label="Demo object" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 768" class="cf-demo-object c03-basement " data-object="c03-basement">
 <style>
-.cf-demo-object .state{opacity:0;transition:opacity .4s}
-.cf-demo-object #water{transition:transform .6s;transform-origin:50% 100%;transform-box:fill-box}
-.pump1-on #pump-1-active,.pump2-on #pump-2-active,.alarm #alarm-glow{opacity:1}
-</style>
-<g id="floor"><rect x="0" y="120" width="400" height="180" fill="#334155"/><rect x="0" y="0" width="400" height="120" fill="#1e293b"/></g>
-<g id="pit"><rect x="110" y="120" width="180" height="170" fill="#0b1f3a" stroke="#94a3b8" stroke-width="4"/></g>
-<g id="water"><rect x="112" y="200" width="176" height="88" fill="#3b82c4" opacity=".8"/></g>
-<g id="pump-1"><rect x="140" y="230" width="44" height="56" rx="6" fill="#64748b"/><rect x="156" y="30" width="12" height="200" fill="#94a3b8"/></g>
-<g id="pump-1-active" class="state"><rect x="136" y="226" width="52" height="64" rx="8" fill="none" stroke="#5eead4" stroke-width="4"/></g>
-<g id="pump-2"><rect x="216" y="240" width="44" height="46" rx="6" fill="#64748b"/><rect x="232" y="30" width="12" height="210" fill="#94a3b8"/></g>
-<g id="pump-2-active" class="state"><rect x="212" y="236" width="52" height="54" rx="8" fill="none" stroke="#5eead4" stroke-width="4"/></g>
-<g id="float"><circle cx="270" cy="200" r="8" fill="#f4ecd8"/></g>
-<g id="controller"><rect x="300" y="40" width="70" height="56" rx="6" fill="#0b1f3a" stroke="#94a3b8" stroke-width="3"/></g>
-<g id="alarm-glow" class="state"><circle cx="335" cy="68" r="14" fill="#ef4444"/><circle cx="335" cy="68" r="30" fill="#ef4444" opacity=".25"/></g>
+.cf-demo-object{display:block;width:100%;height:auto}
+.cf-demo-object .ov{opacity:0;transition:opacity .6s ease}
+.cf-demo-object #water{transform-box:fill-box;transform-origin:50% 100%;transition:transform .8s ease}
+@keyframes cfShimmer{0%{transform:translateX(-12px)}50%{transform:translateX(12px)}100%{transform:translateX(-12px)}}
+@keyframes cfPulse{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes cfRise{0%{transform:translateY(0)}100%{transform:translateY(-20px)}}
+.cf-demo-object .shimmer{animation:cfShimmer 4s ease-in-out infinite}
+
+.cf-demo-object.pump1-on #pump1-glow,.cf-demo-object.pump1-on #led-pump1,.cf-demo-object.pump1-on #ripple1{opacity:1}
+.cf-demo-object.pump2-on #pump2-glow,.cf-demo-object.pump2-on #led-pump2,.cf-demo-object.pump2-on #ripple2{opacity:1}
+.cf-demo-object.alarm #alarm-wash{animation:cfPulse 1s infinite}
+.cf-demo-object.alarm #led-alarm{opacity:1;animation:cfPulse .6s infinite}
+.cf-demo-object #float{transition:transform .8s ease}
+
+.cf-demo-object.alarm #alarm-wash{opacity:.2}</style>
+<defs><radialGradient id="gWarm"><stop offset="0" stop-color="#ffb347" stop-opacity=".9"/><stop offset="1" stop-color="#ff7a00" stop-opacity="0"/></radialGradient>
+<radialGradient id="gCyan"><stop offset="0" stop-color="#7ff6ff" stop-opacity=".85"/><stop offset="1" stop-color="#00c8ff" stop-opacity="0"/></radialGradient>
+<radialGradient id="gGreen"><stop offset="0" stop-color="#5dff8a"/><stop offset=".4" stop-color="#22ff66" stop-opacity=".6"/><stop offset="1" stop-color="#22ff66" stop-opacity="0"/></radialGradient>
+<radialGradient id="gRed"><stop offset="0" stop-color="#ff3b30"/><stop offset=".4" stop-color="#ff3b30" stop-opacity=".6"/><stop offset="1" stop-color="#ff3b30" stop-opacity="0"/></radialGradient>
+<radialGradient id="gWhite"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="gBeam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bff4ff" stop-opacity=".35"/><stop offset="1" stop-color="#4fd8ff" stop-opacity="0"/></linearGradient>
+<linearGradient id="gHeatBeam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffcf70" stop-opacity=".8"/><stop offset="1" stop-color="#ff8a00" stop-opacity="0"/></linearGradient>
+<pattern id="pCaustic" width="60" height="40" patternUnits="userSpaceOnUse"><path d="M0 20 Q15 5 30 20 T60 20" fill="none" stroke="#e8ffff" stroke-width="2" opacity=".55"/><path d="M0 38 Q15 25 30 38 T60 38" fill="none" stroke="#e8ffff" stroke-width="1.5" opacity=".35"/></pattern>
+<filter id="fBlur"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="fBlurBig"><feGaussianBlur stdDeviation="18"/></filter></defs>
+<image id="base" href="assets/object/base.jpg" xlink:href="assets/object/base.jpg" x="0" y="0" width="1024" height="768" preserveAspectRatio="xMidYMid slice"/>
+<g id="overlays">
+<g id="water"><polygon points="335,470 740,470 715,705 330,705" fill="#3d5a4f" opacity=".35" style="mix-blend-mode:multiply"/></g>
+<g id="float"><rect x="514" y="510" width="16" height="10" rx="2" fill="#ffd400" opacity=".85"/></g>
+<g id="ripple1" class="ov" style="mix-blend-mode:screen"><ellipse class="shimmer" cx="445" cy="620" rx="80" ry="22" fill="none" stroke="#dff" stroke-width="3" opacity=".6"/></g>
+<g id="ripple2" class="ov" style="mix-blend-mode:screen"><ellipse class="shimmer" cx="608" cy="615" rx="75" ry="20" fill="none" stroke="#dff" stroke-width="3" opacity=".6"/></g>
+<circle id="pump1-glow" class="ov" cx="430" cy="485" r="22" fill="url(#gGreen)"/>
+<circle id="pump2-glow" class="ov" cx="606" cy="495" r="22" fill="url(#gGreen)"/>
+<circle id="led-pump1" class="ov" cx="779" cy="57" r="10" fill="url(#gGreen)"/>
+<circle id="led-pump2" class="ov" cx="796" cy="57" r="10" fill="url(#gGreen)"/>
+<circle id="led-alarm" class="ov" cx="812" cy="57" r="12" fill="url(#gRed)"/>
+<rect id="alarm-wash" x="0" y="0" width="1024" height="768" fill="#ff2a1a" opacity="0" style="mix-blend-mode:multiply"/>
+</g>
 </svg><figcaption class="stage-cap" aria-live="polite"></figcaption></figure>
   <div class="cfd-screen">
     <header class="cfd-header">

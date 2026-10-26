@@ -4,21 +4,43 @@
 <style>body{margin:0;background:transparent}</style>
 <script>window.CFD_CONFIG={"product": "Cold Plunge Control Pro", "readouts": [{"label": "Air", "unit": "°F", "min": 0, "max": 100, "value": 46, "jitter": 0.2}, {"label": "Chiller outlet", "unit": "°F", "min": 30, "max": 70, "value": 37, "jitter": 0.1}], "controls": [{"label": "Chiller", "on": true}, {"label": "Pump", "on": true}, {"label": "Ozone", "on": true}, {"label": "UV", "on": true}, {"label": "Heater", "on": false}, {"label": "Spare", "on": false}], "notify": {"label": "Water too warm — 45 °F at ready-by", "channels": ["Push", "Text", "Email", "Alarm"]}};</script></head><body>
 <div class="cfd-device" aria-label="Cold Plunge Control Pro demo simulation">
-<figure class="stage" id="cf-stage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" id="c01-cold-plunge" class="cf-demo-object" role="img" aria-label="Demo object" data-state="">
+<figure class="stage" id="cf-stage"><svg role="img" aria-label="Demo object" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 768" class="cf-demo-object c01-cold-plunge " data-object="c01-cold-plunge">
 <style>
-.cf-demo-object .state{opacity:0;transition:opacity .4s}
-.cf-demo-object #water{transition:transform .6s;transform-origin:50% 100%;transform-box:fill-box}
-.chiller-on #chiller-active,.power-on #power-led{opacity:1}
-#water-cool{transition:opacity .6s}.temp-neutral #water-cool{opacity:0}
+.cf-demo-object{display:block;width:100%;height:auto}
+.cf-demo-object .ov{opacity:0;transition:opacity .6s ease}
+.cf-demo-object #water{transform-box:fill-box;transform-origin:50% 100%;transition:transform .8s ease}
+@keyframes cfShimmer{0%{transform:translateX(-12px)}50%{transform:translateX(12px)}100%{transform:translateX(-12px)}}
+@keyframes cfPulse{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes cfRise{0%{transform:translateY(0)}100%{transform:translateY(-20px)}}
+.cf-demo-object .shimmer{animation:cfShimmer 4s ease-in-out infinite}
+
+.cf-demo-object #water-tint{fill:#2aa8ff;opacity:.35;transition:fill .8s,opacity .8s}
+.cf-demo-object.temp-neutral #water-tint{fill:#7fd6c8;opacity:.18}
+.cf-demo-object.chiller-on #chill-glow,.cf-demo-object.chiller-on #frost{opacity:1}
+.cf-demo-object.chiller-on #flow{opacity:.8}
+.cf-demo-object.power-on #led-power,.cf-demo-object.power-on #display{opacity:1}
+.cf-demo-object.chiller-on #led-chiller{opacity:1;animation:cfPulse 2s infinite}
 </style>
-<g id="deck"><rect x="0" y="250" width="400" height="50" fill="#1e293b"/></g>
-<g id="tub"><path d="M40 110h260l-16 140H56z" fill="#e5edf3" stroke="#2f6f9f" stroke-width="5"/></g>
-<g id="water"><path d="M52 140h236l-12 104H64z" fill="#7fa6b8"/></g>
-<g id="water-cool"><path d="M52 140h236l-12 104H64z" fill="#2f6f9f"/></g>
-<g id="ripples"><path d="M70 150c14-6 24 6 38 0s24 6 38 0 24 6 38 0 24 6 38 0" stroke="#e5edf3" stroke-width="3" fill="none" opacity=".7"/></g>
-<g id="chiller"><rect x="315" y="170" width="70" height="80" rx="6" fill="#0b1f3a" stroke="#2f6f9f" stroke-width="3"/><path d="M300 230h15" stroke="#94a3b8" stroke-width="6"/></g>
-<g id="chiller-active" class="state"><path d="M350 186v40m-14-30 28 20m0-20-28 20" stroke="#9fd3ff" stroke-width="4" stroke-linecap="round"/></g>
-<g id="power-led" class="state"><circle cx="372" cy="240" r="5" fill="#5eead4"/></g>
+<defs><radialGradient id="gWarm"><stop offset="0" stop-color="#ffb347" stop-opacity=".9"/><stop offset="1" stop-color="#ff7a00" stop-opacity="0"/></radialGradient>
+<radialGradient id="gCyan"><stop offset="0" stop-color="#7ff6ff" stop-opacity=".85"/><stop offset="1" stop-color="#00c8ff" stop-opacity="0"/></radialGradient>
+<radialGradient id="gGreen"><stop offset="0" stop-color="#5dff8a"/><stop offset=".4" stop-color="#22ff66" stop-opacity=".6"/><stop offset="1" stop-color="#22ff66" stop-opacity="0"/></radialGradient>
+<radialGradient id="gRed"><stop offset="0" stop-color="#ff3b30"/><stop offset=".4" stop-color="#ff3b30" stop-opacity=".6"/><stop offset="1" stop-color="#ff3b30" stop-opacity="0"/></radialGradient>
+<radialGradient id="gWhite"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="gBeam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bff4ff" stop-opacity=".35"/><stop offset="1" stop-color="#4fd8ff" stop-opacity="0"/></linearGradient>
+<linearGradient id="gHeatBeam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffcf70" stop-opacity=".8"/><stop offset="1" stop-color="#ff8a00" stop-opacity="0"/></linearGradient>
+<pattern id="pCaustic" width="60" height="40" patternUnits="userSpaceOnUse"><path d="M0 20 Q15 5 30 20 T60 20" fill="none" stroke="#e8ffff" stroke-width="2" opacity=".55"/><path d="M0 38 Q15 25 30 38 T60 38" fill="none" stroke="#e8ffff" stroke-width="1.5" opacity=".35"/></pattern>
+<filter id="fBlur"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="fBlurBig"><feGaussianBlur stdDeviation="18"/></filter></defs>
+<image id="base" href="assets/object/base.jpg" xlink:href="assets/object/base.jpg" x="0" y="0" width="1024" height="768" preserveAspectRatio="xMidYMid slice"/>
+<g id="overlays">
+<g id="water"><ellipse id="water-tint" cx="500" cy="330" rx="232" ry="40" style="mix-blend-mode:color"/></g>
+<g id="flow" class="ov" style="mix-blend-mode:screen"><clipPath id="cWater01"><ellipse cx="500" cy="330" rx="228" ry="38"/></clipPath><g clip-path="url(#cWater01)"><rect class="shimmer" x="250" y="290" width="500" height="80" fill="url(#pCaustic)"/></g></g>
+<g id="chill-glow" class="ov" style="mix-blend-mode:screen"><ellipse cx="500" cy="330" rx="260" ry="70" fill="url(#gCyan)" opacity=".6" filter="url(#fBlur)"/></g>
+<g id="frost" class="ov" filter="url(#fBlurBig)"><ellipse cx="500" cy="290" rx="240" ry="50" fill="#e8f8ff" opacity=".45"/></g>
+<rect id="display" class="ov" x="814" y="453" width="54" height="26" rx="3" fill="#39d0ff" opacity="0" style="mix-blend-mode:screen"/>
+<circle id="led-power" class="ov" cx="896" cy="466" r="7" fill="url(#gGreen)"/>
+<circle id="led-chiller" class="ov" cx="896" cy="486" r="7" fill="url(#gCyan)"/>
+</g>
 </svg><figcaption class="stage-cap" aria-live="polite"></figcaption></figure>
   <div class="cfd-screen">
     <header class="cfd-header">

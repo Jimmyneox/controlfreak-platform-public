@@ -4,22 +4,40 @@
 <style>body{margin:0;background:transparent}</style>
 <script>window.CFD_CONFIG={"product": "Terrarium Control Pro", "readouts": [], "controls": [{"label": "Heat mat", "on": true}, {"label": "Ceramic emitter", "on": true}, {"label": "Basking lamp", "on": true}, {"label": "UVB", "on": true}, {"label": "Day light", "on": true}, {"label": "Mister", "on": false}, {"label": "Fan", "on": true}, {"label": "Spare", "on": false}], "notify": {"label": "Probe unplugged — heat outlet off", "channels": ["Push", "Text", "Email", "Alarm"]}};</script></head><body>
 <div class="cfd-device" aria-label="Terrarium Control Pro demo simulation">
-<figure class="stage" id="cf-stage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" id="o15-terrarium" class="cf-demo-object" role="img" aria-label="Demo object" data-state="">
+<figure class="stage" id="cf-stage"><svg role="img" aria-label="Demo object" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 768" class="cf-demo-object o15-terrarium " data-object="o15-terrarium">
 <style>
-.cf-demo-object .state{opacity:0;transition:opacity .4s}
-.cf-demo-object #water{transition:transform .6s;transform-origin:50% 100%;transform-box:fill-box}
-.lamp-on #lamp-on,.heat-on #heat-glow,.mist-on #mist{opacity:1}
+.cf-demo-object{display:block;width:100%;height:auto}
+.cf-demo-object .ov{opacity:0;transition:opacity .6s ease}
+.cf-demo-object #water{transform-box:fill-box;transform-origin:50% 100%;transition:transform .8s ease}
+@keyframes cfShimmer{0%{transform:translateX(-12px)}50%{transform:translateX(12px)}100%{transform:translateX(-12px)}}
+@keyframes cfPulse{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes cfRise{0%{transform:translateY(0)}100%{transform:translateY(-20px)}}
+.cf-demo-object .shimmer{animation:cfShimmer 4s ease-in-out infinite}
+
+.cf-demo-object.lamp-on #lamp-glow,.cf-demo-object.lamp-on #lamp-beam{opacity:1}
+.cf-demo-object.heat-on #heat-haze{opacity:1}
+.cf-demo-object.mist-on #mist{opacity:1}
+.cf-demo-object.mist-on #mist .puff{animation:cfRise 3s ease-in-out infinite alternate}
+.cf-demo-object.uvb-on #uvb{opacity:1}
 </style>
-<g id="enclosure-back"><rect x="40" y="60" width="320" height="200" fill="#16302a"/></g>
-<g id="substrate"><path d="M44 256V220c60-20 120 10 180-6s90 0 132 10v32z" fill="#8a6a3f"/></g>
-<g id="plants"><path d="M90 230c0-50 10-70 14-90m-4 40 26-20m-24 46-22-18" stroke="#3f7d4e" stroke-width="7" fill="none" stroke-linecap="round"/></g>
-<g id="rock"><ellipse cx="270" cy="226" rx="50" ry="18" fill="#6b6b5e"/></g>
-<g id="animal"><path d="M230 212c20-12 50-12 70 0-10 6-30 8-40 6-10 4-24 2-30-6z" fill="#c9a227"/></g>
-<g id="lamp"><rect x="200" y="36" width="90" height="20" rx="4" fill="#2b2b24"/></g>
-<g id="lamp-on" class="state"><path d="M200 56h90l50 200H150z" fill="#f2d16b" opacity=".2"/><rect x="200" y="36" width="90" height="20" rx="4" fill="#f2d16b"/></g>
-<g id="heat-glow" class="state"><ellipse cx="270" cy="220" rx="70" ry="30" fill="#ff7a3c" opacity=".35"/></g>
-<g id="mist" class="state"><path d="M60 120c20-10 40 10 60 0s40 10 60 0 40 10 60 0 40 10 60 0 40 10 50 0" stroke="#e8f4f0" stroke-width="10" opacity=".4" fill="none"/></g>
-<g id="glass"><rect x="40" y="60" width="320" height="200" fill="none" stroke="#f4ecd8" stroke-width="4"/><path d="M200 60v200" stroke="#f4ecd8" stroke-width="2" opacity=".5"/></g>
+<defs><radialGradient id="gWarm"><stop offset="0" stop-color="#ffb347" stop-opacity=".9"/><stop offset="1" stop-color="#ff7a00" stop-opacity="0"/></radialGradient>
+<radialGradient id="gCyan"><stop offset="0" stop-color="#7ff6ff" stop-opacity=".85"/><stop offset="1" stop-color="#00c8ff" stop-opacity="0"/></radialGradient>
+<radialGradient id="gGreen"><stop offset="0" stop-color="#5dff8a"/><stop offset=".4" stop-color="#22ff66" stop-opacity=".6"/><stop offset="1" stop-color="#22ff66" stop-opacity="0"/></radialGradient>
+<radialGradient id="gRed"><stop offset="0" stop-color="#ff3b30"/><stop offset=".4" stop-color="#ff3b30" stop-opacity=".6"/><stop offset="1" stop-color="#ff3b30" stop-opacity="0"/></radialGradient>
+<radialGradient id="gWhite"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="gBeam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bff4ff" stop-opacity=".35"/><stop offset="1" stop-color="#4fd8ff" stop-opacity="0"/></linearGradient>
+<linearGradient id="gHeatBeam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffcf70" stop-opacity=".8"/><stop offset="1" stop-color="#ff8a00" stop-opacity="0"/></linearGradient>
+<pattern id="pCaustic" width="60" height="40" patternUnits="userSpaceOnUse"><path d="M0 20 Q15 5 30 20 T60 20" fill="none" stroke="#e8ffff" stroke-width="2" opacity=".55"/><path d="M0 38 Q15 25 30 38 T60 38" fill="none" stroke="#e8ffff" stroke-width="1.5" opacity=".35"/></pattern>
+<filter id="fBlur"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="fBlurBig"><feGaussianBlur stdDeviation="18"/></filter></defs>
+<image id="base" href="assets/object/base.jpg" xlink:href="assets/object/base.jpg" x="0" y="0" width="1024" height="768" preserveAspectRatio="xMidYMid slice"/>
+<g id="overlays">
+<g id="lamp-beam" class="ov" style="mix-blend-mode:screen"><path d="M520 148 L596 148 L700 400 L440 400 Z" fill="url(#gHeatBeam)" filter="url(#fBlur)"/></g>
+<g id="lamp-glow" class="ov" style="mix-blend-mode:screen"><ellipse cx="558" cy="148" rx="70" ry="22" fill="url(#gWarm)"/><ellipse cx="600" cy="370" rx="130" ry="50" fill="url(#gWarm)" opacity=".7" filter="url(#fBlur)"/></g>
+<g id="heat-haze" class="ov" style="mix-blend-mode:soft-light"><rect x="196" y="165" width="642" height="360" fill="#ff8c3a" opacity=".35"/></g>
+<g id="uvb" class="ov" style="mix-blend-mode:screen"><rect x="230" y="168" width="560" height="10" rx="5" fill="#d7c4ff"/><rect x="200" y="170" width="630" height="120" fill="#b49bff" opacity=".12" filter="url(#fBlur)"/></g>
+<g id="mist" class="ov"><clipPath id="cGlass15"><rect x="196" y="165" width="642" height="360"/></clipPath><g clip-path="url(#cGlass15)" filter="url(#fBlurBig)"><g class="puff"><ellipse cx="740" cy="230" rx="140" ry="50" fill="#fff" opacity=".35"/><ellipse cx="520" cy="300" rx="220" ry="60" fill="#fff" opacity=".2"/><ellipse cx="330" cy="420" rx="200" ry="60" fill="#fff" opacity=".18"/></g></g></g>
+</g>
 </svg><figcaption class="stage-cap" aria-live="polite"></figcaption></figure>
   <div class="cfd-screen">
     <header class="cfd-header">
