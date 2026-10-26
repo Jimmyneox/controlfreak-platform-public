@@ -33,13 +33,13 @@
 <filter id="fBlurBig"><feGaussianBlur stdDeviation="18"/></filter></defs>
 <image id="base" href="assets/object/base.jpg" xlink:href="assets/object/base.jpg" x="0" y="0" width="1024" height="768" preserveAspectRatio="xMidYMid slice"/>
 <g id="overlays">
-<g id="water"><ellipse id="water-tint" cx="500" cy="330" rx="232" ry="40" style="mix-blend-mode:color"/></g>
-<g id="flow" class="ov" style="mix-blend-mode:screen"><clipPath id="cWater01"><ellipse cx="500" cy="330" rx="228" ry="38"/></clipPath><g clip-path="url(#cWater01)"><rect class="shimmer" x="250" y="290" width="500" height="80" fill="url(#pCaustic)"/></g></g>
-<g id="chill-glow" class="ov" style="mix-blend-mode:screen"><ellipse cx="500" cy="330" rx="260" ry="70" fill="url(#gCyan)" opacity=".6" filter="url(#fBlur)"/></g>
-<g id="frost" class="ov" filter="url(#fBlurBig)"><ellipse cx="500" cy="290" rx="240" ry="50" fill="#e8f8ff" opacity=".45"/></g>
-<rect id="display" class="ov" x="814" y="453" width="54" height="26" rx="3" fill="#39d0ff" opacity="0" style="mix-blend-mode:screen"/>
-<circle id="led-power" class="ov" cx="896" cy="466" r="7" fill="url(#gGreen)"/>
-<circle id="led-chiller" class="ov" cx="896" cy="486" r="7" fill="url(#gCyan)"/>
+<g id="water"><ellipse id="water-tint" cx="452" cy="338" rx="226" ry="27" style="mix-blend-mode:color"/></g>
+<g id="flow" class="ov" style="mix-blend-mode:screen"><clipPath id="cWater01"><ellipse cx="452" cy="338" rx="222" ry="25"/></clipPath><g clip-path="url(#cWater01)"><rect class="shimmer" x="210" y="305" width="490" height="70" fill="url(#pCaustic)"/></g></g>
+<g id="chill-glow" class="ov" style="mix-blend-mode:screen"><ellipse cx="452" cy="338" rx="250" ry="50" fill="url(#gCyan)" opacity=".6" filter="url(#fBlur)"/></g>
+<g id="frost" class="ov" filter="url(#fBlurBig)"><ellipse cx="452" cy="315" rx="230" ry="35" fill="#e8f8ff" opacity=".45"/></g>
+<rect id="display" class="ov" x="762" y="452" width="50" height="22" rx="3" fill="#39d0ff" opacity="0" style="mix-blend-mode:screen"/>
+<circle id="led-power" class="ov" cx="776" cy="494" r="6" fill="url(#gGreen)"/>
+<circle id="led-chiller" class="ov" cx="798" cy="494" r="6" fill="url(#gCyan)"/>
 </g>
 </svg><figcaption class="stage-cap" aria-live="polite"></figcaption></figure>
 <aside class="cfd-rail" aria-label="Demo scenarios (not part of the app)"><div class="cfd-rail-h">Try a scenario</div><div class="cfd-rail-btns"><button class="x-btn cfd-rail-btn" id="clog" type="button">Clog the filter</button><button class="x-btn cfd-rail-btn" id="cold" type="button">Cold night</button><button class="x-btn cfd-rail-btn" id="alert" type="button">Alert example</button></div><div class="cfd-notify"><span></span><button type="button">Preview</button></div></aside></div>
