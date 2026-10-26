@@ -15,3 +15,15 @@
 /* Side-by-side down to 720px; narrower: tighter gap/phone, then stack only on phones. */
 @media (max-width:860px){.cfd-row{gap:14px}.cfd-phone{flex-basis:310px;width:310px}.cfd-left{flex-basis:300px}}
 @media (max-width:640px){.cfd-row{flex-direction:column;align-items:center}.cfd-left{position:static;max-width:100%;width:100%;flex:none}.cfd-scenarios .cfd-footer{margin-left:0}}
+
+/* Viewport fit (James 2026-10-26): keep app controls on-screen at ~1280x800.
+   Phone is capped and its screen scrolls like a real app; stage scales down instead of pushing controls off. */
+html,body{margin:0}
+.cfd-device{padding:8px 0 4px!important;gap:14px}
+.cfd-left .stage svg.cf-demo-object{max-height:520px;width:100%;object-fit:contain}
+.cfd-phone{max-height:660px;display:flex;flex-direction:column;box-sizing:border-box}
+.cfd-phone .cfd-screen{min-height:0;flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.cfd-header{padding:16px 16px 8px}
+.cfd-gauge{padding:10px 12px}.cfd-gauge-value{font-size:1.35rem;margin:2px 0}
+.cfd-scenarios{padding:10px 14px;gap:8px 14px}
+@media (max-width:640px){.cfd-phone{max-height:none}.cfd-phone .cfd-screen{overflow:visible}}

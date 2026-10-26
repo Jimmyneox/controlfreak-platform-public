@@ -14,3 +14,7 @@ C("pump1-on",rA);C("pump2-on",rB);C("alarm",l>=16);W(k);var f=svg.querySelector(
 return "Sump pit: water "+l.toFixed(1)+" in"+(l>=16?" — HIGH WATER":"")+"; Pump A "+(A?(rA?"running":"ready"):"outlet off")+", Pump B "+(B?(rB?"running":"ready"):"outlet off")+".";}
 var last="";function tick(){var t=UPDATE();if(t!==last){st.querySelector(".stage-cap").textContent=t;svg.setAttribute("aria-label",t);last=t;}}tick();setInterval(tick,250);
 })();
+
+/* Report content height to the product-page iframe shell so it never clips (James 2026-10-26). */
+(function(){if(window.parent===window)return;function s(){try{window.parent.postMessage({cfDemoHeight:Math.ceil((document.querySelector('.cfd-device')||document.body).getBoundingClientRect().bottom+window.scrollY+12)},'*')}catch(e){}}
+window.addEventListener('load',s);window.addEventListener('resize',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);setTimeout(s,300)})();

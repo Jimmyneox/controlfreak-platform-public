@@ -12,3 +12,7 @@ C("lamp-on",D);C("uvb-on",U);C("heat-on",Ht);C("mist-on",Mi);
 return "Enclosure: lights "+(D?"on":"off")+", UVB "+(U?"on":"off")+", heat "+(Ht?"on":"off")+", mist "+(Mi?"on":"off")+".";}
 var last="";function tick(){var t=UPDATE();if(t!==last){st.querySelector(".stage-cap").textContent=t;svg.setAttribute("aria-label",t);last=t;}}tick();setInterval(tick,250);
 })();
+
+/* Report content height to the product-page iframe shell so it never clips (James 2026-10-26). */
+(function(){if(window.parent===window)return;function s(){try{window.parent.postMessage({cfDemoHeight:Math.ceil((document.querySelector('.cfd-device')||document.body).getBoundingClientRect().bottom+window.scrollY+12)},'*')}catch(e){}}
+window.addEventListener('load',s);window.addEventListener('resize',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);setTimeout(s,300)})();

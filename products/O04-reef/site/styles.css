@@ -51,3 +51,9 @@ footer .markfoot{height:29px;width:auto;vertical-align:middle;margin-bottom:6px}
 /* Demo: stage left | app right inside the iframe — give it the full row. */
 .demo{grid-template-columns:1fr!important}.demo iframe{width:100%!important;height:1060px}
 @media(max-width:640px){.demo iframe{height:1700px}}
+
+/* Breathing room (James 2026-10-26): page no longer glued to the top; demo iframe auto-sizes to content. */
+header.wrap{padding-top:28px}
+section{scroll-margin-top:24px}
+.demo iframe{height:900px;display:block}
+@media(max-width:640px){.demo iframe{height:1500px}}

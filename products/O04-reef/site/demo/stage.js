@@ -16,3 +16,7 @@ C("light-on",L);C("heater-on",H);C("pump-on",P);W(1);
 return "Tank "+(isNaN(t)?"":t.toFixed(1)+" °F")+": lights "+(L?"on":"off")+", heater "+(H?"on":"off")+", flow "+(P?"on":"paused")+".";}
 var last="";function tick(){var t=UPDATE();if(t!==last){st.querySelector(".stage-cap").textContent=t;svg.setAttribute("aria-label",t);last=t;}}tick();setInterval(tick,250);
 })();
+
+/* Report content height to the product-page iframe shell so it never clips (James 2026-10-26). */
+(function(){if(window.parent===window)return;function s(){try{window.parent.postMessage({cfDemoHeight:Math.ceil((document.querySelector('.cfd-device')||document.body).getBoundingClientRect().bottom+window.scrollY+12)},'*')}catch(e){}}
+window.addEventListener('load',s);window.addEventListener('resize',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);setTimeout(s,300)})();

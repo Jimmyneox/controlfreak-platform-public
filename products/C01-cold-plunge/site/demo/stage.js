@@ -13,3 +13,7 @@ var wc=svg.querySelector("#water-cool");if(wc)wc.style.opacity=w>=60?"":(1-k).to
 return "Tub: water "+Math.round(w)+" °F; chiller "+(Ch?"on":"off")+", pump "+(P?"on":"off")+", heater "+(H?"on":"off")+".";}
 var last="";function tick(){var t=UPDATE();if(t!==last){st.querySelector(".stage-cap").textContent=t;svg.setAttribute("aria-label",t);last=t;}}tick();setInterval(tick,250);
 })();
+
+/* Report content height to the product-page iframe shell so it never clips (James 2026-10-26). */
+(function(){if(window.parent===window)return;function s(){try{window.parent.postMessage({cfDemoHeight:Math.ceil((document.querySelector('.cfd-device')||document.body).getBoundingClientRect().bottom+window.scrollY+12)},'*')}catch(e){}}
+window.addEventListener('load',s);window.addEventListener('resize',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);setTimeout(s,300)})();
