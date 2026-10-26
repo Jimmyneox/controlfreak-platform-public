@@ -4,7 +4,7 @@
 <style>body{margin:0;background:transparent}</style>
 <script>window.CFD_CONFIG={"product": "Basement Guard Pro", "readouts": [{"label": "Basement", "unit": "°F", "min": 30, "max": 90, "value": 58, "jitter": 0.2}, {"label": "Crawlspace", "unit": "°F", "min": 10, "max": 80, "value": 41, "jitter": 0.2}, {"label": "Outdoor", "unit": "°F", "min": -10, "max": 100, "value": 22, "jitter": 0.3}], "controls": [{"label": "Pump A", "on": true}, {"label": "Pump B", "on": true}, {"label": "Heat tape", "on": false}, {"label": "Dehumidifier", "on": true}], "notify": {"label": "High water in the pit", "channels": ["Push", "Text", "Email", "Alarm"]}};</script></head><body>
 <div class="cfd-device" aria-label="Basement Guard Pro demo simulation">
-<figure class="stage" id="cf-stage"><svg role="img" aria-label="Demo object" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 768" class="cf-demo-object c03-basement " data-object="c03-basement">
+<div class="cfd-left"><figure class="stage" id="cf-stage"><svg role="img" aria-label="Demo object" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 768" class="cf-demo-object c03-basement " data-object="c03-basement">
 <style>
 .cf-demo-object{display:block;width:100%;height:auto}
 .cf-demo-object .ov{opacity:0;transition:opacity .6s ease}
@@ -45,6 +45,8 @@
 <rect id="alarm-wash" x="0" y="0" width="1024" height="768" fill="#ff2a1a" opacity="0" style="mix-blend-mode:multiply"/>
 </g>
 </svg><figcaption class="stage-cap" aria-live="polite"></figcaption></figure>
+<aside class="cfd-rail" aria-label="Demo scenarios (not part of the app)"><div class="cfd-rail-h">Try a scenario</div><div class="cfd-rail-btns"><button class="x-btn cfd-rail-btn" id="storm" type="button">Simulate a storm</button><button class="x-btn cfd-rail-btn" id="cold" type="button">Cold snap</button><button class="x-btn cfd-rail-btn" id="alert" type="button">Alert example</button></div><div class="cfd-notify"><span></span><button type="button">Preview</button></div></aside></div>
+<div class="cfd-phone">
   <div class="cfd-screen">
     <header class="cfd-header">
       <div class="cfd-product">Basement Guard Pro</div>
@@ -59,15 +61,14 @@
     <div class="x-row"><span class="x-pill off" id="ht">Heat tape <b>Off · on below 35 °F</b></span><span class="x-pill">Dehumidifier <b>On schedule</b></span></div>
     <div class="x-sec">Power Hub · plug-in outlets</div>
     <section class="cfd-controls" aria-label="Outlets"></section>
-    <div class="x-row"><button class="x-btn" id="storm" type="button">Simulate a storm</button><button class="x-btn" id="test" type="button">Weekly pump test</button><button class="x-btn" id="swap" type="button">Swap lead pump</button></div>
-    <div class="x-row"><button class="x-btn" id="cold" type="button">Cold snap</button><button class="x-btn" id="alert" type="button">Alert example</button></div>
+    <div class="x-row"><button class="x-btn" id="test" type="button">Weekly pump test</button><button class="x-btn" id="swap" type="button">Swap lead pump</button></div>
     <div class="x-row"><span class="x-pill x-voice">Multi-platform integration built in · “Alexa, what’s the basement status?” · voice alerts</span></div>
-    <div class="cfd-notify"><span></span><button type="button">Preview</button></div>
     <div class="cfd-toast" role="status"></div>
     <footer class="cfd-footer">
       <img src="assets/brought-to-you-by-control-freak-horizontal-dark.svg" alt="brought to you by Control Freak">
       <div class="cfd-disclaimer">Marketing simulation. Example data, not live hardware. Not the real app.</div>
     </footer>
   </div>
+</div>
 </div>
 <script src="demo.js"></script><script src="c03.js"></script><script src="stage.js"></script></body></html>

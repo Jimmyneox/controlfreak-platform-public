@@ -4,7 +4,7 @@
 <style>body{margin:0;background:transparent}</style>
 <script>window.CFD_CONFIG={"product": "Cold Plunge Control Pro", "readouts": [{"label": "Air", "unit": "°F", "min": 0, "max": 100, "value": 46, "jitter": 0.2}, {"label": "Chiller outlet", "unit": "°F", "min": 30, "max": 70, "value": 37, "jitter": 0.1}], "controls": [{"label": "Chiller", "on": true}, {"label": "Pump", "on": true}, {"label": "Ozone", "on": true}, {"label": "UV", "on": true}, {"label": "Heater", "on": false}, {"label": "Spare", "on": false}], "notify": {"label": "Water too warm — 45 °F at ready-by", "channels": ["Push", "Text", "Email", "Alarm"]}};</script></head><body>
 <div class="cfd-device" aria-label="Cold Plunge Control Pro demo simulation">
-<figure class="stage" id="cf-stage"><svg role="img" aria-label="Demo object" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 768" class="cf-demo-object c01-cold-plunge " data-object="c01-cold-plunge">
+<div class="cfd-left"><figure class="stage" id="cf-stage"><svg role="img" aria-label="Demo object" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 768" class="cf-demo-object c01-cold-plunge " data-object="c01-cold-plunge">
 <style>
 .cf-demo-object{display:block;width:100%;height:auto}
 .cf-demo-object .ov{opacity:0;transition:opacity .6s ease}
@@ -42,6 +42,8 @@
 <circle id="led-chiller" class="ov" cx="896" cy="486" r="7" fill="url(#gCyan)"/>
 </g>
 </svg><figcaption class="stage-cap" aria-live="polite"></figcaption></figure>
+<aside class="cfd-rail" aria-label="Demo scenarios (not part of the app)"><div class="cfd-rail-h">Try a scenario</div><div class="cfd-rail-btns"><button class="x-btn cfd-rail-btn" id="clog" type="button">Clog the filter</button><button class="x-btn cfd-rail-btn" id="cold" type="button">Cold night</button><button class="x-btn cfd-rail-btn" id="alert" type="button">Alert example</button></div><div class="cfd-notify"><span></span><button type="button">Preview</button></div></aside></div>
+<div class="cfd-phone">
   <div class="cfd-screen">
     <header class="cfd-header">
       <div class="cfd-product">Cold Plunge Control Pro</div>
@@ -55,15 +57,14 @@
     <div class="x-row"><span class="x-pill" id="flt">Filter <b>Clean</b></span><span class="x-pill" id="hl">Chiller health <b>Cooling normally</b></span><span class="x-pill off" id="wm">Winter mode <b>Standby</b></span></div>
     <div class="x-sec">Power Hub · outlets</div>
     <section class="cfd-controls" aria-label="Outlets"></section>
-    <div class="x-row"><button class="x-btn" id="clog" type="button">Clog the filter</button><button class="x-btn" id="cold" type="button">Cold night</button><button class="x-btn" id="hc" type="button" aria-pressed="false">Hot / cold</button></div>
-    <div class="x-row"><button class="x-btn" id="alert" type="button">Alert example</button></div>
+    <div class="x-row"><button class="x-btn" id="hc" type="button" aria-pressed="false">Hot / cold</button></div>
     <div class="x-row"><span class="x-pill x-voice">Multi-platform integration built in · “Alexa, is the plunge ready?” · voice alerts</span></div>
-    <div class="cfd-notify"><span></span><button type="button">Preview</button></div>
     <div class="cfd-toast" role="status"></div>
     <footer class="cfd-footer">
       <img src="assets/control-freak-corporate-wordmark-cool-blue.svg" alt="Control Freak">
       <div class="cfd-disclaimer">Marketing simulation. Example data, not live hardware. Not the real app.</div>
     </footer>
   </div>
+</div>
 </div>
 <script src="demo.js"></script><script src="c01.js"></script><script src="stage.js"></script></body></html>

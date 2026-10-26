@@ -26,3 +26,7 @@ footer{padding:40px 24px 60px;color:var(--muted);font-size:.85rem}footer img{hei
 @media(max-width:860px){.hero,.kit,.demo{grid-template-columns:1fr}.demo iframe{width:100%}}
 h1{font-weight:300;letter-spacing:-.02em}h1 em{font-weight:700}.tub{position:absolute;left:12%;right:34%;bottom:12%;height:30%;border-radius:50%/18%;background:#a9b6c1;border:3px solid #7d8b97}.tub i{position:absolute;inset:8% 6% 50%;border-radius:50%;background:linear-gradient(#bfe3f5,#6fb1d6)}.wall{position:absolute;right:8%;top:20%;background:#fff;color:#0f2233;font-size:.7rem;font-weight:700;padding:16px 10px;border-left:4px solid #0b4f8a}.tag{background:rgba(15,34,51,.75)}
 .concept-img{background:#0000;min-height:0}.concept-img .hero-concept{display:block;width:100%;height:auto}
+
+/* Demo: stage left | app right inside the iframe — give it the full row. */
+.demo{grid-template-columns:1fr!important}.demo iframe{width:100%!important;height:960px}
+@media(max-width:900px){.demo iframe{height:1500px}}

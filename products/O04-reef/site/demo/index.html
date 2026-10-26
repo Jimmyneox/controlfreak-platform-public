@@ -12,7 +12,7 @@ window.CFD_CONFIG={product:"Reef Control Pro",
  notify:{label:"Low reservoir — top-off alert",channels:["Push","Text","Email","Alarm"]}};
 </script></head><body>
 <div class="cfd-device" aria-label="Reef Control Pro demo simulation">
-<figure class="stage" id="cf-stage"><svg role="img" aria-label="Demo object" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 768" class="cf-demo-object o04-reef " data-object="o04-reef">
+<div class="cfd-left"><figure class="stage" id="cf-stage"><svg role="img" aria-label="Demo object" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 768" class="cf-demo-object o04-reef " data-object="o04-reef">
 <style>
 .cf-demo-object{display:block;width:100%;height:auto}
 .cf-demo-object .ov{opacity:0;transition:opacity .6s ease}
@@ -47,6 +47,8 @@ window.CFD_CONFIG={product:"Reef Control Pro",
 <g id="status"><circle id="status-light" class="ov" cx="470" cy="160" r="9" fill="url(#gGreen)"/><circle id="status-pump" class="ov" cx="520" cy="160" r="9" fill="url(#gGreen)"/><circle id="status-heater" class="ov" cx="570" cy="160" r="9" fill="url(#gWarm)"/></g>
 </g>
 </svg><figcaption class="stage-cap" aria-live="polite"></figcaption></figure>
+<aside class="cfd-rail" aria-label="Demo scenarios (not part of the app)"><div class="cfd-rail-h">Try a scenario</div><div class="cfd-rail-btns"><button id="rf-alert" class="rf-btn cfd-rail-btn" type="button">Preview sample alert</button><button id="rf-hot" class="rf-btn cfd-rail-btn" type="button">What if: tank too warm</button></div><div class="cfd-notify"><span></span><button type="button">Preview</button></div></aside></div>
+<div class="cfd-phone">
   <div class="cfd-screen">
     <header class="cfd-header">
       <div class="cfd-product">Reef Control Pro</div>
@@ -61,14 +63,13 @@ window.CFD_CONFIG={product:"Reef Control Pro",
     <div class="rf-sec">Continuous Dosing · Ca · Alk · Mg · tap for next dose</div>
     <div class="rf-row"><button class="rf-chip" type="button" data-dose="Ca">Ca<small>Calcium</small></button><button class="rf-chip" type="button" data-dose="Alk">Alk<small>Alkalinity</small></button><button class="rf-chip" type="button" data-dose="Mg">Mg<small>Magnesium</small></button></div>
     <div class="rf-row"><button id="rf-feed" class="rf-btn" type="button" aria-pressed="false">Feed mode</button><button id="rf-maint" class="rf-btn" type="button" aria-pressed="false">Maintenance</button></div>
-    <div class="rf-row"><button id="rf-alert" class="rf-btn" type="button">Preview sample alert</button><button id="rf-hot" class="rf-btn" type="button">What if: tank too warm</button></div>
     <div class="rf-row"><span class="rf-pill rf-voice">Multi-platform integration built in · “Alexa, what’s the reef status?” · voice alerts</span><span class="rf-pill rf-voice">Home Assistant · local</span></div>
-    <div class="cfd-notify"><span></span><button type="button">Preview</button></div>
     <div class="cfd-toast" role="status"></div>
     <footer class="cfd-footer">
       <img src="assets/brought-to-you-by-control-freak-horizontal-dark.svg" alt="brought to you by Control Freak">
       <div class="cfd-disclaimer">Marketing simulation. Example data, not live hardware. Not the real app.</div>
     </footer>
   </div>
+</div>
 </div>
 <script src="demo.js"></script><script src="reef.js"></script><script src="stage.js"></script></body></html>

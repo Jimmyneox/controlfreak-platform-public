@@ -1,1 +1,12 @@
 .stage{margin:10px 0 12px;padding:8px;border-radius:14px;background:rgba(0,0,0,.18)}.stage svg.cf-demo-object{display:block;width:100%;height:auto;max-height:300px;border-radius:10px}.stage-cap{font-size:12px;opacity:.85;margin:6px 4px 0;text-align:center}@media (prefers-reduced-motion:reduce){.stage svg.cf-demo-object *{transition:none!important;animation:none!important}}
+
+/* Layout (James): demo stage LEFT, app RIGHT, side by side. .cfd-device is the outer layout; .cfd-phone is the app bezel only. */
+.cfd-device{display:flex!important;flex-direction:row;align-items:flex-start;justify-content:center;gap:28px;width:auto!important;max-width:1100px!important;background:none!important;box-shadow:none!important;padding:0!important;border-radius:0!important}
+.cfd-left{flex:1 1 520px;max-width:620px;min-width:0;position:sticky;top:16px}
+.cfd-left .stage{margin:0;background:var(--cfd-surface);color:var(--cfd-text)}.cfd-left .stage svg.cf-demo-object{max-height:none}
+.cfd-phone{flex:0 0 340px;width:340px;max-width:100%;padding:12px;background:var(--cfd-bezel);border-radius:44px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.cfd-rail{margin-top:12px;background:var(--cfd-surface);color:var(--cfd-text);padding:12px;border:1px dashed rgba(127,127,127,.45);border-radius:14px;font-size:.85rem}
+.cfd-rail-h{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-bottom:8px}
+.cfd-rail-btns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.cfd-rail .cfd-notify{padding:0;margin:0;background:none}
+@media (max-width:900px){.cfd-device{flex-direction:column;align-items:center}.cfd-left{position:static;max-width:100%;width:100%;flex:none}}
