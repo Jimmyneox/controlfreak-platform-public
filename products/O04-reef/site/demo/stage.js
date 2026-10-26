@@ -20,3 +20,11 @@ var last="";function tick(){var t=UPDATE();if(t!==last){st.querySelector(".stage
 /* Report content height to the product-page iframe shell so it never clips (James 2026-10-26). */
 (function(){if(window.parent===window)return;function s(){try{window.parent.postMessage({cfDemoHeight:Math.ceil((document.querySelector('.cfd-device')||document.body).getBoundingClientRect().bottom+window.scrollY+12)},'*')}catch(e){}}
 window.addEventListener('load',s);window.addEventListener('resize',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);setTimeout(s,300)})();
+
+/* Pool-style yard-bar: each card clicks the matching phone outlet toggle, and mirrors its state. */
+(function(){var root=document.querySelector(".cfd-device");if(!root)return;
+function T(l){return [].filter.call(root.querySelectorAll(".cfd-toggle"),function(x){return x.textContent===l})[0];}
+var cards=root.querySelectorAll(".yb");
+[].forEach.call(cards,function(c){c.addEventListener("click",function(){var t=T(c.dataset.t);if(t)t.click();sync();});});
+function sync(){[].forEach.call(cards,function(c){var t=T(c.dataset.t),on=!!t&&t.getAttribute("aria-pressed")==="true";c.setAttribute("aria-pressed",on?"true":"false");c.querySelector(".yb-s").textContent=on?"On":"Off";});}
+sync();setInterval(sync,250);})();

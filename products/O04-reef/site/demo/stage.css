@@ -27,3 +27,15 @@ html,body{margin:0}
 .cfd-gauge{padding:10px 12px}.cfd-gauge-value{font-size:1.35rem;margin:2px 0}
 .cfd-scenarios{padding:10px 14px;gap:8px 14px}
 @media (max-width:640px){.cfd-phone{max-height:none}.cfd-phone .cfd-screen{overflow:visible}}
+
+/* Pool-style control row under the stage (James 2026-10-26, like controlfreakpool.com yard-bar). Mirrors phone toggles. */
+.yard-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.yb{all:unset;cursor:pointer;box-sizing:border-box;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:center;padding:12px 14px;border-radius:14px;background:var(--cfd-surface);color:var(--cfd-text);border:1px solid rgba(47,214,195,.18);box-shadow:0 6px 18px rgba(0,0,0,.25);transition:.2s}
+.yb:hover{border-color:rgba(47,214,195,.45)}.yb:focus-visible{outline:2px solid var(--cfd-accent)}
+.yb-dot{grid-row:1/3;width:12px;height:12px;border-radius:50%;background:rgba(131,181,194,.35);transition:.2s}
+.yb-l{font-weight:700;font-size:.82rem}.yb-s{font-size:.68rem;color:var(--cfd-muted);text-transform:uppercase;letter-spacing:.08em}
+.yb[aria-pressed="true"]{background:var(--cfd-surface-2);border-color:var(--cfd-accent)}
+.yb[aria-pressed="true"] .yb-dot{background:var(--cfd-accent);box-shadow:0 0 10px var(--cfd-accent)}
+.yb[data-yb="heater"][aria-pressed="true"] .yb-dot{background:var(--cfd-warn);box-shadow:0 0 10px var(--cfd-warn)}
+.yb[aria-pressed="true"] .yb-s{color:var(--cfd-text)}
+@media (max-width:420px){.yard-bar{gap:6px}.yb{padding:10px;column-gap:6px}.yb-l{font-size:.72rem}}
