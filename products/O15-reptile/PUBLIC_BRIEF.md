@@ -1,7 +1,11 @@
 # Terrarium Control Pro — marketing-safe public brief
 
+**Audience:** Control Freak Platform ECC / public site shell + in-site demo  
 **Product pick:** O15 · Wave 1 *Pro* (folder stays `products/O15-reptile/`)  
 **Brand:** **Terrarium Control Pro**, brought to you by Control Freak  
+**Source scrub:** buyer-facing copy only, drawn from `README.md`, `02-features.md`, `DESIGN_BRIEF.md` and `src/content.json`. No board I/O, costs or prices. Safe to hand to the public ECC twin as-is.
+
+Mark all concept visuals **Concept**. O15 already has soft-UI hero, infographic and brochure concepts — optional to keep; new chrome follows Design on `controlfreak-design`.
 
 ---
 
@@ -9,9 +13,9 @@
 
 **Put the Control Freak on it.** Sit back and enjoy your enclosures — the system keeps the heat, light and mist on schedule.
 
-Supporting line: *Heat, light and misting for up to three enclosures. From one controller. No subscription.*
+Supporting line (from `src/content.json`): *Heat, light and misting for up to three enclosures. From one controller. No subscription.*
 
-Buyer open (every Wave 1+ product): *How many apps do you open to run your home?* Then: Terrarium Control Pro ships with Home Assistant and the Control Freak integration already set up, so your enclosures and the rest of your smart home meet in one place. Connect the devices you already own and simplify to a single app. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and receive automated voice alerts when something is out of balance. Alerts reach you by push, text, email or alarm — including when you're away. Home Assistant stays on your home network — never cloud Home Assistant.
+Buyer open (every Wave 1+ product): *How many apps do you open to run your home?* Then: Terrarium Control Pro ships with Home Assistant and the Control Freak integration already set up, so your enclosures and the rest of your smart home meet in one place. Connect the devices you already own and simplify to a single app. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and receive automated voice alerts when something is out of balance. Alerts reach you by push, text, email or alarm — including when you're away. Home Assistant runs on the controller on your home network — not in someone else’s cloud.
 
 ---
 
@@ -31,6 +35,9 @@ Keepers running 1–3 enclosures — often with animals they've invested a lot i
 - **Misting on schedule** — timed misting from a switched outlet. *(Concept, pending confirmation: reservoir float that stops misting before it runs dry, and a door switch that pauses misting and fans while you're feeding.)*
 - **Set up in minutes** — scan the QR code; keyed, colour-coded plugs only fit their port.
 - **Built on a controller we already ship** — the same controller as Control Freak's live pool product, not a one-off board.
+- **Works with the Control Freak gear you already own** — every Control Freak product is a complete kit on its own. If a Control Freak controller you already have has a free port or relay, Home Assistant can put it to work for this product too. (Owner 2026-10-26: separate products, combinable in Home Assistant through open ports.)
+
+Do **not** name competitor products on the public site unless Design/Platform ask for a sourced comparison table later (sourced facts live in `01-market.md`). Dimming is **not** a differentiator and not a shipping Power Hub feature — don't position it as one.
 
 ---
 
@@ -67,7 +74,7 @@ Design owns parent demo chrome/template (`controlfreak-design`). This section is
 - Product mark: **Terrarium Control Pro** leading; footer / eyebrow lockup: *brought to you by Control Freak*.
 - Simulated phone or embedded panel labeled **demo** / **example readings** — never live hardware. No animal close-ups suggesting a tested species.
 
-### Home screen (simulated)
+### Home screen (simulated — example values from `DESIGN_BRIEF.md`)
 
 | Tile / region | Example demo state | Behavior |
 |---|---|---|
@@ -96,6 +103,7 @@ Humidity tile is **optional** in the Wave 1 demo only if labelled **HA-added** (
 
 - **Industry-specific:** reptile / terrarium / vivarium (planted glass enclosures, shelves and racks, warm basking light). No pool, reef or basement imagery or flows.
 - **Lockup:** product name first (**Terrarium Control Pro**); always nest under *brought to you by Control Freak*. Parent brand/demo chrome owned by Design.
+- **Soft-UI:** existing O15 hero/infographic/brochure concepts are optional to keep; don't force them if Design's shell has moved on.
 - **Concept labelling:** every unbuilt kit or app mock is marked **Concept**.
 - **Copy rules:** benefits with a line of detail; no jargon, no fear words.
 
@@ -105,7 +113,7 @@ Humidity tile is **optional** in the Wave 1 demo only if labelled **HA-added** (
 
 Primary: **Join the beta** / interest list.
 
-Suggested line:  
+Suggested line (from `src/content.json`):  
 *We're looking for keepers with two or more enclosures to test Terrarium Control Pro before launch.*
 
 Secondary (optional): watch the demo (scroll to in-site demo).
@@ -118,6 +126,7 @@ No App Store badges, no internal status, no engineering-gate or certification la
 
 - [ ] Site shell uses this brief only (no private engineering, I/O or cost docs)
 - [ ] In-site demo wired with the terrarium tiles above
+- [ ] Soft-UI: reuse O15 assets or Design shell — deliberate choice
 - [ ] CTA = beta interest
 - [ ] All concept art labeled **Concept**
 - [ ] Prices absent until publicly announced
@@ -131,11 +140,9 @@ No App Store badges, no internal status, no engineering-gate or certification la
 - No competitor names, logos or photos; no invented testimonials or reviews.
 - No Control Freak dollar amounts, costs, board part numbers or pinouts.
 - No Control Freak humidity sensor in the Wave 1 kit; HA wireless humidity is owner gear, labelled HA-added if shown.
-- No "cloud Home Assistant"; remote alerts are not remote HA.
+- Don’t pitch Home Assistant as a cloud service; it runs on the controller on your home network. Away alerts reach your phone, but Home Assistant itself stays home.
 - No rack/multi-controller promises.
 
 ---
 
-
-
-*Marketing-safe public slice (scrubbed for the public repo, 2026-10-26).*
+*CFP Product Writer · public-safe slice for Platform → ECC · 2026-10-25*

@@ -1,7 +1,9 @@
 # Cold Plunge Control Pro — marketing-safe public brief
 
+**Audience:** Control Freak Platform ECC / public site shell + in-site demo  
 **Product pick:** C01 · Wave 1 *Pro* (folder stays `products/C01-cold-plunge/`)  
-**Brand:** **Cold Plunge Control Pro**, brought to you by Control Freak  
+**Brand:** **Cold Plunge Control Pro**, brought to you by Control Freak — *working placeholder name, not final*  
+**Source scrub:** buyer-facing copy only (problem, kit story, features, brochure tone) from [README.md](README.md), [01-market.md](01-market.md), [02-features.md](02-features.md) and [DESIGN_BRIEF.md](DESIGN_BRIEF.md). No costs, prices, port maps or engineering gates. Safe to hand to the public ECC twin as-is.
 
 Mark all concept visuals **Concept**. Parent attribution = **PCB circuit CONTROL FREAK corporate wordmark only** (PARENT_BRAND v1.4, owned by Design on `controlfreak-design`). Never introduce a second company name, and never reintroduce the earlier retired placeholder name.
 
@@ -15,7 +17,7 @@ Mark all concept visuals **Concept**. Parent attribution = **PCB circuit CONTROL
 **Proposed sub:**  
 *Set “ready by 6:30.” Cold Plunge Control Pro works back from the water temperature, starts your chiller early, and keeps the water clean and flowing — so you just step in.*
 
-Buyer open (every Wave 1+ product): *How many apps do you have to open to control your smart products?* Then: Cold Plunge Control Pro ships with Home Assistant and the Control Freak integration already set up, so your plunge and the rest of your smart home meet in one place. Connect the apps and devices you already own and simplify to a single app. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and receive automated voice alerts to let you know when something is out of balance. Alerts reach you by push, text, email or alarm — including when you’re away. Home Assistant stays on your home network — never cloud Home Assistant.
+Buyer open (every Wave 1+ product): *How many apps do you have to open to control your smart products?* Then: Cold Plunge Control Pro ships with Home Assistant and the Control Freak integration already set up, so your plunge and the rest of your smart home meet in one place. Connect the apps and devices you already own and simplify to a single app. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and receive automated voice alerts to let you know when something is out of balance. Alerts reach you by push, text, email or alarm — including when you’re away. Home Assistant runs on the controller on your home network — not in someone else’s cloud.
 
 ---
 
@@ -26,6 +28,8 @@ Buyer open (every Wave 1+ product): *How many apps do you have to open to contro
 - Home Assistant users who couldn’t get local control of their chiller.
 
 Self-install: plug the chiller, pump, ozone and UV into the Power Hub, drop in the probes, fit the flow switch on the pipe (Pro includes unions — no pipe cutting), scan the QR code.
+
+**Proof points (sourced):** US cold plunge tub revenue was **$111.1M in 2025** ([Grand View Research](https://www.grandviewresearch.com/horizon/outlook/cold-plunge-tub-market/united-states)); the top 50 Amazon cold plunge listings sold about **76,850 units in 12 months**, mostly tubs without a chiller or smart control ([AsinSight](https://www.asinsight.com/market-analysis/US/cold-plunge)). Use as market context only.
 
 ---
 
@@ -52,6 +56,7 @@ Self-install: plug the chiller, pump, ozone and UV into the Power Hub, drop in t
 - **Keeps working when the internet doesn’t** — schedules run on the controller. Ethernet, Wi-Fi, and its own Wi-Fi network.
 - **Alerts that reach you** — no flow, water too warm, filter, cold night: push, text, email and alarm, including away from home (cloud via Tailscale).
 - **Home Assistant pre-installed** — Control Freak integration already set up, local on your home network. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and receive automated voice alerts when something is out of balance.
+- **Works with the Control Freak gear you already own** — every Control Freak product is a complete kit on its own. If a Control Freak controller you already have has a free port or relay, Home Assistant can put it to work for this product too. (Owner 2026-10-26: separate products, combinable in Home Assistant through open ports.)
 
 No health or recovery claims, no competitor names or ratings on the public site.
 
@@ -78,7 +83,7 @@ Wave 1 public story **leads with Pro (building now)**; **Starter is coming later
 
 Optional one-liner for makers: *Building a tub or chiller? Ask about the OEM board.* (keep light).
 
-**Not promised on the public site:** setting a chiller’s own target over its app or protocol, compatibility with every chiller, health/recovery benefits, session tracking or breathing guides, commercial multi-tub systems, water chemistry balancing, any safety listing, any subscription, cloud Home Assistant.
+**Not promised on the public site:** setting a chiller’s own target over its app or protocol, compatibility with every chiller, health/recovery benefits, session tracking or breathing guides, commercial multi-tub systems, water chemistry balancing, any safety listing, any subscription, or Home Assistant as a cloud service — it runs on the controller on your home network.
 
 ---
 
@@ -141,7 +146,12 @@ Secondary: watch the demo (scroll to in-site demo).
 - [ ] Concept labels on all unbuilt art; PCB corporate wordmark attribution
 - [ ] CTA = beta interest
 
+## 10. Open questions (James / Eng — not blocking)
+1. Final product name (Cold Plunge Control Pro is a placeholder).
+2. Chiller compatibility: which popular chillers restart after power switching / accept a remote input — needed before any “tested with” list.
+3. Cold plunge product-line mark: make one, or use the core mark (default core)?
+4. Whether a spa-equipment safety listing is needed for a separately sold controller — keep off the public site until known.
+5. Keep the OEM one-liner on the consumer site, or move it to a separate partners page?
+
 ---
-
-
-*Marketing-safe public slice (scrubbed for the public repo, 2026-10-26).*
+*CFP Product Writer · public-safe slice for Platform → ECC · 2026-10-26*
