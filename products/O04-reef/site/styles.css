@@ -45,3 +45,5 @@ h1 em{font-style:normal;color:var(--coral)}
 .badges{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
 .heromark{position:absolute;top:22px;right:22px;height:96px;width:auto;opacity:.95;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
 footer .markfoot{height:29px;width:auto;vertical-align:middle;margin-bottom:6px}
+
+.concept-img{background:#0000;min-height:0}.concept-img .hero-concept{display:block;width:100%;height:auto}
