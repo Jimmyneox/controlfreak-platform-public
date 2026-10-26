@@ -1,0 +1,35 @@
+/* Control Freak demo chrome — theme via --cfd-* vars only; don't fork structure. */
+.cfd-device{
+  --cfd-accent:#5b6cff; --cfd-surface:#14161c; --cfd-surface-2:#1e2129;
+  --cfd-text:#f2f3f7; --cfd-muted:#8b90a0; --cfd-ok:#3ccf8e; --cfd-warn:#ffb547;
+  --cfd-radius:18px; --cfd-font:system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cfd-bezel:#0a0b0e;
+  font-family:var(--cfd-font); color:var(--cfd-text);
+  width:340px; max-width:100%; margin:2rem auto; padding:12px;
+  background:var(--cfd-bezel); border-radius:44px; box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+.cfd-screen{background:var(--cfd-surface);border-radius:34px;overflow:hidden;display:flex;flex-direction:column;min-height:620px}
+.cfd-header{display:flex;justify-content:space-between;align-items:center;padding:22px 18px 12px}
+.cfd-product{font-weight:700;font-size:1.05rem}
+.cfd-badges{display:flex;gap:6px}
+.cfd-badge{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:99px;background:var(--cfd-surface-2);color:var(--cfd-muted)}
+.cfd-badge--sim{background:var(--cfd-accent);color:var(--cfd-surface)}
+.cfd-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cfd-ok);margin-right:4px}
+.cfd-readouts{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 14px}
+.cfd-gauge{background:var(--cfd-surface-2);border-radius:var(--cfd-radius);padding:14px}
+.cfd-gauge-label{font-size:.72rem;color:var(--cfd-muted)}
+.cfd-gauge-value{font-size:1.6rem;font-weight:700;margin:4px 0;font-variant-numeric:tabular-nums}
+.cfd-bar{height:5px;border-radius:5px;background:rgba(127,127,127,.25);overflow:hidden}
+.cfd-bar>i{display:block;height:100%;background:var(--cfd-accent);transition:width .6s}
+.cfd-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 14px}
+.cfd-toggle{all:unset;cursor:pointer;background:var(--cfd-surface-2);border-radius:var(--cfd-radius);padding:12px;font-size:.82rem;display:flex;justify-content:space-between;align-items:center}
+.cfd-toggle::after{content:"";width:30px;height:18px;border-radius:9px;background:rgba(127,127,127,.4);transition:.2s;box-shadow:inset -12px 0 0 2px var(--cfd-surface-2)}
+.cfd-toggle[aria-pressed="true"]::after{background:var(--cfd-accent);box-shadow:inset 12px 0 0 2px var(--cfd-surface-2)}
+.cfd-toggle:focus-visible{outline:2px solid var(--cfd-accent)}
+.cfd-notify{margin:6px 14px;padding:10px 12px;border-radius:var(--cfd-radius);border:1px dashed var(--cfd-muted);font-size:.75rem;color:var(--cfd-muted);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.cfd-notify button{all:unset;cursor:pointer;color:var(--cfd-accent);font-weight:600}
+.cfd-toast{margin:0 14px;padding:10px 12px;border-radius:var(--cfd-radius);background:var(--cfd-warn);color:#111;font-size:.78rem;display:none}
+.cfd-toast.show{display:block}
+.cfd-footer{margin-top:auto;padding:14px;text-align:center;color:var(--cfd-muted)}
+.cfd-footer img{height:22px;opacity:.8}
+.cfd-disclaimer{font-size:.6rem;margin-top:6px}

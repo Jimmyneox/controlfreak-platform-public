@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cold Plunge Control Pro — demo (simulation)</title>
+<link rel="stylesheet" href="demo.css"><link rel="stylesheet" href="c01.css">
+<style>body{margin:0;background:transparent}</style>
+<script>window.CFD_CONFIG={"product": "Cold Plunge Control Pro", "readouts": [{"label": "Air", "unit": "°F", "min": 0, "max": 100, "value": 46, "jitter": 0.2}, {"label": "Chiller outlet", "unit": "°F", "min": 30, "max": 70, "value": 37, "jitter": 0.1}], "controls": [{"label": "Chiller", "on": true}, {"label": "Pump", "on": true}, {"label": "Ozone", "on": true}, {"label": "UV", "on": true}, {"label": "Heater", "on": false}, {"label": "Spare", "on": false}], "notify": {"label": "Water too warm — 45 °F at ready-by", "channels": ["Push", "Text", "Email", "Alarm"]}};</script></head><body>
+<div class="cfd-device" aria-label="Cold Plunge Control Pro demo simulation">
+  <div class="cfd-screen">
+    <header class="cfd-header">
+      <div class="cfd-product">Cold Plunge Control Pro</div>
+      <div class="cfd-badges"><span class="cfd-badge"><span class="cfd-dot"></span>Local (sim)</span><span class="cfd-badge cfd-badge--sim">Simulation</span></div>
+    </header>
+    <div class="x-status" id="st">39 °F · ready at 6:30 · flow OK</div>
+    <div class="wt"><svg viewBox="0 0 120 120" class="ring"><circle cx="60" cy="60" r="50" class="bg"/><circle cx="60" cy="60" r="50" class="fg" id="ring"/></svg><div><b id="wt">39</b>°F water<small id="tgt">target 39 °F</small><button class="x-btn" id="rb" type="button">Ready by <b id="rbt">6:30</b> · change</button><small id="cool">starts cooling at 4:50 (example)</small></div></div>
+    <section class="cfd-readouts" aria-label="Readouts"></section>
+    <div class="x-row"><span class="x-pill" id="ch">Chiller <b>Running</b></span><button type="button" id="fl" style="all:unset;cursor:pointer"><span class="x-pill" id="flp">Flow <b>OK</b></span></button><span class="x-pill">Ozone / UV <b>On with pump</b></span></div>
+    <p class="x-cap">Ozone and UV run only while water is moving. Chiller only runs with flow.</p>
+    <div class="x-row"><span class="x-pill" id="flt">Filter <b>Clean</b></span><span class="x-pill" id="hl">Chiller health <b>Cooling normally</b></span><span class="x-pill off" id="wm">Winter mode <b>Standby</b></span></div>
+    <div class="x-sec">Power Hub · outlets</div>
+    <section class="cfd-controls" aria-label="Outlets"></section>
+    <div class="x-row"><button class="x-btn" id="clog" type="button">Clog the filter</button><button class="x-btn" id="cold" type="button">Cold night</button><button class="x-btn" id="hc" type="button" aria-pressed="false">Hot / cold</button></div>
+    <div class="x-row"><button class="x-btn" id="alert" type="button">Alert example</button></div>
+    <div class="x-row"><span class="x-pill x-voice">Multi-platform integration built in · “Alexa, is the plunge ready?” · voice alerts</span></div>
+    <div class="cfd-notify"><span></span><button type="button">Preview</button></div>
+    <div class="cfd-toast" role="status"></div>
+    <footer class="cfd-footer">
+      <img src="assets/brought-to-you-by-control-freak-horizontal-light.svg" alt="brought to you by Control Freak">
+      <div class="cfd-disclaimer">Marketing simulation. Example data, not live hardware. Not the real app.</div>
+    </footer>
+  </div>
+</div>
+<script src="demo.js"></script><script src="c01.js"></script></body></html>

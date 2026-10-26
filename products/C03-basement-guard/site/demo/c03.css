@@ -1,0 +1,16 @@
+.cfd-controls{grid-template-columns:1fr 1fr;gap:6px}.cfd-toggle{padding:9px 10px;font-size:.74rem}
+.x-sec{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cfd-muted);padding:10px 16px 0}
+.x-cap{font-size:.66rem;color:var(--cfd-muted);padding:4px 16px 0;line-height:1.35}
+.x-status{padding:8px 16px 0;font-weight:700;font-size:.8rem;color:var(--cfd-text)}
+.x-row{display:flex;gap:6px;padding:6px 14px;flex-wrap:wrap}
+.x-pill{background:var(--cfd-surface-2);border-radius:99px;padding:6px 10px;font-size:.7rem;display:inline-flex;align-items:center;gap:6px;color:var(--cfd-text)}
+.x-pill b{font-weight:700}.x-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cfd-ok)}
+.x-pill.warn::before{background:var(--cfd-warn)}.x-pill.alarm::before{background:#e5484d}.x-pill.alarm{outline:1px solid #e5484d}.x-pill.off::before{background:var(--cfd-muted)}
+.x-pill.nodot::before{display:none}
+.x-btn{all:unset;cursor:pointer;flex:1;text-align:center;padding:9px;border-radius:12px;font-size:.72rem;font-weight:600;background:var(--cfd-surface-2);color:var(--cfd-text);min-width:28%}
+.x-btn:focus-visible{outline:2px solid var(--cfd-accent)}.x-btn[aria-pressed="true"]{background:var(--cfd-accent);color:#fff}
+.x-voice{font-size:.66rem;color:var(--cfd-muted);border:1px dashed var(--cfd-muted)}.x-voice::before{display:none}
+.x-concept{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;background:var(--cfd-warn);color:#111;border-radius:4px;padding:1px 5px}
+.x-ha{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--cfd-muted);border-radius:4px;padding:1px 5px}
+.cfd-device{--cfd-accent:#2f7cf6;--cfd-surface:#1f2429;--cfd-surface-2:#2c333a;--cfd-text:#eef1f4;--cfd-muted:#9aa5b1;--cfd-ok:#4cc38a;--cfd-warn:#f5a524;--cfd-radius:12px;--cfd-font:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;--cfd-bezel:#0f1215;width:380px}
+.pitw{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:center;padding:8px 14px}.ring{width:110px;height:110px;grid-row:span 2;transform:rotate(-90deg)}.ring circle{fill:none;stroke-width:10}.ring .bg{stroke:var(--cfd-surface-2)}.ring .fg{stroke:#2f7cf6;stroke-linecap:round;transition:stroke-dashoffset .6s}.pv{font-size:.75rem;color:var(--cfd-muted)}.pv b{font-size:1.8rem;color:var(--cfd-text)}.pv small{display:block;font-size:.62rem}.pumps{display:flex;flex-direction:column;gap:4px;grid-column:2}

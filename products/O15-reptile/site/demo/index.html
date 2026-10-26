@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terrarium Control Pro — demo (simulation)</title>
+<link rel="stylesheet" href="demo.css"><link rel="stylesheet" href="o15.css">
+<style>body{margin:0;background:transparent}</style>
+<script>window.CFD_CONFIG={"product": "Terrarium Control Pro", "readouts": [], "controls": [{"label": "Heat mat", "on": true}, {"label": "Ceramic emitter", "on": true}, {"label": "Basking lamp", "on": true}, {"label": "UVB", "on": true}, {"label": "Day light", "on": true}, {"label": "Mister", "on": false}, {"label": "Fan", "on": true}, {"label": "Spare", "on": false}], "notify": {"label": "Probe unplugged — heat outlet off", "channels": ["Push", "Text", "Email", "Alarm"]}};</script></head><body>
+<div class="cfd-device" aria-label="Terrarium Control Pro demo simulation">
+  <div class="cfd-screen">
+    <header class="cfd-header">
+      <div class="cfd-product">Terrarium Control Pro</div>
+      <div class="cfd-badges"><span class="cfd-badge"><span class="cfd-dot"></span>Local (sim)</span><span class="cfd-badge cfd-badge--sim">Simulation</span></div>
+    </header>
+    <div class="x-status" id="st">Day · 14:00 · all enclosures on setpoint</div>
+    <div class="x-sec">Enclosure 1 · gradient · tap a zone to raise its setpoint</div>
+    <div class="grad"><button type="button" data-i="0"><small>Cool side</small><b>78°F</b><i>set 78</i></button><button type="button" data-i="1"><small>Hot side</small><b>92°F</b><i>set 92</i></button><button type="button" data-i="2"><small>Basking</small><b>105°F</b><i>set 105</i></button></div>
+    <section class="cfd-readouts" aria-label="Readouts"></section>
+    <div class="x-row"><button class="x-btn" id="dn" type="button" aria-pressed="false">Day · tap for night</button><span class="x-pill" id="mist">Mist <b>Next 18:00</b></span><span class="x-pill nodot">Reservoir OK <span class="x-concept">Concept</span></span></div>
+    <div class="x-row"><span class="x-pill">Humidity <b>60 %</b> <span class="x-ha">HA-added</span></span></div>
+    <p class="x-cap">Humidity shown from an owner’s own wireless sensor via Home Assistant — not part of the kit.</p>
+    <div class="x-sec">Power Hub · 8 outlets (on/off)</div>
+    <section class="cfd-controls" aria-label="Outlets"></section>
+    <p class="x-cap">Too hot or a probe unplugged: heat turns off and you’re told.</p>
+    <div class="x-row"><button class="x-btn" id="night" type="button" aria-pressed="false">Night mode</button><button class="x-btn" id="away" type="button" aria-pressed="false">Away mode</button></div>
+    <div class="x-row"><button class="x-btn" id="door" type="button" aria-pressed="false">Door open <span class="x-concept">Concept</span></button><button class="x-btn" id="alert" type="button">Alert example</button></div>
+    <div class="x-row"><span class="x-pill x-voice">Multi-platform integration built in · “Hey Google, set the basking spot to 104” · voice alerts</span></div>
+    <div class="cfd-notify"><span></span><button type="button">Preview</button></div>
+    <div class="cfd-toast" role="status"></div>
+    <footer class="cfd-footer">
+      <img src="assets/brought-to-you-by-control-freak-horizontal-cream.svg" alt="brought to you by Control Freak">
+      <div class="cfd-disclaimer">Marketing simulation. Example data, not live hardware. Not the real app.</div>
+    </footer>
+  </div>
+</div>
+<script src="demo.js"></script><script src="o15.js"></script></body></html>
