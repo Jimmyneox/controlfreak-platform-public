@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" id="c03-basement" class="cf-demo-object" data-state="">
+<style>
+.cf-demo-object .state{opacity:0;transition:opacity .4s}
+.cf-demo-object #water{transition:transform .6s;transform-origin:50% 100%;transform-box:fill-box}
+.pump1-on #pump-1-active,.pump2-on #pump-2-active,.alarm #alarm-glow{opacity:1}
+</style>
+<g id="floor"><rect x="0" y="120" width="400" height="180" fill="#334155"/><rect x="0" y="0" width="400" height="120" fill="#1e293b"/></g>
+<g id="pit"><rect x="110" y="120" width="180" height="170" fill="#0b1f3a" stroke="#94a3b8" stroke-width="4"/></g>
+<g id="water"><rect x="112" y="200" width="176" height="88" fill="#3b82c4" opacity=".8"/></g>
+<g id="pump-1"><rect x="140" y="230" width="44" height="56" rx="6" fill="#64748b"/><rect x="156" y="30" width="12" height="200" fill="#94a3b8"/></g>
+<g id="pump-1-active" class="state"><rect x="136" y="226" width="52" height="64" rx="8" fill="none" stroke="#5eead4" stroke-width="4"/></g>
+<g id="pump-2"><rect x="216" y="240" width="44" height="46" rx="6" fill="#64748b"/><rect x="232" y="30" width="12" height="210" fill="#94a3b8"/></g>
+<g id="pump-2-active" class="state"><rect x="212" y="236" width="52" height="54" rx="8" fill="none" stroke="#5eead4" stroke-width="4"/></g>
+<g id="float"><circle cx="270" cy="200" r="8" fill="#f4ecd8"/></g>
+<g id="controller"><rect x="300" y="40" width="70" height="56" rx="6" fill="#0b1f3a" stroke="#94a3b8" stroke-width="3"/></g>
+<g id="alarm-glow" class="state"><circle cx="335" cy="68" r="14" fill="#ef4444"/><circle cx="335" cy="68" r="30" fill="#ef4444" opacity=".25"/></g>
+</svg>

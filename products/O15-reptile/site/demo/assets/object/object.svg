@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" id="o15-terrarium" class="cf-demo-object" data-state="">
+<style>
+.cf-demo-object .state{opacity:0;transition:opacity .4s}
+.cf-demo-object #water{transition:transform .6s;transform-origin:50% 100%;transform-box:fill-box}
+.lamp-on #lamp-on,.heat-on #heat-glow,.mist-on #mist{opacity:1}
+</style>
+<g id="enclosure-back"><rect x="40" y="60" width="320" height="200" fill="#16302a"/></g>
+<g id="substrate"><path d="M44 256V220c60-20 120 10 180-6s90 0 132 10v32z" fill="#8a6a3f"/></g>
+<g id="plants"><path d="M90 230c0-50 10-70 14-90m-4 40 26-20m-24 46-22-18" stroke="#3f7d4e" stroke-width="7" fill="none" stroke-linecap="round"/></g>
+<g id="rock"><ellipse cx="270" cy="226" rx="50" ry="18" fill="#6b6b5e"/></g>
+<g id="animal"><path d="M230 212c20-12 50-12 70 0-10 6-30 8-40 6-10 4-24 2-30-6z" fill="#c9a227"/></g>
+<g id="lamp"><rect x="200" y="36" width="90" height="20" rx="4" fill="#2b2b24"/></g>
+<g id="lamp-on" class="state"><path d="M200 56h90l50 200H150z" fill="#f2d16b" opacity=".2"/><rect x="200" y="36" width="90" height="20" rx="4" fill="#f2d16b"/></g>
+<g id="heat-glow" class="state"><ellipse cx="270" cy="220" rx="70" ry="30" fill="#ff7a3c" opacity=".35"/></g>
+<g id="mist" class="state"><path d="M60 120c20-10 40 10 60 0s40 10 60 0 40 10 60 0 40 10 60 0 40 10 50 0" stroke="#e8f4f0" stroke-width="10" opacity=".4" fill="none"/></g>
+<g id="glass"><rect x="40" y="60" width="320" height="200" fill="none" stroke="#f4ecd8" stroke-width="4"/><path d="M200 60v200" stroke="#f4ecd8" stroke-width="2" opacity=".5"/></g>
+</svg>
