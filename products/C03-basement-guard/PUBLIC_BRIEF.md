@@ -1,7 +1,9 @@
 # Basement Guard Pro — marketing-safe public brief
 
+**Audience:** Control Freak Platform ECC / public site shell + in-site demo  
 **Product pick:** C03 · Wave 1 *Pro*  
 **Brand:** **Basement Guard Pro**, brought to you by Control Freak  
+**Source scrub:** buyer-facing copy only (problem, kit story, features, brochure tone) from [README.md](README.md), [02-features.md](02-features.md) and [06-engineering.md](06-engineering.md). No costs, ratings, port maps or engineering gates. Safe to hand to the public ECC twin as-is.
 
 Mark all concept visuals **Concept**. Parent brand / demo chrome is owned by Design on `controlfreak-design`.
 
@@ -15,7 +17,7 @@ Mark all concept visuals **Concept**. Parent brand / demo chrome is owned by Des
 **Proposed sub:**  
 *Two pumps, one watchful hub. Basement Guard Pro keeps an eye on the pit, the pipes and the floor — so you can stop listening for the pump every time it rains.*
 
-Buyer open (every Wave 1+ product): *How many apps do you open to run your home?* Then: Basement Guard Pro ships with Home Assistant and the Control Freak integration already set up, so your sump, leak sensors and the rest of your smart home meet in one place. Connect the devices you already own and simplify to a single app. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and receive automated voice alerts to let you know when something is out of balance. Home Assistant stays on your home network — never cloud Home Assistant.
+Buyer open (every Wave 1+ product): *How many apps do you open to run your home?* Then: Basement Guard Pro ships with Home Assistant and the Control Freak integration already set up, so your sump, leak sensors and the rest of your smart home meet in one place. Connect the devices you already own and simplify to a single app. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and receive automated voice alerts to let you know when something is out of balance. Home Assistant runs on the controller on your home network — not in someone else’s cloud.
 
 ---
 
@@ -26,6 +28,8 @@ Buyer open (every Wave 1+ product): *How many apps do you open to run your home?
 - Home Assistant users who have already built sump sensors by hand and want it done properly.
 
 Self-install: set the pumps in the pit, plug them into the Power Hub, drop in the level sensor, scan the QR code. No rewiring.
+
+**Proof point (sourced):** water damage and freezing claims average **$15,400** ([Insurance Information Institute](https://www.iii.org/fact-statistic/facts-statistics-homeowners-and-renters-insurance)). Use calmly — no fear-mongering.
 
 ---
 
@@ -40,6 +44,8 @@ Self-install: set the pumps in the pit, plug them into the Power Hub, drop in th
 - **Alerts that reach you** — push, text, email and alarm, including when you’re away (cloud via Tailscale), plus a siren in the house that sounds whether or not the internet is up.
 - **Keeps working when the internet doesn’t** — pump rules and the siren run on the box in the basement.
 - **Home Assistant pre-installed** — Control Freak integration already set up; one hub for basement and home. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and receive automated voice alerts when something is out of balance.
+- **Safety rules don’t depend on Home Assistant** — Control Freak’s own safety rules — pump switching, high-water and leak alarms, and the freeze heat-tape switch — keep running on the controller, even if Home Assistant stops.
+- **Works with the Control Freak gear you already own** — every Control Freak product is a complete kit on its own. If a Control Freak controller you already have has a free port or relay, Home Assistant can put it to work for this product too. (Owner 2026-10-26: separate products, combinable in Home Assistant through open ports.)
 
 Do **not** name competitor products or quote their app ratings on the public site unless Design/Platform explicitly ask for a sourced comparison table later.
 
@@ -48,6 +54,8 @@ Do **not** name competitor products or quote their app ratings on the public sit
 ## 4. What’s in Basement Guard Pro (buyer-facing)
 
 Wave 1 public story = **one Pro product**. No Control Freak prices on the site until announced.
+
+**How the cart works (no $):** every sensor is its own line on the cart. The **recommended full package** costs less than buying the same lines separately; if you already own some sensors, skip those lines and save.
 
 **Recommended package (buyer language):**
 
@@ -65,7 +73,7 @@ Wave 1 public story = **one Pro product**. No Control Freak prices on the site u
 
 **Optional add-ons:** UPS (keeps the controller — and ideally your router — running in a power cut so alerts still go out); 12 V battery backup pump (keeps the pit emptying in a blackout; partner unit). Automatic water shutoff (closes the main when a leak sensor gets wet; sold as an option, plumber install).
 
-**Not promised on the public site:** sewage ejector or commercial duplex pits, hardwired heat tape or dehumidifier as self-install, water shutoff as standard or self-install, pump energy monitoring, any amp/motor rating or safety listing, any subscription, cloud Home Assistant. Don’t say we make the backup pump, and don’t say alerts go out when the controller has no power.
+**Not promised on the public site:** sewage ejector or commercial duplex pits, hardwired heat tape or dehumidifier as self-install, water shutoff as standard or self-install, pump energy monitoring, any amp/motor rating or safety listing, any subscription, or Home Assistant as a cloud service — it runs on the controller on your home network. Don’t say we make the backup pump, and don’t say alerts go out when the controller has no power.
 
 ---
 
@@ -96,7 +104,7 @@ Design owns parent demo chrome/template (`controlfreak-design`). This section is
 | Heat tape | Off / On | Turns on when the crawlspace probe drops below the demo setting |
 | Dehumidifier | On schedule | Plug-in outlet toggle |
 | Alerts | Sample alert list | High water, pump didn’t empty the pit, slow pump-down, leak, freezing pipes — channels named: push, text, email, alarm |
-| Home hub / voice | Chip | “Multi-platform integration built in” · “Ask Alexa what the status is; get voice alerts” |
+| Home hub / voice | Chip | “Multi-platform integration built in” · “Ask Alexa what the status is; get voice alerts” (STYLE.md voice line) |
 
 ### Demo interactions (keep light)
 
@@ -147,15 +155,13 @@ No App Store badges, no internal status, no engineering-gate or “shipping when
 
 ## 9. Hard don’ts (public copy)
 
-- No cost, retail or package prices
+- No COGS, retail or package dollar amounts
 - No pinouts, port names, board part numbers or bench/gate names
-- No cloud Home Assistant (HA is home-network only; away alerts ride the phone/cloud path via Tailscale)
+- Don’t pitch Home Assistant as a cloud service; it runs on the controller on your home network (away alerts ride the phone path via Tailscale).
 - No invented UL/safety listings, amp or horsepower ratings
 - No sewage or commercial duplex claims; heat tape / dehumidifier = plug-in only
 - No claim that we supply backup power — the inverter hook-up only switches on one the owner already has
 
 ---
 
-
-
-*Marketing-safe public slice (scrubbed for the public repo, 2026-10-26).*
+*CFP Product Writer · public-safe slice for Platform → ECC · 2026-10-25*
