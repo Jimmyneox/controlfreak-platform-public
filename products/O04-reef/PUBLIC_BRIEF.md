@@ -27,6 +27,7 @@ Reef hobbyists with a sump tank who want reliable control and alerts without wir
 
 - **Keeps working when the internet doesn’t** — the box under the stand runs the tank; a Wi-Fi drop or server outage doesn’t change what pumps and heater do. Ethernet, Wi-Fi, and its own Wi-Fi network as a fallback.
 - **Home Assistant pre-installed** — Control Freak integration already set up; one hub for tank and home. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and receive automated voice alerts when something is out of balance.
+- **Safety rules don’t depend on Home Assistant** — Control Freak’s own safety rules — heater cutoff, top-off lockout and leak shutoff — keep running on the controller, even if Home Assistant stops.
 - **Auto water leveling and leak alarm in the kit** — tops up evaporation with an overfill lockout; sensor under the stand alerts you to water on the floor. Add only a reservoir.
 - **Pumps keep running if the controller loses power** — return pump and powerheads stay on; the heater turns off and falls back to its own thermostat.
 - **Heater cutoff** — temperature probes watch the tank; the heater switches off above your limit.

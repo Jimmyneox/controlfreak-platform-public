@@ -56,6 +56,7 @@ Self-install: plug the chiller, pump, ozone and UV into the Power Hub, drop in t
 - **Keeps working when the internet doesn’t** — schedules run on the controller. Ethernet, Wi-Fi, and its own Wi-Fi network.
 - **Alerts that reach you** — no flow, water too warm, filter, cold night: push, text, email and alarm, including away from home (cloud via Tailscale).
 - **Home Assistant pre-installed** — Control Freak integration already set up, local on your home network. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and receive automated voice alerts when something is out of balance.
+- **Safety rules don’t depend on Home Assistant** — Control Freak’s own safety rules — the no-flow chiller stop, temperature hold and freeze protection — keep running on the controller, even if Home Assistant stops.
 - **Works with the Control Freak gear you already own** — every Control Freak product is a complete kit on its own. If a Control Freak controller you already have has a free port or relay, Home Assistant can put it to work for this product too. (Owner 2026-10-26: separate products, combinable in Home Assistant through open ports.)
 
 No health or recovery claims, no competitor names or ratings on the public site.

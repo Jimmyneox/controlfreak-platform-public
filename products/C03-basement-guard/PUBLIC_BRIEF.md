@@ -44,6 +44,7 @@ Self-install: set the pumps in the pit, plug them into the Power Hub, drop in th
 - **Alerts that reach you** — push, text, email and alarm, including when you’re away (cloud via Tailscale), plus a siren in the house that sounds whether or not the internet is up.
 - **Keeps working when the internet doesn’t** — pump rules and the siren run on the box in the basement.
 - **Home Assistant pre-installed** — Control Freak integration already set up; one hub for basement and home. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and receive automated voice alerts when something is out of balance.
+- **Safety rules don’t depend on Home Assistant** — Control Freak’s own safety rules — pump switching, high-water and leak alarms, and the freeze heat-tape switch — keep running on the controller, even if Home Assistant stops.
 - **Works with the Control Freak gear you already own** — every Control Freak product is a complete kit on its own. If a Control Freak controller you already have has a free port or relay, Home Assistant can put it to work for this product too. (Owner 2026-10-26: separate products, combinable in Home Assistant through open ports.)
 
 Do **not** name competitor products or quote their app ratings on the public site unless Design/Platform explicitly ask for a sourced comparison table later.

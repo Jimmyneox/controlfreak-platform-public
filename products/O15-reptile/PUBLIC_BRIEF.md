@@ -31,6 +31,7 @@ Keepers running 1–3 enclosures — often with animals they've invested a lot i
 - **Heat control stays in your home** — the controller runs heat locally, so a Wi-Fi drop or a server outage changes nothing.
 - **Over-temperature cutoff and probe check** — if a probe reads too hot, or is unplugged, its heat outlet turns off and you're told. (Say exactly that — no fire-safety claims.)
 - **Home Assistant pre-installed, with full control** — Control Freak integration already set up; setpoints and outlets work from your dashboards, not read-only. Multi-platform integration built in.
+- **Safety rules don’t depend on Home Assistant** — Control Freak’s own safety rules — over-temperature cutoff and the unplugged-probe check — keep running on the controller, even if Home Assistant stops.
 - **Day/night cycles and seasonal ramps** — lights and temperatures follow a natural day, with editable profiles to start from.
 - **Misting on schedule** — timed misting from a switched outlet. *(Concept, pending confirmation: reservoir float that stops misting before it runs dry, and a door switch that pauses misting and fans while you're feeding.)*
 - **Set up in minutes** — scan the QR code; keyed, colour-coded plugs only fit their port.
