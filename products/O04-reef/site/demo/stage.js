@@ -1,10 +1,14 @@
-/* Design demo object (controlfreak-design f5aa8d7 photoreal, DEMO_OBJECTS.md). SVG is inlined in index.html as svg.cf-demo-object;
+/* Design demo object (controlfreak-design 0738ffa close-up, inline object-inline.svg, DEMO_OBJECTS.md). SVG is inlined in index.html as svg.cf-demo-object;
    state is toggled via root classes driven by the demo's existing controls. Simulation only. No network. */
 (function(){var root=document.querySelector(".cfd-device"),st=document.getElementById("cf-stage");if(!root||!st)return;
 var svg=st.querySelector("svg.cf-demo-object"),h=root.querySelector(".cfd-header");
 function on(l){var b=[].filter.call(root.querySelectorAll(".cfd-toggle"),function(x){return x.textContent===l})[0];return !!b&&b.getAttribute("aria-pressed")==="true";}
 function num(s){var e=typeof s==="string"?root.querySelector(s):s;return e?parseFloat(e.textContent):NaN;}
 function gauge(i){return num(root.querySelectorAll(".cfd-gauge-value")[i]);}
+/* Fish loop (Design WIRING.md): root ships "swim-on" (autoplay). "swim-off" pauses all anim; removing "swim-on" hides fish off-stage. */
+if(!svg.classList.contains("swim-on"))svg.classList.add("swim-on");
+if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)svg.classList.add("swim-off");
+window.cfSwim=function(v){svg.classList.toggle("swim-off",v===false||v==="pause");svg.classList.toggle("swim-on",v!=="hide");};
 function C(c,v){svg.classList.toggle(c,!!v);}
 function W(k){var w=svg.querySelector("#water");if(w)w.style.transform="scaleY("+k.toFixed(2)+")";}
 function UPDATE(){var L=on("Main light")||on("Refugium light"),H=on("Heater"),P=on("Return")||on("Powerhead 1")||on("Powerhead 2"),t=gauge(0);
