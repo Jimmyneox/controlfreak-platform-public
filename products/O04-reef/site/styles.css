@@ -71,3 +71,15 @@ section{scroll-margin-top:24px}
 .connects .stats div{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:18px;border:1px solid var(--line)}
 .connects .stats b{font-family:var(--display);font-size:2.2rem;line-height:1;color:var(--accent,var(--teal));white-space:nowrap}
 .connects .stats span{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em}
+
+/* Why Home Assistant (Design build_infographic.py, 2026-10-26) */
+.whyha .grid.angles{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.whyha .card .ic{display:inline-flex;width:34px;height:34px;border-radius:10px;align-items:center;justify-content:center;background:var(--accent,var(--teal));margin-bottom:10px}
+.whyha .card .ic svg{width:20px;height:20px;fill:none;stroke:var(--onaccent,#0b141e);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.whyha .hastats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:24px}
+.whyha .hastats div{padding:14px 18px;border-radius:18px;border:1px solid var(--line)}
+.whyha .hastats b{display:block;font-family:var(--display);font-size:2rem;line-height:1.1;color:var(--accent,var(--teal))}
+.whyha .hastats span{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}
+.whyha h3.ideas{margin:32px 0 0;font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:var(--accent,var(--teal))}
+.whyha .idea{border-style:dashed}
+.whyha .idea small{display:block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
