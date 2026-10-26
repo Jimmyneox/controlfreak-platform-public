@@ -24,20 +24,20 @@
 .cf-demo-object.chiller-on #flow .ring{transform-box:fill-box;transform-origin:50% 50%;animation:cfRipple 3s ease-out infinite}
 .cf-demo-object.power-on #led-power,.cf-demo-object.power-on #display{opacity:1}
 .cf-demo-object.chiller-on #led-chiller{opacity:1;animation:cfPulse 2s infinite}
-.cf-demo-object #chromo,.cf-demo-object #chromo-fixtures,.cf-demo-object #chromo-rim{opacity:0;transition:opacity .8s ease}
-.cf-demo-object.chromo-on #chromo{opacity:1}
-.cf-demo-object.chromo-on #chromo-fixtures{opacity:1}
-.cf-demo-object.chromo-on #chromo-rim{opacity:.55}
-.cf-demo-object.chromo-on #led-chromo{opacity:1}
+.cf-demo-object #chromo,.cf-demo-object #chromo-fixtures,.cf-demo-object #chromo-rim,.cf-demo-object #led-chromo{opacity:0;transition:opacity .8s ease}
+.cf-demo-object.chromo-on #chromo,.cf-demo-object.power-on:not(.chromo-off) #chromo{opacity:1}
+.cf-demo-object.chromo-on #chromo-fixtures,.cf-demo-object.power-on:not(.chromo-off) #chromo-fixtures{opacity:1}
+.cf-demo-object.chromo-on #chromo-rim,.cf-demo-object.power-on:not(.chromo-off) #chromo-rim{opacity:1}
+.cf-demo-object.chromo-on #led-chromo,.cf-demo-object.power-on:not(.chromo-off) #led-chromo{opacity:1}
 .cf-demo-object .cc{fill:#1e6bff;transition:fill .8s ease}
 @keyframes cfChromo{0%{fill:#1e6bff}20%{fill:#00d1c1}40%{fill:#8a3dff}60%{fill:#ff3da8}80%{fill:#ff9a2e}100%{fill:#1e6bff}}
-.cf-demo-object.chromo-on .cc{animation:cfChromo 12s linear infinite}
-.cf-demo-object.chromo-on.chromo-blue .cc{animation:none;fill:#1e6bff}
-.cf-demo-object.chromo-on.chromo-teal .cc{animation:none;fill:#00d1c1}
-.cf-demo-object.chromo-on.chromo-violet .cc{animation:none;fill:#8a3dff}
-.cf-demo-object.chromo-on.chromo-magenta .cc{animation:none;fill:#ff3da8}
-.cf-demo-object.chromo-on.chromo-warm .cc{animation:none;fill:#ff9a2e}
-.cf-demo-object.chromo-on.chromo-white .cc{animation:none;fill:#eaf6ff}
+.cf-demo-object.chromo-on .cc,.cf-demo-object.power-on:not(.chromo-off) .cc{animation:cfChromo 12s linear infinite}
+.cf-demo-object.cf-demo-object.chromo-blue:not(.chromo-off) .cc{animation:none;fill:#1e6bff}
+.cf-demo-object.cf-demo-object.chromo-teal:not(.chromo-off) .cc{animation:none;fill:#00d1c1}
+.cf-demo-object.cf-demo-object.chromo-violet:not(.chromo-off) .cc{animation:none;fill:#8a3dff}
+.cf-demo-object.cf-demo-object.chromo-magenta:not(.chromo-off) .cc{animation:none;fill:#ff3da8}
+.cf-demo-object.cf-demo-object.chromo-warm:not(.chromo-off) .cc{animation:none;fill:#ff9a2e}
+.cf-demo-object.cf-demo-object.chromo-white:not(.chromo-off) .cc{animation:none;fill:#eaf6ff}
 </style>
 <defs><radialGradient id="gWarm"><stop offset="0" stop-color="#ffb347" stop-opacity=".9"/><stop offset="1" stop-color="#ff7a00" stop-opacity="0"/></radialGradient>
 <radialGradient id="gCyan"><stop offset="0" stop-color="#7ff6ff" stop-opacity=".85"/><stop offset="1" stop-color="#00c8ff" stop-opacity="0"/></radialGradient>
@@ -66,12 +66,12 @@
 <g id="water" clip-path="url(#cWater)"><rect id="water-tint" x="110" y="320" width="860" height="210" style="mix-blend-mode:soft-light"/></g>
 <mask id="mWater"><ellipse cx="538" cy="422" rx="414" ry="93" fill="#fff" filter="url(#fCaus)"/></mask>
 <g id="chromo">
-<g clip-path="url(#cWater)" mask="url(#mWater)" style="mix-blend-mode:multiply" opacity=".3"><rect class="cc" x="110" y="320" width="860" height="210"/></g>
-<g clip-path="url(#cWater)" mask="url(#mWater)" style="mix-blend-mode:color" opacity=".38"><rect class="cc" x="110" y="320" width="860" height="210"/></g>
-<g clip-path="url(#cWater)" mask="url(#mWater)" style="mix-blend-mode:screen" opacity=".55"><g filter="url(#fBlurBig)"><ellipse class="cc" cx="255" cy="412" rx="160" ry="55"/><ellipse class="cc" cx="825" cy="415" rx="160" ry="55"/><ellipse class="cc" cx="538" cy="470" rx="260" ry="40" opacity=".5"/></g></g>
+<g clip-path="url(#cWater)" mask="url(#mWater)" style="mix-blend-mode:multiply" opacity=".35"><rect class="cc" x="110" y="320" width="860" height="210"/></g>
+<g clip-path="url(#cWater)" mask="url(#mWater)" style="mix-blend-mode:color" opacity=".72"><rect class="cc" x="110" y="320" width="860" height="210"/></g>
+<g clip-path="url(#cWater)" mask="url(#mWater)" style="mix-blend-mode:screen" opacity=".95"><g filter="url(#fBlurBig)"><ellipse class="cc" cx="255" cy="412" rx="210" ry="70"/><ellipse class="cc" cx="825" cy="415" rx="210" ry="70"/><ellipse class="cc" cx="538" cy="440" rx="330" ry="60" opacity=".75"/><path class="cc" d="M232 392 L420 520 L180 520 Z" opacity=".8"/><path class="cc" d="M850 395 L900 520 L660 520 Z" opacity=".8"/></g></g>
 </g>
-<g id="chromo-rim" clip-path="url(#cRimIn)" mask="url(#mRimIn)" style="mix-blend-mode:screen"><ellipse class="cc" cx="260" cy="395" rx="150" ry="40" opacity=".5" filter="url(#fBlurBig)"/><ellipse class="cc" cx="820" cy="398" rx="150" ry="40" opacity=".5" filter="url(#fBlurBig)"/></g>
-<g id="chromo-fixtures" style="mix-blend-mode:screen"><circle class="cc" cx="232" cy="388" r="22" filter="url(#fBlur)"/><circle cx="232" cy="388" r="4" fill="#fff" opacity=".85"/><circle class="cc" cx="850" cy="391" r="22" filter="url(#fBlur)"/><circle cx="850" cy="391" r="4" fill="#fff" opacity=".85"/></g>
+<g id="chromo-rim" clip-path="url(#cRimIn)" mask="url(#mRimIn)" style="mix-blend-mode:screen"><ellipse class="cc" cx="260" cy="385" rx="200" ry="55" opacity=".95" filter="url(#fBlurBig)"/><ellipse class="cc" cx="820" cy="388" rx="200" ry="55" opacity=".95" filter="url(#fBlurBig)"/><ellipse class="cc" cx="538" cy="330" rx="300" ry="30" opacity=".55" filter="url(#fBlurBig)"/></g>
+<g id="chromo-fixtures" style="mix-blend-mode:screen"><circle class="cc" cx="232" cy="388" r="70" opacity=".7" filter="url(#fBlurBig)"/><circle class="cc" cx="232" cy="388" r="30" filter="url(#fBlur)"/><circle cx="232" cy="388" r="11" fill="#fff" opacity=".95" filter="url(#fSoft)"/><circle class="cc" cx="850" cy="391" r="70" opacity=".7" filter="url(#fBlurBig)"/><circle class="cc" cx="850" cy="391" r="30" filter="url(#fBlur)"/><circle cx="850" cy="391" r="11" fill="#fff" opacity=".95" filter="url(#fSoft)"/></g>
 <g id="flow" class="ov" style="mix-blend-mode:screen" clip-path="url(#cWater)"><g opacity=".25"><ellipse class="ring" style="animation-delay:0.0s" cx="538" cy="430" rx="160" ry="34" fill="none" stroke="#dff8ff" stroke-width="3" filter="url(#fCaus)"/><ellipse class="ring" style="animation-delay:1.0s" cx="538" cy="430" rx="160" ry="34" fill="none" stroke="#dff8ff" stroke-width="3" filter="url(#fCaus)"/><ellipse class="ring" style="animation-delay:2.0s" cx="538" cy="430" rx="160" ry="34" fill="none" stroke="#dff8ff" stroke-width="3" filter="url(#fCaus)"/></g></g>
 <g id="mist" class="ov"><ellipse class="puff" style="animation-delay:0.0s" cx="230" cy="330" rx="120" ry="34" fill="#fff" opacity=".22" filter="url(#fBlurBig)"/><ellipse class="puff" style="animation-delay:0.6s" cx="380" cy="305" rx="120" ry="34" fill="#fff" opacity=".22" filter="url(#fBlurBig)"/><ellipse class="puff" style="animation-delay:1.2s" cx="530" cy="330" rx="120" ry="34" fill="#fff" opacity=".22" filter="url(#fBlurBig)"/><ellipse class="puff" style="animation-delay:1.8s" cx="680" cy="305" rx="120" ry="34" fill="#fff" opacity=".22" filter="url(#fBlurBig)"/><ellipse class="puff" style="animation-delay:2.4s" cx="830" cy="330" rx="120" ry="34" fill="#fff" opacity=".22" filter="url(#fBlurBig)"/></g>
 <g id="display" class="ov"><rect x="826" y="604" width="104" height="40" rx="8" fill="#0a1a22" opacity=".88"/><text x="866" y="631" fill="#7ff6ff" font-family="monospace" font-size="20" text-anchor="middle">39°F</text></g>
