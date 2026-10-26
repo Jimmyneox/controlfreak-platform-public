@@ -20,7 +20,10 @@ Product apps/sites are **industry-specific** (not pool-site reskins). Shared bra
 ECC tools are enabled against this public repo.
 
 ## Deploy (personalizeduserexperiences.com)
-Static deploy via `vercel.json` path rewrites (no build step):
+Host: **Cloudflare Pages** (static, no build step). Path rewrites live in `_redirects`:
 - `/` → Wave 1 hub (`index.html`)
-- `/products/O04-reef/`, `/products/C03-basement-guard/`, `/products/O15-reptile/`, `/products/C01-cold-plunge/` → `products/<code>/site/`
-- `/products/<code>/demo/` → `products/<code>/site/demo/`; other files under `/products/<code>/*` map into `site/` so relative assets keep working.
+- `/reef/` → `products/O04-reef/site/`
+- `/basement-guard/` → `products/C03-basement-guard/site/`
+- `/terrarium/` → `products/O15-reptile/site/`
+- `/cold-plunge/` → `products/C01-cold-plunge/site/`
+- `/<slug>/demo/` → that product's `site/demo/`; every other file under `/<slug>/*` maps into `site/` so relative assets work.

@@ -1,0 +1,17 @@
+# Cloudflare Pages: pretty slugs -> products/<code>/site/ (200 = rewrite)
+/reef /reef/ 301
+/reef/demo /reef/demo/ 301
+/reef/ /products/O04-reef/site/ 200
+/reef/* /products/O04-reef/site/:splat 200
+/basement-guard /basement-guard/ 301
+/basement-guard/demo /basement-guard/demo/ 301
+/basement-guard/ /products/C03-basement-guard/site/ 200
+/basement-guard/* /products/C03-basement-guard/site/:splat 200
+/terrarium /terrarium/ 301
+/terrarium/demo /terrarium/demo/ 301
+/terrarium/ /products/O15-reptile/site/ 200
+/terrarium/* /products/O15-reptile/site/:splat 200
+/cold-plunge /cold-plunge/ 301
+/cold-plunge/demo /cold-plunge/demo/ 301
+/cold-plunge/ /products/C01-cold-plunge/site/ 200
+/cold-plunge/* /products/C01-cold-plunge/site/:splat 200
