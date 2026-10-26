@@ -49,5 +49,5 @@ footer .markfoot{height:29px;width:auto;vertical-align:middle;margin-bottom:6px}
 .concept-img{background:#0000;min-height:0}.concept-img .hero-concept{display:block;width:100%;height:auto}
 
 /* Demo: stage left | app right inside the iframe — give it the full row. */
-.demo{grid-template-columns:1fr!important}.demo iframe{width:100%!important;height:960px}
-@media(max-width:900px){.demo iframe{height:1500px}}
+.demo{grid-template-columns:1fr!important}.demo iframe{width:100%!important;height:1060px}
+@media(max-width:640px){.demo iframe{height:1700px}}

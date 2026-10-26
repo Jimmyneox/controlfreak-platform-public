@@ -27,8 +27,8 @@
   [].forEach.call(root.querySelectorAll(".rf-chip"),function(c){c.onclick=function(){var d=doses[c.dataset.dose];say("SIMULATED · "+d[0]+": next dose "+d[1]+" "+d[2]+" (example schedule).");};});
   var alerts=["High temp — tank above your limit; heater switched off","ATO lockout — overfill protection stopped top-off","Leak detected — floor sensor is wet"], ai=0;
   root.querySelector("#rf-alert").onclick=function(){say("SIMULATED ALERT · "+alerts[ai++%alerts.length]+" — example only");};
-  var leak=root.querySelector("#rf-leak");
-  if(leak) leak.onclick=function(){var on=leak.classList.toggle("rf-alarm");leak.querySelector("b").textContent=on?"Wet (what if)":"Clear";say(on?"SIMULATED WHAT-IF · Leak detected under the stand — push, text, email & alarm. Tap again to clear.":"SIMULATED · Leak sensor dry.");};
+  var leak=root.querySelector("#rf-leak"),lp=root.querySelector("#rf-leak-pill");
+  if(leak) leak.onclick=function(){var on=lp.classList.toggle("rf-alarm");lp.querySelector("b").textContent=on?"Wet (what if)":"Clear";say(on?"SIMULATED WHAT-IF · Leak detected under the stand — push, text, email & alarm. Tap again to clear.":"SIMULATED · Leak sensor dry.");};
   var hot=root.querySelector("#rf-hot");
   if(hot) hot.onclick=function(){var h=btn("Heater");if(h)h.setAttribute("aria-pressed","false");say("SIMULATED WHAT-IF · Tank 82.6 °F — above your limit, heater switched off. Pumps keep running.");};
   var heat=btn("Heater"); if(heat) heat.addEventListener("click",function(){if(heat.getAttribute("aria-pressed")==="true") say("SIMULATED · Heater on. Cutoff watches the probes and switches it off above your limit.");});
