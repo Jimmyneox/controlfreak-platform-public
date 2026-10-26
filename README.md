@@ -18,3 +18,9 @@ Public twin of the private [controlfreak-platform](https://github.com/Jimmyneox/
 Product apps/sites are **industry-specific** (not pool-site reskins). Shared brand piece is only the **parent lockup** ([PARENT_BRAND](https://github.com/Jimmyneox/controlfreak-design/blob/main/brand/PARENT_BRAND.md)).
 
 ECC tools are enabled against this public repo.
+
+## Deploy (personalizeduserexperiences.com)
+Static deploy via `vercel.json` path rewrites (no build step):
+- `/` → Wave 1 hub (`index.html`)
+- `/products/O04-reef/`, `/products/C03-basement-guard/`, `/products/O15-reptile/`, `/products/C01-cold-plunge/` → `products/<code>/site/`
+- `/products/<code>/demo/` → `products/<code>/site/demo/`; other files under `/products/<code>/*` map into `site/` so relative assets keep working.

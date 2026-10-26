@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": false,
+  "redirects": [
+    { "source": "/products/:code(O04-reef|C03-basement-guard|O15-reptile|C01-cold-plunge)", "destination": "/products/:code/", "permanent": true },
+    { "source": "/products/:code(O04-reef|C03-basement-guard|O15-reptile|C01-cold-plunge)/demo", "destination": "/products/:code/demo/", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/products/:code(O04-reef|C03-basement-guard|O15-reptile|C01-cold-plunge)/", "destination": "/products/:code/site/index.html" },
+    { "source": "/products/:code(O04-reef|C03-basement-guard|O15-reptile|C01-cold-plunge)/demo/", "destination": "/products/:code/site/demo/index.html" },
+    { "source": "/products/:code(O04-reef|C03-basement-guard|O15-reptile|C01-cold-plunge)/:path((?!site/).*)", "destination": "/products/:code/site/:path" }
+  ]
+}
