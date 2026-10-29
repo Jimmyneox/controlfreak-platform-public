@@ -114,6 +114,10 @@ h1{font-family:var(--head);font-weight:700;font-size:clamp(2.4rem,5.4vw,4.4rem);
 .kit li:not(:nth-child(4n+1)){border-left:1.5px solid var(--line)}
 .kit h3{font-family:var(--body);font-size:1rem;font-weight:600;letter-spacing:0;text-transform:none}
 .kit p{color:var(--mist);font-size:.92rem;margin-top:4px}
+.plug-line{text-align:center;margin-top:56px;padding-top:40px;border-top:1.5px solid var(--line)}
+.tagline{font-family:var(--head);font-weight:700;font-size:clamp(1.4rem,2.6vw,2.1rem);line-height:1.15;letter-spacing:-.01em}
+.tagline .aqua{white-space:nowrap}
+.tagline-sub{color:var(--mist);font-size:.92rem;margin-top:10px}
 .ico-ph{position:relative}
 .ico-ph b{position:absolute;inset:0;z-index:1;display:grid;place-items:center;padding-top:7px;font-family:var(--head);font-size:.62rem;font-weight:700;color:currentColor}
 
