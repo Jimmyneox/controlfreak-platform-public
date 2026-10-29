@@ -6,68 +6,206 @@
 <meta name="theme-color" content="#13788D">
 
 <title>Reef Control Pro — brought to you by Control Freak</title>
-<meta name="description" content="A reef controller that plugs together. Keeps working when the internet doesn’t. No subscription.">
+<meta name="description" content="Put the Control Freak on it. Sit back and enjoy the reef—the system handles the rest. A reef controller that plugs together and runs locally, with voice and tap control, away alerts, and no subscription.">
 <link rel="stylesheet" href="styles.css"></head><body>
-<header class="wrap">
-  <nav><a class="brand" href="#"><img src="assets/reef-mark-drop-white.svg" alt="" width="22" height="32">Reef Control <span>Pro</span></a><a class="btn ghost" href="#beta">Join the beta</a></nav>
-  <div class="hero">
-    <div>
-      <div class="eyebrow">Reef Control Pro · brought to you by Control Freak</div>
-      <h1>Put the <em>Control Freak</em> on it.</h1>
-      <p class="lead">Sit back and enjoy the reef—the system handles the rest. A reef controller that plugs together, keeps working when the internet doesn’t, and never asks for a subscription.</p>
-      <p class="badges">Voice &amp; tap control · Away alerts · No subscription</p>
-      <div class="ctas"><a class="btn" href="#beta">Join the beta</a><a class="btn ghost" href="demo/">Try the demo</a></div>
+<!--
+  Reef Control Pro landing page. Built from the ChatGPT landing mockup (reef-web-landing, 2026-10-28)
+  with copy from the approved brochure. Art: ChatGPT reef plates and fish sprites shared with demo/,
+  the approved Reef lockup, Lucide icons (ISC, assets/icons/LICENSE-lucide.txt). No external requests.
+-->
+
+<header class="hero">
+  <picture class="hero-bg">
+    <source media="(orientation: portrait)" type="image/webp"
+      srcset="demo/assets/bg/reef-bg-mobile-720.webp 720w, demo/assets/bg/reef-bg-mobile-1080.webp 1080w, demo/assets/bg/reef-bg-mobile-1440.webp 1440w" sizes="100vw">
+    <source type="image/webp"
+      srcset="demo/assets/bg/reef-bg-desktop-1600.webp 1600w, demo/assets/bg/reef-bg-desktop-2560.webp 2560w, demo/assets/bg/reef-bg-desktop-3840.webp 3840w" sizes="100vw">
+    <img src="demo/assets/bg/reef-bg-desktop-1600.jpg" width="1600" height="900" alt="" fetchpriority="high">
+  </picture>
+  <div class="fish fish-a" aria-hidden="true"><img src="demo/assets/fish/blue-tang.webp" width="260" height="123" alt=""></div>
+  <div class="fish fish-b" aria-hidden="true"><img src="demo/assets/fish/blue-tang.webp" width="260" height="123" alt=""></div>
+
+  <nav class="wrap nav">
+    <a class="brand" href="./"><img src="demo/assets/mark/reef-mark-lockup-white.svg" width="4344" height="1932" alt="Control Freak"></a>
+    <ul class="nav-links">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#kit">The kit</a></li>
+      <li><a href="#home-assistant">Home Assistant</a></li>
+      <li><a href="#demo">Live demo</a></li>
+    </ul>
+    <a class="btn btn-line" href="#beta">Join the beta</a>
+  </nav>
+
+  <div class="wrap hero-copy">
+    <p class="eyebrow">Voice &amp; tap control · Away alerts · No subscription</p>
+    <h1>Put the <em>Control Freak</em> on it.</h1>
+    <p class="hero-lead">Sit back and enjoy the reef—the system handles the rest.</p>
+    <div class="ctas">
+      <a class="btn btn-fill" href="demo/">Try the live demo</a>
+      <a class="btn btn-line" href="#beta">Join the beta</a>
     </div>
-    <div class="concept concept-img"><span class="tag">Concept</span><img class="hero-concept" src="assets/hero-concept-front.png" alt="Concept illustration of a reef tank with controller under the stand (Concept brochure front)"></div>
+    <p class="hero-product">Reef Control Pro</p>
   </div>
 </header>
+
 <main>
-<section class="open"><div class="wrap">
-  <q>How many apps do you have to open to control your smart products?</q>
-  <p>Home Assistant comes pre-installed with the Control Freak integration, so the tank and the rest of the home land in one place — and you can simplify to a single app. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and receive automated voice alerts to let you know when something is out of balance. Home Assistant itself stays on your home network.</p>
-</div></section>
-
-<section><div class="wrap">
-  <div class="eyebrow">Who it’s for</div>
-  <h2>Built for sump-tank reef keepers.</h2>
-  <p class="lead">Reliable control and alerts without wiring a DIY board or juggling a stack of vendor apps. For hands-on keepers who run — or want — Home Assistant, and care that pumps and heaters keep doing the right thing when Wi-Fi or an app hiccups.</p>
-</div></section>
-
-<section><div class="wrap">
-  <div class="eyebrow">Why Reef Control Pro</div><h2>What makes it different</h2>
-  <div class="grid">
-    <div class="card"><h3>Keeps working when the internet doesn’t</h3><p>The box under the stand runs the tank. Ethernet, Wi-Fi, and its own Wi-Fi fallback.</p></div>
-    <div class="card"><h3>Home Assistant pre-installed</h3><p>Control Freak integration already set up. One hub for tank and home. Ask Alexa what the status is, tell Google to adjust the temperature, and get voice alerts when something is out of balance.</p></div>
-    <div class="card"><h3>Auto water leveling + leak alarm in the kit</h3><p>Tops up evaporation with overfill lockout, plus a floor leak sensor. Just add a reservoir.</p></div>
-    <div class="card"><h3>Pumps keep running if the controller loses power</h3><p>Return and powerheads stay on. The heater turns off and falls back to its own thermostat.</p></div>
-    <div class="card"><h3>Heater cutoff</h3><p>Probes watch the tank and switch the heater off above your limit.</p></div>
-    <div class="card"><h3>Set up in minutes</h3><p>Scan a QR code. Keyed, colour-coded plugs only go where they belong.</p></div>
-    <div class="card"><h3>In perfect balance</h3><p>Continuous dosing from a three-head doser for calcium, alkalinity and magnesium, with pH right on the home screen.</p></div>
+<section class="band band-deep" aria-labelledby="h-care">
+  <div class="wrap">
+    <p class="eyebrow">Start here</p>
+    <h2 id="h-care">Your reef deserves <span class="aqua">steady care</span></h2>
+    <ul class="scenarios">
+      <li><span class="ico ico-lg aqua"><svg><use href="assets/icons/lucide-sprite.svg#wifi-off"/></svg></span>
+        <p>The internet drops while you’re at work, and the app can’t reach your tank.</p></li>
+      <li><span class="ico ico-lg violet"><svg><use href="assets/icons/lucide-sprite.svg#unplug"/></svg></span>
+        <p>A smart-plug company shuts down its servers, and every plug it sold stops working.</p></li>
+      <li><span class="ico-pair"><span class="ico ico-lg aqua"><svg><use href="assets/icons/lucide-sprite.svg#thermometer"/></svg></span><span class="ico ico-lg violet"><svg><use href="assets/icons/lucide-sprite.svg#bell-ring"/></svg></span></span>
+        <p>Your heater fails while you’re away, and an alert gives you time to act before the temperature drop can do harm.</p></li>
+    </ul>
+    <p class="question">Do you want a system that stops when the internet goes down, or one that <span class="aqua">runs locally, all the time?</span></p>
   </div>
-</div></section>
+</section>
 
-<section><div class="wrap kit">
-  <div><div class="eyebrow">In the box</div><h2>What’s in Reef Control Pro</h2>
-    <ul><li>Controller with Home Assistant + Control Freak integration</li><li>Power Hub — 8 outlets</li><li>Two temperature probes (room for more)</li><li>Auto top-off pump + level sensors (you add the reservoir)</li><li>Leak sensor</li><li>3-head doser</li><li>pH probe</li></ul></div>
-  <div><div class="eyebrow">Later add-ons</div><h2>Room to grow</h2>
-    <p class="small">Planned optional extras may include ORP and salinity probes, extra temperature probes, an extra Power Hub, and a reservoir.</p>
-    <p class="small">To be clear about what it isn’t: no subscription, no automatic water changes, no automatic chemistry adjustments from probe readings, no LED-brand dimming protocols, and up to 8 outlets per controller.</p></div>
-</div></section>
+<section class="band" id="how" aria-labelledby="h-how">
+  <div class="wrap">
+    <h2 id="h-how">Keep your gear. Bring control together.</h2>
+    <p class="intro">Your tank, sump, and familiar equipment stay part of the setup. Reef Control Pro brings their everyday control into one place.</p>
+    <ol class="flow">
+      <li><span class="node"><svg class="ico"><use href="assets/icons/lucide-sprite.svg#waves"/></svg></span><span class="node-label">Your equipment</span></li>
+      <li><span class="node"><svg class="ico"><use href="assets/icons/lucide-sprite.svg#power"/></svg></span><span class="node-label">Power Hub</span></li>
+      <li><span class="node node-mark"><img src="demo/assets/mark/reef-mark-drop-white.svg" width="1332" height="1932" alt=""></span><span class="node-label">Controller<small>Home Assistant</small></span></li>
+      <li><span class="node"><svg class="ico"><use href="assets/icons/lucide-sprite.svg#wifi"/></svg></span><span class="node-label">Home network</span></li>
+      <li><span class="node"><svg class="ico"><use href="assets/icons/lucide-sprite.svg#smartphone"/></svg></span><span class="node-label">One app</span></li>
+    </ol>
+  </div>
+</section>
 
-<section id="demo"><div class="wrap demo">
-  <div><div class="eyebrow">Interactive demo · Simulation</div><h2>Step inside the tank</h2>
-    <p class="lead">The whole screen is the reef. Toggle the 8 outlets, start Feed and watch the fish rise as the pumps pause, switch the main light off, or try a low-temperature or water-leak alert.</p>
-    <p class="small">This is a marketing simulation with example data — not live hardware and not the real app. No login, no cloud.</p>
-    <div class="ctas"><a class="btn" href="demo/">Open the full-screen demo</a><a class="btn ghost" href="#beta">Join the beta</a></div></div>
-  <a class="demo-preview" href="demo/" aria-label="Open the full-screen Reef Control Pro demo"><img src="assets/demo-preview.webp" width="1440" height="900" loading="lazy" alt="Full-screen reef tank with swimming fish and the Reef Control Pro app panel"></a>
-</div></section>
+<section class="band band-deep" id="kit" aria-labelledby="h-kit">
+  <div class="wrap">
+    <h2 id="h-kit">A reef controller that plugs together</h2>
+    <ul class="kit">
+      <li><span class="ico ico-mark"><img src="demo/assets/mark/reef-mark-drop-white.svg" width="1332" height="1932" alt=""></span><div><h3>Controller</h3><p>Home Assistant pre-installed</p></div></li>
+      <li><span class="ico aqua"><svg><use href="assets/icons/lucide-sprite.svg#power"/></svg></span><div><h3>Power Hub</h3><p>Eight switched outlets</p></div></li>
+      <li><span class="ico water"><svg><use href="assets/icons/lucide-sprite.svg#thermometer"/></svg></span><div><h3>Temperature probes</h3><p>Tank and sump</p></div></li>
+      <li><span class="ico aqua"><svg><use href="assets/icons/lucide-sprite.svg#waves"/></svg></span><div><h3>Auto top-off</h3><p>Pump and level sensors</p></div></li>
+      <li><span class="ico aqua"><svg><use href="assets/icons/lucide-sprite.svg#droplet"/></svg></span><div><h3>Leak sensor</h3><p>Alerts and top-off lockout</p></div></li>
+      <li><span class="ico aqua"><svg><use href="assets/icons/lucide-sprite.svg#pipette"/></svg></span><div><h3>Dosing (Pro)</h3><p>Calcium, alkalinity, magnesium</p></div></li>
+      <li><span class="ico water ico-ph"><svg><use href="assets/icons/lucide-sprite.svg#droplet"/></svg><b>pH</b></span><div><h3>pH probe (Pro)</h3><p>pH reading on your home screen</p></div></li>
+      <li><span class="ico aqua"><svg><use href="assets/icons/lucide-sprite.svg#layout-grid"/></svg></span><div><h3>Eight outlets</h3><p>Straightforward on and off control</p></div></li>
+    </ul>
+  </div>
+</section>
 
-<section id="beta"><div class="wrap"><div class="beta">
-  <div class="eyebrow">Beta</div><h2>Join the beta</h2>
-  <p class="lead" style="margin:0 auto 24px">We’re looking for reef keepers to test Reef Control Pro on their own tanks before launch.</p>
-  <a class="btn" href="mailto:?subject=Reef%20Control%20Pro%20beta">Join the beta</a>
-</div></div></section>
+<section class="band" aria-labelledby="h-problems">
+  <div class="wrap">
+    <h2 id="h-problems">Problems the tank throws at you, and <span class="aqua">what</span> the controller does.</h2>
+    <ol class="problems">
+      <li class="c-aqua"><span class="num" aria-hidden="true">01</span><div>
+        <h3>Evaporation</h3>
+        <p>Water level drops and salinity climbs.</p>
+        <svg class="ico arrow" aria-hidden="true"><use href="assets/icons/lucide-sprite.svg#arrow-down"/></svg>
+        <p class="fix"><svg class="ico ico-lg" aria-hidden="true"><use href="assets/icons/lucide-sprite.svg#waves"/></svg><span>Auto top-off with an overfill lockout.</span></p>
+      </div></li>
+      <li class="c-water"><span class="num" aria-hidden="true">02</span><div>
+        <h3>Heater failure</h3>
+        <p>A heater can stick on and overheat the tank, or quit and let it cool.</p>
+        <svg class="ico arrow" aria-hidden="true"><use href="assets/icons/lucide-sprite.svg#arrow-down"/></svg>
+        <p class="fix"><svg class="ico ico-lg" aria-hidden="true"><use href="assets/icons/lucide-sprite.svg#thermometer"/></svg><span>Temperature probes switch the heater off above your limit, and alert you if the tank cools.</span></p>
+      </div></li>
+      <li class="c-violet"><span class="num" aria-hidden="true">03</span><div>
+        <h3>Water on the floor</h3>
+        <p>A leak under the stand goes unseen.</p>
+        <svg class="ico arrow" aria-hidden="true"><use href="assets/icons/lucide-sprite.svg#arrow-down"/></svg>
+        <p class="fix"><svg class="ico ico-lg" aria-hidden="true"><use href="assets/icons/lucide-sprite.svg#droplet"/></svg><span>A leak sensor under the stand alerts you and locks out top-off.</span></p>
+      </div></li>
+    </ol>
+    <p class="safety"><svg class="ico ico-lg aqua" aria-hidden="true"><use href="assets/icons/lucide-sprite.svg#shield-check"/></svg><span>Control Freak’s own safety rules — heater cutoff, top-off lockout and leak shutoff — keep running on the controller, even if Home Assistant stops.</span></p>
+  </div>
+</section>
+
+<section class="band band-deep" id="home-assistant" aria-labelledby="h-ha">
+  <div class="wrap">
+    <h2 id="h-ha">Your tank and home, together</h2>
+    <ul class="points">
+      <li><span class="ico ico-lg aqua"><svg><use href="assets/icons/lucide-sprite.svg#house"/></svg></span><div><h3>One place</h3><p>With Home Assistant and the Control Freak integration pre-installed, your tank and compatible smart home devices meet in one app.</p></div></li>
+      <li><span class="ico ico-lg aqua"><svg><use href="assets/icons/lucide-sprite.svg#network"/></svg></span><div><h3>Works locally</h3><p>Home Assistant stays on your home network, and the controller keeps running the tank when the internet connection drops.</p></div></li>
+      <li><span class="ico ico-lg aqua"><svg><use href="assets/icons/lucide-sprite.svg#cog"/></svg></span><div><h3>Open foundation</h3><p>Home Assistant is open source and run by a nonprofit. Control Freak adds no subscription to your reef controller.</p></div></li>
+      <li><span class="ico ico-lg aqua"><svg><use href="assets/icons/lucide-sprite.svg#mic"/></svg></span><div><h3>Voice access</h3><p>Ask Alexa for tank status, tell Google to adjust the temperature, and hear alerts out loud through Alexa or Google Home.</p></div></li>
+    </ul>
+    <p class="tm">Home Assistant is a trademark of the Open Home Foundation.</p>
+  </div>
+</section>
+
+<section class="demo-band" id="demo" aria-labelledby="h-demo">
+  <div class="demo-bg" aria-hidden="true"></div>
+  <div class="fish fish-c" aria-hidden="true"><img src="demo/assets/fish/blue-tang.webp" width="260" height="123" alt="" loading="lazy"></div>
+  <div class="fish fish-d" aria-hidden="true"><img src="demo/assets/fish/blue-tang.webp" width="260" height="123" alt="" loading="lazy"></div>
+  <div class="wrap demo-grid">
+    <div class="demo-copy">
+      <p class="eyebrow">Demo</p>
+      <h2 id="h-demo">Step inside the tank</h2>
+      <p class="demo-note">A simulation with example readings. Not live hardware and not the real app.</p>
+    </div>
+    <div class="demo-shot">
+      <a class="shot" href="demo/" tabindex="-1" aria-hidden="true"><img src="assets/demo-preview.webp" width="1200" height="750" alt="" loading="lazy"></a>
+      <a class="btn btn-fill" href="demo/">Open the full-screen demo</a>
+    </div>
+  </div>
+</section>
+
+<section class="band band-deep" aria-labelledby="h-ideas">
+  <div class="wrap">
+    <h2 id="h-ideas">Let your home lend a hand</h2>
+    <ul class="cards">
+      <li><span class="ico ico-lg aqua"><svg><use href="assets/icons/lucide-sprite.svg#lightbulb"/></svg></span><div>
+        <p class="tag tag-idea">Idea · with Home Assistant</p><h3>Water alert</h3>
+        <p>When water is detected under the stand, have your hallway lights flash and compatible speakers announce where attention is needed.</p>
+        <p class="nib">Your hallway light isn’t in the box. Your speaker isn’t in the box.</p></div></li>
+      <li><span class="ico ico-lg aqua"><svg><use href="assets/icons/lucide-sprite.svg#message-circle"/></svg></span><div>
+        <p class="tag tag-idea">Idea · with Home Assistant</p><h3>Feeding time</h3>
+        <p>Use a compatible button by the tank or your voice assistant to start Feed mode, pausing pumps before they resume automatically.</p>
+        <p class="nib">Your button isn’t in the box. Your voice assistant device isn’t in the box.</p></div></li>
+      <li><span class="ico ico-lg aqua"><svg><use href="assets/icons/lucide-sprite.svg#mic"/></svg></span><div>
+        <p class="tag tag-idea">Idea · with Home Assistant</p><h3>Siri</h3>
+        <p>Use Siri through Home Assistant's HomeKit Bridge to check the tank or start Feed mode.</p>
+        <p class="nib">Your Apple device isn't in the box.</p></div></li>
+    </ul>
+
+    <h2 class="h-sub">More possibilities for your reef</h2>
+    <ul class="cards">
+      <li><span class="ico ico-lg violet"><svg><use href="assets/icons/lucide-sprite.svg#cog"/></svg></span><div>
+        <p class="tag tag-addon">Planned add-on</p><h3>More probes</h3>
+        <p>ORP, salinity, and extra temperature probes are planned as separate additions, giving you more options beyond the probes in the kit.</p></div></li>
+      <li><span class="ico ico-lg aqua"><svg><use href="assets/icons/lucide-sprite.svg#droplet"/></svg></span><div>
+        <p class="tag tag-addon">Planned add-on</p><h3>Top-off reservoir</h3>
+        <p>A separate top-off reservoir is planned as another option for completing the setup alongside the kit’s pump and level sensors.</p></div></li>
+      <li><span class="ico ico-lg violet"><svg><use href="assets/icons/lucide-sprite.svg#circle-dot"/></svg></span><div>
+        <p class="tag tag-addon">Planned add-on</p><h3>Feed button</h3>
+        <p>A keyed Control Freak button beside the tank is proposed as another way to start Feed mode.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="beta-band" id="beta" aria-labelledby="h-beta">
+  <div class="beta-bg" aria-hidden="true"></div>
+  <div class="wrap beta">
+    <p class="eyebrow">Join the beta</p>
+    <h2 id="h-beta">Help shape <em>Reef Control Pro</em></h2>
+    <p class="intro">Bring your experience as a reef keeper to a product being developed for everyday tank care.</p>
+    <div class="your-tank">
+      <span class="ico-mark ico-xl"><img src="demo/assets/mark/reef-mark-drop-white.svg" width="1332" height="1932" alt=""></span>
+      <div><h3>Your tank</h3><p>We’re looking for reef keepers to test Reef Control Pro on their own tanks before launch. Join the beta.</p></div>
+    </div>
+    <!-- Beta sign-up URL not decided yet: keep the mailto until it is. -->
+    <a class="btn btn-line" href="mailto:?subject=Reef%20Control%20Pro%20beta">Join the beta</a>
+  </div>
+</section>
 </main>
-<footer class="wrap"><img class="markfoot" src="assets/reef-mark-drop-white.svg" alt="" width="20" height="29"> <b>Reef Control Pro</b><br><img src="assets/brought-to-you-by-control-freak-horizontal-dark.svg" alt="brought to you by Control Freak"><br>Reef Control Pro is in development. Visuals marked Concept are illustrative. <a href="/">All Control Freak products</a></footer>
-<script>addEventListener("message",function(e){var h=e.data&&e.data.cfDemoHeight;if(!h)return;document.querySelectorAll(".demo iframe").forEach(function(f){if(f.contentWindow===e.source)f.style.height=(h+4)+"px"})});</script>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <img class="foot-logo" src="demo/assets/mark/reef-mark-lockup-white.svg" width="4344" height="1932" alt="Control Freak" loading="lazy">
+    <p class="foot-attrib"><b>Reef Control Pro</b> · brought to you by Control Freak</p>
+    <p class="foot-concept">Concept: a product in development. Design, contents, and features may change.<br><a href="/">All Control Freak products</a></p>
+  </div>
+</footer>
 </body></html>
