@@ -62,7 +62,9 @@ svg.ico{display:inline-block;overflow:visible}
 .nav-links a{color:var(--ice);text-decoration:none;font-size:.95rem}
 .nav-links a:hover{color:var(--aqua)}
 .nav .btn{margin-left:24px}
-.hero-copy{margin-top:auto;padding-top:56px;padding-bottom:72px}
+.hero-copy{position:relative;margin-top:auto;padding-top:56px;padding-bottom:72px}
+/* Scrim behind the hero text only: keeps the headline legible over the bright coral, photo stays vivid elsewhere. */
+.hero-copy::before{content:"";position:absolute;inset:-40px -14% -30px -12%;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(2,11,29,.65) 0%,rgba(2,11,29,.65) 76%,rgba(2,11,29,0) 100%)}
 h1{font-family:var(--head);font-weight:700;font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:1.04;letter-spacing:-.02em}
 .hero-lead{margin-top:14px;font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--ice)}
 .ctas{display:flex;flex-wrap:wrap;gap:20px;margin-top:28px}
@@ -213,6 +215,7 @@ h1{font-family:var(--head);font-weight:700;font-size:clamp(2.4rem,5.4vw,4.4rem);
   .hero-bg img{object-position:50% 40%}
   .hero::after{background:linear-gradient(0deg,var(--abyss) 0%,rgba(2,11,29,.55) 45%,rgba(2,11,29,.35) 100%)}
   .hero-copy{padding-top:180px;padding-bottom:48px}
+  .hero-copy::before{display:none}
   .eyebrow{font-size:.72rem;letter-spacing:.14em}
   .ctas{gap:12px}
   .ctas .btn{flex:1 1 100%}
