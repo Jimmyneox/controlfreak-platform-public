@@ -57,3 +57,8 @@ header.wrap{padding-top:28px}
 section{scroll-margin-top:24px}
 .demo iframe{height:900px;display:block}
 @media(max-width:640px){.demo iframe{height:1500px}}
+
+/* Full-screen demo lives at demo/; the section shows a linked preview (2026-10-28). */
+.demo-preview{display:block;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+.demo-preview img{display:block;width:100%;height:auto}
+.demo-preview:hover,.demo-preview:focus-visible{outline:2px solid var(--line);outline-offset:4px}
