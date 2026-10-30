@@ -12,8 +12,11 @@ function flow(ok){pill("#flp",ok?"":"alarm",ok?"OK":"No flow");set("Chiller",ok)
 Q("#fl").onclick=function(){var ok=Q("#flp").classList.contains("alarm");flow(ok);say(ok?"SIMULATED · Flow restored, chiller back on.":"SIMULATED WHAT-IF · No flow — chiller stopped so it can’t run dry. Alert sent.");};
 Q("#clog").onclick=function(){pill("#flt","warn","Pressure rising · clean soon");say("SIMULATED · Filter pressure rising — clean the filter soon.");setTimeout(function(){flow(false);say("SIMULATED ALERT · Flow low — chiller stopped safely. Clean the filter, then tap Flow to clear.");},2200);};
 Q("#cold").onclick=function(){var g=root.querySelector(".cfd-gauge-value");var a=46,iv=setInterval(function(){a-=3;if(g)g.textContent=a+"°F";if(a<=31){clearInterval(iv);set("Pump",true);pill("#wm","","On · air "+a+" °F · pump running");say("SIMULATED · Cold night: air "+a+" °F — winter mode runs the pump to protect the tub and pipes.");}},450);};
-Q("#hc").onclick=function(){var b=Q("#hc"),hot=b.getAttribute("aria-pressed")!=="true";b.setAttribute("aria-pressed",hot);set("Heater",hot);set("Chiller",!hot);tg=hot?102:39;Q("#tgt").textContent="target "+tg+" °F";
+Q("#hc").onclick=function(){var b=Q("#hc"),hot=b.getAttribute("aria-pressed")!=="true";b.setAttribute("aria-pressed",hot);set("Heater",hot);set("Chiller",!hot);tg=hot?102:plungeT;Q("#tgt").textContent="target "+tg+" °F";
  var iv=setInterval(function(){w+=(tg-w)*.3;draw();if(Math.abs(tg-w)<1){w=tg;draw();clearInterval(iv);}},300);say("SIMULATED · "+(hot?"Warm soak: heater outlet on, chiller off. Target 102 °F (example).":"Back to plunge: heater off, chiller on. Target 39 °F."));};
+/* Cues carry each person's water target (Plunge 39 °F, Sam 45 °F...). */
+var plungeT=39;root.addEventListener("cfd:cue",function(e){if(e.detail.target==null)return;plungeT=e.detail.target;if(Q("#hc").getAttribute("aria-pressed")==="true")return;
+ tg=plungeT;Q("#tgt").textContent="target "+tg+" °F";var iv=setInterval(function(){w+=(tg-w)*.3;draw();if(Math.abs(tg-w)<1){w=tg;draw();clearInterval(iv);}},300);});
 var A=["Water too warm — 45 °F at your ready-by time","No flow — chiller stopped","Filter — clean soon","Cold night — winter mode running the pump","Chiller health — cooling slower than usual"],ai=0;
 Q("#alert").onclick=function(){var a=A[ai++%A.length];if(a.indexOf("Chiller")===0)pill("#hl","warn","Cooling slower than usual");say("SIMULATED ALERT · "+a+" — push · text · email · alarm. Example only.");};
 })();

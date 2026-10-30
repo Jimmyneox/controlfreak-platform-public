@@ -33,3 +33,62 @@
 .cfd-footer{margin-top:auto;padding:14px;text-align:center;color:var(--cfd-muted)}
 .cfd-footer img{height:22px;opacity:.8}
 .cfd-disclaimer{font-size:.6rem;margin-top:6px}
+
+/* Cues (company standard, CUES.md): square icon tiles at the top, editor in a native dialog. */
+.cfd-cues{padding:4px 14px 8px}
+.cfd-cues-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cfd-muted)}
+.cfd-cue-edit{all:unset;cursor:pointer;font-size:.72rem;letter-spacing:0;text-transform:none;font-weight:600;color:var(--cfd-accent);padding:4px 8px;border-radius:99px}
+.cfd-cue-edit:focus-visible{outline:2px solid var(--cfd-accent)}
+.cfd-cue-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.cfd-cue-tiles label{position:relative;display:flex}
+.cfd-cue-tiles input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.cfd-cue{flex:1;min-width:0;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:8px 6px;border-radius:var(--cfd-radius);background:var(--cfd-surface-2);text-align:center;transition:background .2s,color .2s}
+.cfd-cue-ico{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;color:var(--cfd-accent)}
+.cfd-cue b{font-size:.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.cfd-cue small{font-size:.62rem;line-height:1.25;color:var(--cfd-muted)}
+.cfd-cue-tiles input:checked+.cfd-cue{background:var(--cfd-accent);color:var(--cfd-surface)}
+.cfd-cue-tiles input:checked+.cfd-cue .cfd-cue-ico,.cfd-cue-tiles input:checked+.cfd-cue small{color:var(--cfd-surface)}
+.cfd-cue-tiles input:focus-visible+.cfd-cue{outline:2px solid var(--cfd-accent);outline-offset:2px}
+.cfd-cue-status{margin:8px 0 0;font-size:.72rem;line-height:1.35;color:var(--cfd-muted)}
+.cfd-toggle::before{order:2;margin-left:auto;margin-right:8px;font-size:.66rem;color:var(--cfd-muted);font-variant-numeric:tabular-nums}
+.cfd-toggle::after{order:3}
+.cfd-toggle[data-left]::before{content:attr(data-left)}
+.cfd-cue-editor{width:min(400px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;overscroll-behavior:contain;padding:16px;border:0;border-radius:22px;background:var(--cfd-surface);color:var(--cfd-text);font-family:var(--cfd-font)}
+.cfd-cue-editor::backdrop{background:rgba(0,0,0,.55);overscroll-behavior:contain}
+.cfd-cue-editor form{display:flex;flex-direction:column;gap:12px}
+.cfd-ce-head{display:flex;justify-content:space-between;align-items:center}
+.cfd-ce-x{all:unset;cursor:pointer;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:var(--cfd-surface-2);font-size:1.1rem}
+.cfd-ce-pick{display:flex;flex-wrap:wrap;gap:6px}
+.cfd-ce-chip{all:unset;cursor:pointer;padding:5px 11px;border-radius:99px;border:1px solid var(--cfd-muted);font-size:.76rem;font-weight:600;color:var(--cfd-muted)}
+.cfd-ce-chip[aria-checked=true]{background:var(--cfd-accent);border-color:var(--cfd-accent);color:var(--cfd-surface)}
+.cfd-ce-field{display:flex;flex-direction:column;gap:6px;border:0;margin:0;padding:0;min-width:0}
+.cfd-ce-field>span:first-child,.cfd-ce-field legend{padding:0;margin-bottom:2px;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cfd-muted)}
+.cfd-ce-row{flex-direction:row;align-items:center;justify-content:space-between}
+.cfd-ce-num{display:inline-flex;align-items:center;gap:6px;color:var(--cfd-muted)}
+.cfd-ce-target{width:5em;font:inherit;font-size:.9rem;color:var(--cfd-text);background:var(--cfd-surface-2);border:1px solid transparent;border-radius:10px;padding:7px 9px}
+.cfd-ce-name{font:inherit;font-size:.9rem;color:var(--cfd-text);background:var(--cfd-surface-2);border:1px solid transparent;border-radius:10px;padding:8px 10px}
+.cfd-ce-icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(36px,1fr));gap:6px}
+.cfd-ce-icons label{position:relative;display:flex}
+.cfd-ce-icons input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.cfd-ce-icons span{flex:1;display:grid;place-items:center;height:36px;border-radius:10px;background:var(--cfd-surface-2)}
+.cfd-ce-icons .cfd-cue-ico{width:20px;height:20px}
+.cfd-ce-icons input:checked+span{background:var(--cfd-accent)}
+.cfd-ce-icons input:checked+span .cfd-cue-ico{color:var(--cfd-surface)}
+.cfd-ce-hint,.cfd-ce-note{margin:0;font-size:.72rem;color:var(--cfd-muted)}
+.cfd-ce-outlets{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.cfd-ce-outlets li{display:grid;grid-template-columns:minmax(0,1fr) 7.2em;gap:6px;align-items:center}
+.cfd-ce-outlets.no-times li{grid-template-columns:minmax(0,1fr)}
+.cfd-ce-outlets.no-times .cfd-ce-time{display:none}
+.cfd-ce-out{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:8px 10px;border-radius:12px;background:var(--cfd-surface-2);font-size:.8rem;cursor:pointer;min-width:0}
+.cfd-ce-out span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cfd-ce-out input{accent-color:var(--cfd-accent);margin:0}
+.cfd-ce-outlets li.is-changed .cfd-ce-out{box-shadow:inset 3px 0 0 var(--cfd-accent)}
+.cfd-ce-time{width:100%;min-width:0;padding:7px 5px;border-radius:10px;border:1px solid rgba(127,127,127,.35);background:var(--cfd-surface-2);color:var(--cfd-text);font:inherit;font-size:.76rem}
+.cfd-ce-time:disabled{opacity:.35}
+.cfd-ce-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.cfd-ce-btn{all:unset;cursor:pointer;padding:8px 14px;border-radius:99px;border:1px solid var(--cfd-muted);font-size:.8rem;font-weight:600}
+.cfd-ce-btn[hidden]{display:none}
+.cfd-ce-btn:disabled{opacity:.4;cursor:default}
+.cfd-ce-save{background:var(--cfd-accent);border-color:var(--cfd-accent);color:var(--cfd-surface)}
+.cfd-cue-editor input:focus-visible,.cfd-ce-time:focus-visible,.cfd-ce-btn:focus-visible,.cfd-ce-chip:focus-visible,.cfd-ce-x:focus-visible,.cfd-ce-icons input:focus-visible+span{outline:2px solid var(--cfd-accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.cfd-cue{transition:none}}
