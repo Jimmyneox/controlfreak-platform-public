@@ -1,16 +1,71 @@
-.cfd-controls{grid-template-columns:1fr 1fr;gap:6px}.cfd-toggle{padding:9px 10px;font-size:.74rem}
+/* Cold Plunge demo theme, "Calacatta at six": smoked glass tiles on the ink ground.
+   Shared chrome (demo.css) is themed through --cfd-* vars; colors here stay inside the C01 palette. */
+html{background:#2E3033}
+.cfd-device{--cfd-accent:#B8BBBE;--cfd-surface:#2E3033;--cfd-surface-2:#49443F;--cfd-text:#F4F2EE;--cfd-muted:#D8D2CA;--cfd-ok:#A9C7C4;--cfd-warn:#A64B43;--cfd-radius:14px;--cfd-font:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;--cfd-bezel:#5B5147;--cfd-display:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;width:380px}
+.cfd-product{font-family:var(--cfd-display);font-weight:300;font-size:1.15rem;letter-spacing:.01em}
+.cfd-controls{grid-template-columns:1fr 1fr;gap:6px}.cfd-toggle{padding:9px 10px;font-size:.74rem;border:1px solid #7D756B66}
+.cfd-toggle::after{background:#7D756B}
+.cfd-toggle[aria-pressed="true"]::after{background:#A9C7C4}
 .x-sec{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cfd-muted);padding:10px 16px 0}
 .x-cap{font-size:.66rem;color:var(--cfd-muted);padding:4px 16px 0;line-height:1.35}
-.x-status{padding:8px 16px 0;font-weight:700;font-size:.8rem;color:var(--cfd-text)}
+.x-status{padding:8px 16px 0;font-weight:500;font-size:.8rem;color:var(--cfd-text)}
 .x-row{display:flex;gap:6px;padding:6px 14px;flex-wrap:wrap}
-.x-pill{background:var(--cfd-surface-2);border-radius:99px;padding:6px 10px;font-size:.7rem;display:inline-flex;align-items:center;gap:6px;color:var(--cfd-text)}
-.x-pill b{font-weight:700}.x-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cfd-ok)}
-.x-pill.warn::before{background:var(--cfd-warn)}.x-pill.alarm::before{background:#e5484d}.x-pill.alarm{outline:1px solid #e5484d}.x-pill.off::before{background:var(--cfd-muted)}
+.x-pill{background:var(--cfd-surface-2);border:1px solid #7D756B66;border-radius:99px;padding:6px 10px;font-size:.7rem;display:inline-flex;align-items:center;gap:6px;color:var(--cfd-text)}
+.x-pill b{font-weight:600}.x-pill::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--cfd-ok)}
+/* Warnings never rely on color: a warning icon plus words in the pill. */
+.x-pill.warn::before,.x-pill.alarm::before{width:12px;height:12px;border-radius:0;background:#A64B43;-webkit-mask:var(--warn-ico) center/contain no-repeat;mask:var(--warn-ico) center/contain no-repeat}
+.x-pill.warn,.x-pill.alarm{--warn-ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E")}
+.x-pill.warn::before,.x-pill.alarm::before{background:#F4F2EE}
+.x-pill.warn{box-shadow:inset 3px 0 0 #A64B43}
+.x-pill.alarm{background:#A64B43;border-color:#A64B43}
+.x-pill.off::before{background:#8F8A83}
 .x-pill.nodot::before{display:none}
-.x-btn{all:unset;cursor:pointer;flex:1;text-align:center;padding:9px;border-radius:12px;font-size:.72rem;font-weight:600;background:var(--cfd-surface-2);color:var(--cfd-text);min-width:28%}
-.x-btn:focus-visible{outline:2px solid var(--cfd-accent)}.x-btn[aria-pressed="true"]{background:var(--cfd-accent);color:#fff}
-.x-voice{font-size:.66rem;color:var(--cfd-muted);border:1px dashed var(--cfd-muted)}.x-voice::before{display:none}
-.x-concept{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;background:var(--cfd-warn);color:#111;border-radius:4px;padding:1px 5px}
+.x-btn{all:unset;cursor:pointer;flex:1;text-align:center;padding:9px;border-radius:12px;font-size:.72rem;font-weight:500;background:var(--cfd-surface-2);border:1px solid #7D756B66;color:var(--cfd-text);min-width:28%}
+.x-btn:focus-visible{outline:2px solid #A9C7C4;outline-offset:2px}.x-btn[aria-pressed="true"]{background:#B8BBBE;color:#2E3033}
+.x-voice{font-size:.66rem;color:var(--cfd-muted);border:1px dashed #8F8A83;background:transparent}.x-voice::before{display:none}
+.x-concept{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;background:#C6B18D;color:#2E3033;border-radius:4px;padding:1px 5px}
 .x-ha{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--cfd-muted);border-radius:4px;padding:1px 5px}
-.cfd-device{--cfd-accent:#0b4f8a;--cfd-surface:#ffffff;--cfd-surface-2:#eef3f7;--cfd-text:#0f2233;--cfd-muted:#5c7080;--cfd-ok:#1f9d6b;--cfd-warn:#d98a00;--cfd-radius:8px;--cfd-font:"Helvetica Neue","Segoe UI",Arial,sans-serif;--cfd-bezel:#1b2a36;width:380px}
-.wt{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:center;padding:8px 14px;font-size:.75rem;color:var(--cfd-muted)}.wt b{font-size:1.8rem;color:var(--cfd-text)}.wt small{display:block;font-size:.62rem;margin:2px 0 6px}.wt .x-btn{display:block;margin:4px 0}.wt .x-btn b{font-size:.75rem}.ring{width:110px;height:110px;transform:rotate(-90deg)}.ring circle{fill:none;stroke-width:10}.ring .bg{stroke:var(--cfd-surface-2)}.ring .fg{stroke:#0b4f8a;stroke-linecap:round;transition:stroke-dashoffset .4s}
+
+/* Water tile: the at-six smoked glass card. Temperature leads; target, ready-by and the cue chip follow. */
+.wt{margin:8px 14px 6px;padding:14px 16px 14px;border-radius:18px;background:linear-gradient(160deg,#5B5147 0%,#49443F 55%,#49443F 100%);border:1px solid #7D756B88;color:var(--cfd-muted);font-size:.75rem}
+.wt-head{display:flex;justify-content:space-between;align-items:baseline}
+.wt-head span:first-child{font-size:.95rem;color:#F4F2EE}
+.wt-ex{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cfd-muted)}
+.wt-main{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.wt-num{font-family:var(--cfd-display);font-weight:300;font-size:3.6rem;line-height:1.05;color:#F4F2EE;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.wt-num b{font-weight:300}
+.wt small{display:block;font-size:.66rem;margin:2px 0 6px}
+.wt .x-btn{display:block;margin:8px 0 4px;background:#2E303399}.wt .x-btn b{font-size:.75rem}
+.ring{width:64px;height:64px;transform:rotate(-90deg);flex:none}.ring circle{fill:none;stroke-width:7}.ring .bg{stroke:#7D756B88}.ring .fg{stroke:#A9C7C4;stroke-linecap:round;transition:stroke-dashoffset .4s,stroke .4s}.ring .fg.warm{stroke:#C6B18D}
+.wt-foot{display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+.wt-chip{display:inline-flex;align-items:center;gap:7px;padding:4px 12px 4px 4px;border-radius:99px;background:#655E55;color:#F4F2EE;font-size:.76rem}
+.wt-chip svg{width:24px;height:24px;padding:3px;border:1px solid #D8D2CA;border-radius:50%;fill:none;stroke:#F4F2EE;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;box-sizing:border-box}
+.wt-cue{font-size:.68rem;color:var(--cfd-muted)}.wt-cue[hidden]{display:none}
+
+/* Cues and toggles on smoked tiles; the selected cue goes to polished nickel. */
+.cfd-cue{border:1px solid #7D756B66}
+.cfd-cue-ico{color:#D8D2CA}
+.cfd-cue-tiles input:checked+.cfd-cue{background:#B8BBBE;color:#2E3033;border-color:#B8BBBE}
+.cfd-cue-tiles input:checked+.cfd-cue .cfd-cue-ico,.cfd-cue-tiles input:checked+.cfd-cue small{color:#2E3033}
+.cfd-cue-edit{color:#F4F2EE;border:1px solid #7D756B}
+.cfd-gauge{border:1px solid #7D756B66}
+.cfd-gauge-value{font-family:var(--cfd-display);font-weight:300;font-size:1.5rem}
+.cfd-bar{background:#7D756B66}.cfd-bar>i{background:#B8BBBE}
+.cfd-badge--sim{background:#C6B18D;color:#2E3033}
+.cfd-cue-editor{border:1px solid #7D756B}
+.cfd-ce-target,.cfd-ce-name{border-color:#7D756B}
+
+/* Toast: calm by default; alerts get the mineral red rule and a warning icon with the words. */
+.cfd-toast{background:#655E55;color:#F4F2EE;border:1px solid #7D756B}
+.cfd-toast.alert{border-left:4px solid #A64B43;padding-left:34px;background:#655E55 no-repeat 10px 50%/16px var(--warn-ico)}
+.cfd-toast{--warn-ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E")}
+
+/* Stage and layout overrides (layout itself lives in stage.css). The tub object is shared Design
+   artwork in an older, saturated style; warm and quiet it so it sits in the at-six room. */
+.stage svg.cf-demo-object{filter:saturate(.35) sepia(.18) brightness(1.04)}
+.cfd-left .stage{background:#49443F;border:1px solid #7D756B66}
+.cfd-phone{padding:10px;border:1px solid #B8BBBE;box-shadow:0 20px 50px #2E3033AA}
+.cfd-scenarios{background:#2E3033;border:1px dashed #8F8A83}
+.cfd-scenarios .cfd-notify{border:0}
+.cfd-scenarios .cfd-notify button{color:#F4F2EE;text-decoration:underline;text-decoration-color:#C6B18D;text-underline-offset:3px}
+.cfd-footer img{opacity:1;background:#F4F2EE;padding:4px 8px;border-radius:4px;height:30px}
