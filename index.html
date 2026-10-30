@@ -1,32 +1,157 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Control Freak | Smart controllers that run locally</title>
+<meta name="description" content="Smart controllers that run locally, work together in one app, and keep the control with the people who care most.">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#0b1f3a">
+<meta name="theme-color" content="#1C1D20">
+<link rel="preload" as="image" href="assets/home/hero-dusk-backyard-1444.webp" imagesrcset="assets/home/hero-dusk-backyard-960.webp 960w, assets/home/hero-dusk-backyard-1444.webp 1444w" imagesizes="100vw" fetchpriority="high">
+<link rel="stylesheet" href="assets/home/home.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-<title>Control Freak — Wave 1 Pro products</title>
-<meta name="description" content="Control Freak Wave 1 Pro products: Reef Control Pro, Basement Guard Pro, Terrarium Control Pro and Cold Plunge Control Pro.">
-<style>
-:root{--ink:#e9edf2;--muted:#9aa6b2;--line:rgba(220,228,236,.14)}
-*{box-sizing:border-box}body{margin:0;font-family:"Inter","Segoe UI",system-ui,sans-serif;background:#0d141c;color:var(--ink);line-height:1.55}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}header{padding:72px 0 28px}header img.wordmark{height:56px;width:auto}
-h1{font-size:clamp(1.8rem,4vw,2.8rem);margin:28px 0 8px;line-height:1.1}p{color:var(--muted);max-width:40em}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin:32px 0 64px}
-a.card{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:22px;border-top:5px solid var(--c)}
-a.card:hover{border-color:var(--c)}
-a.card h2{margin:0 0 6px;font-size:1.15rem}a.card p{margin:0 0 12px;font-size:.92rem}a.card span{font-size:.8rem;color:var(--c);font-weight:600}
-a.card .mark{display:flex;align-items:center;justify-content:center;width:64px;height:64px;margin:0 0 14px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line);box-shadow:inset 0 -3px 0 var(--c)}a.card .mark img{width:48px;height:48px;display:block}
-footer{color:var(--muted);font-size:.82rem;padding:0 0 48px}
-</style></head><body>
-<header class="wrap"><img class="wordmark" src="assets/control-freak-corporate-wordmark-white.svg" alt="Control Freak">
-<h1>Put the Control Freak on it.</h1>
-<p>How many apps do you have to open to control your smart products? Every Control Freak Pro ships with Home Assistant and the Control Freak integration already set up — one place for the product and the rest of your home, on your home network. Multi-platform integration built in: ask Alexa what the status is, tell Google to adjust the temperature, and get voice alerts when something is out of balance.</p></header>
-<main class="wrap"><div class="grid">
-<a class="card" style="--c:#ff7a5c" href="/reef/"><span class="mark"><img src="assets/product-cards/o04-reef/o04-reef-card-mark.svg" alt="" width="48" height="48" onerror="this.onerror=null;this.src='assets/product-cards/o04-reef/o04-reef-card-mark-48@2x.png'"></span><h2>Reef Control Pro</h2><p>A reef controller that plugs together. Keeps working when the internet doesn’t.</p><span>Site + demo →</span></a>
-<a class="card" style="--c:#e9edf2" href="/basement-guard/"><span class="mark"><img src="assets/product-cards/c03-basement/c03-basement-card-mark.svg" alt="" width="48" height="48" onerror="this.onerror=null;this.src='assets/product-cards/c03-basement/c03-basement-card-mark-48@2x.png'"></span><h2>Basement Guard Pro</h2><p>Two pumps, one watchful hub — the pit, the pipes and the floor.</p><span>Site + demo →</span></a>
-<a class="card" style="--c:#3d8f7a" href="/terrarium/"><span class="mark"><img src="assets/product-cards/o15-terrarium/o15-terrarium-card-mark.svg" alt="" width="48" height="48" onerror="this.onerror=null;this.src='assets/product-cards/o15-terrarium/o15-terrarium-card-mark-48@2x.png'"></span><h2>Terrarium Control Pro</h2><p>Heat, light and misting for up to three enclosures. From one controller.</p><span>Site + demo →</span></a>
-<a class="card" style="--c:#7fb6e0" href="/cold-plunge/"><span class="mark"><img src="assets/product-cards/c01-cold-plunge/c01-cold-plunge-card-mark.svg" alt="" width="48" height="48" onerror="this.onerror=null;this.src='assets/product-cards/c01-cold-plunge/c01-cold-plunge-card-mark-48@2x.png'"></span><h2>Cold Plunge Control Pro</h2><p>Your plunge, ready when you are.</p><span>Site + demo →</span></a>
-</div></main>
-<footer class="wrap">All products are in development. Demos are marketing simulations with example data. No subscription. Prices to be announced.</footer>
-</body></html>
+<!-- Icon sprite and shared ring paint. Sized to zero, not display:none, so gradients and filters still render. -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="ring-track" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F5F5F6"/>
+      <stop offset="1" stop-color="#C9CBCE"/>
+    </linearGradient>
+    <filter id="disc-lift" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#1C1D20" flood-opacity=".22"/>
+    </filter>
+    <symbol id="ring" viewBox="0 0 160 160">
+      <circle cx="80" cy="80" r="74" fill="none" stroke="#E6E7E9" stroke-width="1"/>
+      <circle cx="80" cy="80" r="64" fill="none" stroke="url(#ring-track)" stroke-width="14"/>
+      <circle class="arc" cx="80" cy="80" r="64" fill="none" stroke="#EE243B" stroke-width="14" pathLength="360" stroke-dasharray="125 360" transform="rotate(-90 80 80)"/>
+      <circle cx="80" cy="80" r="50" fill="#FFFFFF" filter="url(#disc-lift)"/>
+      <circle cx="80" cy="80" r="50" fill="none" stroke="#E6E7E9" stroke-width="1.5"/>
+      <circle cx="132.4" cy="116.7" r="5" fill="#FFFFFF" stroke="#EE243B" stroke-width="3"/>
+    </symbol>
+    <symbol id="i-local" viewBox="0 0 32 32"><path d="M4.5 15 16 5.5 27.5 15"/><path d="M8 12.5V27h16V12.5"/><rect x="12.5" y="15.5" width="7" height="7" rx="1"/><path d="M14.5 13.5v2M17.5 13.5v2M14.5 22.5v2M17.5 22.5v2"/></symbol>
+    <symbol id="i-app" viewBox="0 0 32 32"><rect x="4" y="6.5" width="24" height="19" rx="2.5"/><path d="M4 11.5h24"/><path d="M7.5 9h.01M10 9h.01M12.5 9h.01"/><rect x="8" y="15" width="6.5" height="6.5" rx="1"/><path d="M18 16h6M18 20.5h4"/></symbol>
+    <symbol id="i-nosub" viewBox="0 0 32 32"><path d="M23.5 11.5a8.5 8.5 0 0 0-15 .5"/><path d="M8 7.5V12h4.5"/><path d="M8.5 20.5a8.5 8.5 0 0 0 15-.5"/><path d="M24 24.5V20h-4.5"/><path d="M5.5 5.5l21 21"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 32 32"><path d="M16 4l10 4v7c0 6.5-4.2 11-10 13C10.2 26 6 21.5 6 15V8z"/><path d="M11.5 16l3.2 3.2 6-6.4"/></symbol>
+    <symbol id="i-tap" viewBox="0 0 32 32"><path d="M13 28.5v-4l-3.4-4a1.8 1.8 0 0 1 2.6-2.4l1.8 1.9V12.5a1.75 1.75 0 0 1 3.5 0V17l5 .9c1.4.25 2.3 1.5 2.1 2.9l-1.1 7.7"/><path d="M11.75 9.5a4 4 0 0 1 8 0"/><path d="M8.75 8a7 7 0 0 1 14 0"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 32 32"><path d="M12 4v6M20 4v6"/><path d="M9 10h14v5a7 7 0 0 1-14 0z"/><path d="M16 22v6"/></symbol>
+  </defs>
+</svg>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="#top" aria-label="Control Freak home"><img src="assets/control-freak-corporate-wordmark-white.svg" alt="Control Freak" width="1167" height="527"></a>
+    <nav aria-label="Main">
+      <a href="#story">Our story</a>
+      <a href="#stand">What we stand for</a>
+      <a href="#brands">Our brands</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <picture>
+      <source type="image/webp" srcset="assets/home/hero-dusk-backyard-960.webp 960w, assets/home/hero-dusk-backyard-1444.webp 1444w" sizes="100vw">
+      <img src="assets/home/hero-dusk-backyard-1444.jpg" srcset="assets/home/hero-dusk-backyard-960.jpg 960w, assets/home/hero-dusk-backyard-1444.jpg 1444w" sizes="100vw" width="1444" height="964" alt="A backyard at dusk with a lit pool, a reef aquarium, a planted terrarium tower and a cold plunge tub." fetchpriority="high">
+    </picture>
+    <div class="wrap hero-copy">
+      <h1><span>Put the</span> <span>Control Freak</span> <em>on it.</em></h1>
+      <p>Smart controllers that run locally, work together in one app, and keep the control with the people who care most.</p>
+    </div>
+  </section>
+
+  <section class="story" id="story" aria-labelledby="story-h">
+    <div class="wrap story-grid">
+      <h2 id="story-h" class="rule">Our story</h2>
+      <div>
+        <p>Control Freak started in pools, where the big systems charged a premium for boards you couldn't change. We built one that put control back in the owner's hands. Now the same controller runs reef tanks, basements, terrariums and cold plunges.</p>
+        <p class="kicker">We're not the control freaks. You are.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stand" id="stand" aria-labelledby="stand-h">
+    <div class="wrap">
+      <h2 id="stand-h" class="rule">What every Control Freak does for you</h2>
+      <ol class="rings">
+        <li><svg class="ring" viewBox="0 0 160 160" aria-hidden="true"><use href="#ring"/><use class="icon" href="#i-local" x="56" y="56" width="48" height="48"/></svg>
+          <h3>Local control</h3><p>The brains are in the controller, not on someone's server.</p></li>
+        <li><svg class="ring" viewBox="0 0 160 160" aria-hidden="true"><use href="#ring"/><use class="icon" href="#i-app" x="56" y="56" width="48" height="48"/></svg>
+          <h3>One app</h3><p>Home Assistant built in, for the whole home.</p></li>
+        <li><svg class="ring" viewBox="0 0 160 160" aria-hidden="true"><use href="#ring"/><use class="icon" href="#i-nosub" x="56" y="56" width="48" height="48"/></svg>
+          <h3>No subscription.</h3></li>
+        <li><svg class="ring" viewBox="0 0 160 160" aria-hidden="true"><use href="#ring"/><use class="icon" href="#i-shield" x="56" y="56" width="48" height="48"/></svg>
+          <h3>Safety rules built in</h3><p>They keep working when the internet doesn't.</p></li>
+        <li><svg class="ring" viewBox="0 0 160 160" aria-hidden="true"><use href="#ring"/><use class="icon" href="#i-tap" x="56" y="56" width="48" height="48"/></svg>
+          <h3>One-tap routines</h3><p>Spa Night on the pool, Feed Mode on the reef. One tap runs several steps, then hands control back. More than an on/off switch.</p></li>
+        <li><svg class="ring" viewBox="0 0 160 160" aria-hidden="true"><use href="#ring"/><use class="icon" href="#i-plug" x="56" y="56" width="48" height="48"/></svg>
+          <h3>Plug and play kit</h3><p>Keyed plugs fit one way.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="brands" id="brands" aria-labelledby="brands-h">
+    <div class="wrap">
+      <h2 id="brands-h" class="rule">Our brands</h2>
+      <ul class="tiles">
+        <li class="tile t-pool">
+          <div class="art"><img class="pool-mark" src="assets/control-freak-corporate-wordmark-white.svg" alt="" width="1167" height="527"></div>
+          <div class="body"><h3>Control Freak Pool</h3><p>Pool automation.</p><p class="status">Live.</p>
+          <a class="btn" href="https://controlfreakpool.com" aria-label="Visit Control Freak Pool">Visit</a></div>
+        </li>
+        <li class="tile t-reef">
+          <div class="art"><svg viewBox="0 0 64 64" fill="none" stroke="#F3F8FF" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="6" y="12" width="52" height="38" rx="3"/><path d="M6 22h52" stroke-width="2.4"/><path d="M14 50v-8m0 0-4-5m4 5 4-6M44 50v-10m0 4 5-5" stroke-width="2.4"/><path d="M27 33c4-5 10-5 13 0-3 5-9 5-13 0l-4-3v6z" fill="#79E8F3" stroke="none"/><path d="M14 50v6m36-6v6"/></svg></div>
+          <div class="body"><h3>Reef Control Pro</h3><p>A reef aquarium controller.</p><p class="status">Live.</p>
+          <a class="btn" href="/reef/" aria-label="Visit Reef Control Pro">Visit</a></div>
+        </li>
+        <li class="tile t-base">
+          <div class="art"><svg viewBox="0 0 64 64" fill="none" stroke="#EEF1F4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M6 22 32 8l26 14"/><path d="M10 22v34h44V22"/><rect x="20" y="34" width="24" height="22" rx="1" stroke-width="2.4"/><path d="M20 47h24" stroke="#2F7CF6" stroke-width="2.4"/><rect x="27" y="24" width="10" height="16" rx="2" fill="#EEF1F4" stroke="none"/><path d="M32 24v-6" stroke-width="2.4"/></svg></div>
+          <div class="body"><h3>Basement Guard Pro</h3><p>Sump and leak protection.</p><p class="status">Coming soon.</p>
+          <a class="btn" href="/basement-guard/" aria-label="See the Basement Guard Pro demo">See the demo</a></div>
+        </li>
+        <li class="tile t-terr">
+          <div class="art"><svg viewBox="0 0 64 64" fill="none" stroke="#F3ECDC" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="6" y="14" width="52" height="40" rx="2"/><path d="M6 22h52" stroke-width="2.4"/><path d="M38 6v8m-6 0h12" stroke="#E9A23B" stroke-width="2.4"/><path d="M8 54c8-8 14-8 20-4s14 4 28-2" stroke-width="2.4"/><path d="M18 46c0-10 2-14 2-16m0 6 5-4m-5 8-5-3" stroke-width="2.4"/><circle cx="44" cy="40" r="3" fill="#F3ECDC" stroke="none"/><path d="M38 44c3 2 9 2 12-2" stroke-width="2.4"/></svg></div>
+          <div class="body"><h3>Terrarium Control Pro</h3><p>Reptile habitats.</p><p class="status">Coming soon.</p>
+          <a class="btn" href="/terrarium/" aria-label="See the Terrarium Control Pro demo">See the demo</a></div>
+        </li>
+        <li class="tile t-plunge">
+          <div class="art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="12" y="12" width="40" height="40" stroke="#B8BBBE" stroke-width="3"/><path d="M45 3c-1.6 5.5-5 8.8-5.8 13.2-.7 3.6 1.1 5.8-.8 9.6-1.8 3.6-5.2 5.4-6.5 9.4-.8 2.9.1 5-1.2 7.9" stroke="#C6B18D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 40.5h30" stroke="#A9C7C4" stroke-width="3.6" stroke-linecap="round"/></svg></div>
+          <div class="body"><h3>Cold Plunge Control Pro</h3><p>Cold plunge.</p><p class="status">Coming soon.</p>
+          <a class="btn" href="/cold-plunge/" aria-label="See the Cold Plunge Control Pro demo">See the demo</a></div>
+        </li>
+        <li class="tile t-more">
+          <div class="art"><svg viewBox="0 0 64 64" fill="none" stroke="#8A8D93" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="32" cy="32" r="22" stroke-dasharray="4 7"/><path d="M32 23v18M23 32h18" stroke="#EE243B"/></svg></div>
+          <div class="body"><h3>More on the way</h3></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="closing" id="contact" aria-labelledby="closing-h">
+    <div class="wrap">
+      <h2 id="closing-h">Home Assistant is built into every controller.</h2>
+      <a class="btn btn-red" href="mailto:?subject=Control%20Freak">Contact</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <nav aria-label="Footer">
+      <a href="#story">Our story</a>
+      <a href="#stand">What we stand for</a>
+      <a href="#brands">Our brands</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>Home Assistant is a trademark of the Open Home Foundation.</p>
+  </div>
+</footer>
+</body>
+</html>
