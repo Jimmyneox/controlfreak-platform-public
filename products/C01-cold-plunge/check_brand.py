@@ -9,12 +9,22 @@ so it is not scanned; c01.js overrides the one shared string that carried a dash
 The stage tub is Design artwork inlined as <svg>; its internal <style> is Design-owned
 and not C01 CSS, so hex colors inside <svg> are skipped (its text is still checked).
 
+It then serves the site locally and runs check_stage.cjs headless (Playwright): the stage
+badge, stage caption and app water temperature must agree in every cue and scenario, and
+every stage water color must be a palette color. A missing Node or Playwright is a failure.
+
 Usage: python3 products/C01-cold-plunge/check_brand.py   (exit 1 on any finding)
 """
 from __future__ import annotations
 
+import functools
+import http.server
+import os
 import re
+import shutil
+import subprocess
 import sys
+import threading
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -98,6 +108,37 @@ def check_css(where: str, css: str, out: list[str]) -> None:
             out.append(f"HEX       {where}: #{m.group(1)} is not in the C01 palette")
 
 
+def run_stage() -> list[str]:
+    """Serve site/ on an ephemeral port and run the headless stage check. Returns findings."""
+    node = shutil.which("node")
+    if not node:
+        print("STAGE     node not found; the stage check cannot run")
+        return ["stage"]
+    handler = functools.partial(QuietHandler, directory=str(SITE))
+    server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    env = dict(os.environ)
+    npm = shutil.which("npm")
+    if npm:
+        root = subprocess.run([npm, "root", "-g"], capture_output=True, text=True).stdout.strip()
+        env["NODE_PATH"] = os.pathsep.join(filter(None, [env.get("NODE_PATH"), root]))
+    try:
+        r = subprocess.run(
+            [node, str(Path(__file__).with_name("check_stage.cjs")),
+             f"http://127.0.0.1:{server.server_port}/demo/index.html", ",".join(sorted(PALETTE))],
+            capture_output=True, text=True, env=env, timeout=600)
+    finally:
+        server.shutdown()
+    out = (r.stdout + r.stderr).strip()
+    print(out)
+    return [] if r.returncode == 0 else ["stage"]
+
+
+class QuietHandler(http.server.SimpleHTTPRequestHandler):
+    def log_message(self, *args: object) -> None:
+        pass
+
+
 def main() -> int:
     findings: list[str] = []
     scanned = 0
@@ -126,6 +167,7 @@ def main() -> int:
     hexes = sum(len(HEX_RE.findall(f.read_text(encoding="utf-8"))) for f in CSS_FILES)
     for line in findings:
         print(line)
+    findings += run_stage()
     status = "FAIL" if findings else "PASS"
     print(f"{status}: {len(findings)} finding(s); {scanned} text strings, {hexes} CSS hex colors scanned")
     return 1 if findings else 0

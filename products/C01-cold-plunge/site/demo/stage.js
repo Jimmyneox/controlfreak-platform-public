@@ -9,6 +9,7 @@ function C(c,v){svg.classList.toggle(c,!!v);}
 function W(k){var w=svg.querySelector("#water");if(w)w.style.transform="scaleY("+k.toFixed(2)+")";}
 function UPDATE(){var w=num("#wt"),Ch=on("Chiller"),P=on("Pump"),H=on("Heater");if(isNaN(w))w=39;
 var k=Math.max(0,Math.min(1,(w-35)/(70-35)));C("chiller-on",Ch);C("power-on",Ch||P||H);C("temp-neutral",w>=60);C("chromo-on",false);C("chromo-off",false);
+var bt=svg.querySelector("#display text");if(bt)bt.textContent=Math.round(w)+"°F";
 var wc=svg.querySelector("#water-cool");if(wc)wc.style.opacity=w>=60?"":(1-k).toFixed(2);
 return "Tub: water "+Math.round(w)+" °F; chiller "+(Ch?"on":"off")+", pump "+(P?"on":"off")+", heater "+(H?"on":"off")+".";}
 var last="";function tick(){var t=UPDATE();if(t!==last){st.querySelector(".stage-cap").textContent=t;svg.setAttribute("aria-label",t);last=t;}}tick();setInterval(tick,250);

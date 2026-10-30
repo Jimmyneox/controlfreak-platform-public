@@ -9,12 +9,14 @@ html{background:#2E3033}
 .x-sec{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cfd-muted);padding:10px 16px 0}
 .x-cap{font-size:.66rem;color:var(--cfd-muted);padding:4px 16px 0;line-height:1.35}
 .x-status{padding:8px 16px 0;font-weight:500;font-size:.8rem;color:var(--cfd-text)}
+.x-status.alert{display:flex;align-items:center;gap:8px;margin:8px 14px 0;padding:7px 10px;border-radius:10px;background:#A64B43;color:#F4F2EE}
+.x-status.alert::before{content:"";flex:none;width:14px;height:14px;background:#F4F2EE;-webkit-mask:var(--warn-ico) center/contain no-repeat;mask:var(--warn-ico) center/contain no-repeat}
 .x-row{display:flex;gap:6px;padding:6px 14px;flex-wrap:wrap}
 .x-pill{background:var(--cfd-surface-2);border:1px solid #7D756B66;border-radius:99px;padding:6px 10px;font-size:.7rem;display:inline-flex;align-items:center;gap:6px;color:var(--cfd-text)}
 .x-pill b{font-weight:600}.x-pill::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--cfd-ok)}
 /* Warnings never rely on color: a warning icon plus words in the pill. */
 .x-pill.warn::before,.x-pill.alarm::before{width:12px;height:12px;border-radius:0;background:#A64B43;-webkit-mask:var(--warn-ico) center/contain no-repeat;mask:var(--warn-ico) center/contain no-repeat}
-.x-pill.warn,.x-pill.alarm{--warn-ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E")}
+.x-pill.warn,.x-pill.alarm,.x-status{--warn-ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E")}
 .x-pill.warn::before,.x-pill.alarm::before{background:#F4F2EE}
 .x-pill.warn{box-shadow:inset 3px 0 0 #A64B43}
 .x-pill.alarm{background:#A64B43;border-color:#A64B43}
@@ -62,7 +64,15 @@ html{background:#2E3033}
 
 /* Stage and layout overrides (layout itself lives in stage.css). The tub object is shared Design
    artwork in an older, saturated style; warm and quiet it so it sits in the at-six room. */
-.stage svg.cf-demo-object{filter:saturate(.35) sepia(.18) brightness(1.04)}
+/* Stage water stays glass-edge aqua in every state (Design's chromotherapy cycle is overridden until a Calacatta tub ships).
+   !important is needed: the SVG's own <style> comes later in the document and its color cycle is a keyframe animation. */
+.stage svg.cf-demo-object .cc{fill:#A9C7C4!important;animation:none!important}
+.stage svg.cf-demo-object #chromo{opacity:.55!important}
+.stage svg.cf-demo-object #water-tint,.stage svg.cf-demo-object.temp-neutral #water-tint{fill:#A9C7C4!important}
+.stage svg.cf-demo-object #flow .ring{stroke:#F4F2EE!important}
+.stage svg.cf-demo-object #mist .puff{fill:#F4F2EE!important}
+.stage svg.cf-demo-object #display rect{fill:#2E3033}
+.stage svg.cf-demo-object #display text{fill:#F4F2EE;font-family:"Inter",system-ui,sans-serif}
 .cfd-left .stage{background:#49443F;border:1px solid #7D756B66}
 .cfd-phone{padding:10px;border:1px solid #B8BBBE;box-shadow:0 20px 50px #2E3033AA}
 .cfd-scenarios{background:#2E3033;border:1px dashed #8F8A83}
