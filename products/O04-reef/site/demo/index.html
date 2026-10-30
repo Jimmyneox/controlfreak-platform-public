@@ -71,11 +71,23 @@
 
     <div class="alerts" id="alerts" role="alert"></div>
 
+    <!-- Cues: one tap sets several outlets and the heater limit at once (a home automation "scene").
+         Tiles are drawn by reef-demo.js from the CUES list so edits and new cues show up. Icons: Lucide v0.460.0, ISC. -->
+    <fieldset class="modes">
+      <legend>Cues</legend>
+      <button type="button" class="cue-edit-btn" id="cue-edit-btn" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 20h9"/><path d="M16.38 3.62a1 1 0 0 1 3 3L7.37 18.64a2 2 0 0 1-.86.5l-2.87.84a.5.5 0 0 1-.62-.62l.84-2.87a2 2 0 0 1 .5-.86z"/></svg>Edit
+      </button>
+      <div class="cues" id="cues"></div>
+      <p class="mode-status" id="mode-status" aria-live="polite">Pumps running.</p>
+    </fieldset>
+
+
     <div class="readings">
       <div class="tile tile-lg" id="t-tank">
         <span class="t-label">Tank</span>
         <span class="t-value" id="v-tank">78.4&nbsp;°F</span>
-        <span class="t-sub">Probe 1</span>
+        <span class="t-sub" id="s-tank">Probe 1 · limit 78.0 °F</span>
       </div>
       <div class="tile tile-lg" id="t-sump">
         <span class="t-label">Sump</span>
@@ -99,15 +111,6 @@
       </div>
     </div>
 
-    <fieldset class="modes">
-      <legend>Mode</legend>
-      <div class="seg">
-        <label><input type="radio" name="mode" value="normal" checked><span>Normal</span></label>
-        <label><input type="radio" name="mode" value="feed"><span>Feed</span></label>
-        <label><input type="radio" name="mode" value="maint"><span>Maintenance</span></label>
-      </div>
-      <p class="mode-status" id="mode-status" aria-live="polite">Pumps running.</p>
-    </fieldset>
 
     <button class="more-toggle" type="button" aria-expanded="false" aria-controls="more">
       <span class="more-closed">Outlets, dosing and demo alerts</span>
@@ -138,6 +141,40 @@
       <p class="panel-disclaimer">Marketing simulation. Demo values are simulated; this is not the real app.</p>
     </div>
   </section>
+  <dialog class="cue-editor" id="cue-editor" aria-labelledby="ce-title">
+    <form method="dialog" id="ce-form">
+      <div class="ce-head">
+        <h2 id="ce-title">Edit cues</h2>
+        <button type="submit" value="close" class="ce-x" formnovalidate aria-label="Close">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="ce-pick" id="ce-pick" role="radiogroup" aria-label="Cue to edit"></div>
+
+      <label class="ce-field"><span>Name</span><input type="text" id="ce-name" maxlength="14" required autocomplete="off"></label>
+
+      <fieldset class="ce-field">
+        <legend>Icon</legend>
+        <div class="ce-icons" id="ce-icons"></div>
+      </fieldset>
+
+      <fieldset class="ce-field">
+        <legend>Outlets in this cue</legend>
+        <p class="ce-hint" id="ce-times-hint">Give an outlet a time and it goes back to its Normal setting when the time runs out. Once every changed outlet has run out, the cue ends.</p>
+        <ul class="ce-outlets" id="ce-outlets"></ul>
+      </fieldset>
+
+      <label class="ce-field ce-row"><span>Heater limit</span>
+        <span class="ce-num"><input type="number" id="ce-heat" min="72" max="84" step="0.5" inputmode="decimal" required><span>°F</span></span></label>
+
+      <p class="ce-note">Demo only. Your changes last until you leave this page.</p>
+      <div class="ce-actions">
+        <button type="button" class="btn btn-quiet" id="ce-delete">Delete cue</button>
+        <button type="button" class="btn btn-quiet" id="ce-new">New cue</button>
+        <button type="submit" value="save" class="btn ce-save">Save</button>
+      </div>
+    </form>
+  </dialog>
 
   <footer class="site-foot">
     <p class="attrib">Reef Control Pro · brought to you by Control Freak</p>

@@ -53,9 +53,8 @@
     ["refugium", "Refugium light", false], ["skimmer", "Skimmer", true]
   ];
   var PUMPS = ["return", "ph1", "ph2"];
-  var FEED_SECONDS = 20;
   var NORMAL_TANK = 78.4, NORMAL_SUMP = 77.9, LOW_TANK = 74.2;
-  var S = { mode: "normal", tank: NORMAL_TANK, sump: NORMAL_SUMP, tankBase: NORMAL_TANK, scenario: null, feedLeft: 0, out: {} };
+  var S = { mode: "normal", tank: NORMAL_TANK, sump: NORMAL_SUMP, tankBase: NORMAL_TANK, scenario: null, out: {} };
   var inputs = {};
 
   var ul = $("#outlets");
@@ -105,35 +104,205 @@
   function setPumps(on) { PUMPS.forEach(function (k) { setOutlet(k, on); }); }
   OUTLETS.forEach(function (o) { setOutlet(o[0], o[2]); });
 
-  /* ---------- Modes ---------- */
-  var feedTimer = null;
-  var status = $("#mode-status");
-  function setMode(m) {
-    S.mode = m;
-    document.querySelector('input[name=mode][value="' + m + '"]').checked = true;
-    clearInterval(feedTimer); feedTimer = null;
-    root.classList.toggle("feeding", m === "feed");
-    if (m === "normal") { setPumps(true); status.textContent = "Pumps running."; }
-    if (m === "maint") { setPumps(false); status.textContent = "Maintenance: return and powerheads Off until you tap Normal."; }
-    if (m === "feed") {
-      setPumps(false);
-      S.feedLeft = FEED_SECONDS;
-      dropFlakes();
-      paintFeed();
-      feedTimer = setInterval(function () {
-        if (root.classList.contains("is-paused")) return;
-        S.feedLeft--;
-        if (S.feedLeft <= 0) { setMode("normal"); status.textContent = "Feed done. Pumps back On."; return; }
-        paintFeed();
-      }, 1000);
-    }
+  /* ---------- Cues ----------
+     A cue sets every switched outlet and the heater limit in one tap, like a home
+     automation scene. The heater itself follows its limit, so it is not a cue switch.
+     Each changed outlet can carry its own time: when it runs out, that outlet goes back
+     to its Normal setting. Once every changed outlet is timed and done, the cue ends.
+     Customers can edit any cue or add their own (kept in memory only, never stored).
+     The demo clock runs 10x fast so a timed cue ends while someone is watching. */
+  var ICONS = {
+    waves: '<path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>',
+    fish: '<path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><path d="M18 12v.5"/><path d="M16 17.93a9.77 9.77 0 0 1 0-11.86"/><path d="M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33"/><path d="M10.46 7.26C10.2 5.88 9.17 4.24 8 3h5.8a2 2 0 0 1 1.98 1.67l.23 1.4"/><path d="m16.01 17.93-.23 1.4A2 2 0 0 1 13.8 21H8c1.17-1.24 2.2-2.88 2.46-4.26"/>',
+    wrench: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+    moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+    sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>',
+    plane: '<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>'
+  };
+  var svg = function (k) { return '<svg class="cue-ico" viewBox="0 0 24 24" aria-hidden="true">' + ICONS[k] + "</svg>"; };
+  var SWITCHED = OUTLETS.filter(function (o) { return o[0] !== "heater"; });
+  var NAME = {}; OUTLETS.forEach(function (o) { NAME[o[0]] = o[1]; });
+  var NORMAL_OUT = {}; SWITCHED.forEach(function (o) { NORMAL_OUT[o[0]] = o[2]; });
+  var MINUTES = [0, 1, 2, 5, 10, 15, 30, 60];
+  /* set: outlet overrides, dur: minutes per outlet (0 = until you tap Normal) */
+  function cue(id, name, icon, set, dur) {
+    var out = Object.assign({}, NORMAL_OUT), d = {};
+    SWITCHED.forEach(function (o) { d[o[0]] = 0; });
+    Object.assign(out, set); Object.assign(d, dur);
+    return { id: id, name: name, icon: icon, out: out, dur: d, heat: 78 };
   }
-  function paintFeed() {
-    status.textContent = "Feed: return and powerheads Off. Pumps resume on their own in 0:" + String(S.feedLeft).padStart(2, "0") + ".";
+  var CUES = [
+    cue("normal", "Normal", "waves", {}, {}),
+    cue("feed", "Feed", "fish", { return: false, ph1: false, ph2: false, skimmer: false }, { return: 2, ph1: 2, ph2: 2, skimmer: 10 }),
+    cue("maint", "Maintenance", "wrench", { return: false, ph1: false, ph2: false, skimmer: false }, {})
+  ];
+  var MAX_CUES = 6, newId = 0;
+  var byId = function (id) { return CUES.filter(function (c) { return c.id === id; })[0]; };
+  var cueBox = $("#cues"), status = $("#mode-status"), cueTimer = null, left = {};
+  var changed = function (c) { var b = byId("normal").out; return SWITCHED.map(function (o) { return o[0]; }).filter(function (k) { return c.out[k] !== b[k]; }); };
+
+  function summary(c) {
+    if (c.id === "normal") return "Your everyday setup";
+    var ks = changed(c), pumpsOff = PUMPS.every(function (k) { return !c.out[k]; });
+    if (!ks.length) return "Same outlets as Normal";
+    var pd = PUMPS.map(function (k) { return c.dur[k]; });
+    if (pumpsOff && pd[0] && pd.every(function (m) { return m === pd[0]; })) return "Pumps pause, back in " + pd[0] + " min";
+    if (pumpsOff && !pd.some(Boolean)) return "Pumps off until you’re done";
+    var timed = ks.filter(function (k) { return c.dur[k]; }).length;
+    return ks.length + (ks.length === 1 ? " outlet changes" : " outlets change") + (timed ? ", " + (timed === ks.length ? "all timed" : timed + " timed") : "");
   }
-  document.querySelectorAll("input[name=mode]").forEach(function (r) {
-    r.addEventListener("change", function () { if (r.checked) setMode(r.value); });
+  function renderCues() {
+    cueBox.textContent = "";
+    CUES.forEach(function (c) {
+      var l = document.createElement("label");
+      l.innerHTML = '<input type="radio" name="mode"><span class="cue">' + svg(c.icon) + "<b></b><small></small></span>";
+      var r = l.querySelector("input");
+      r.value = c.id; r.checked = c.id === S.mode;
+      l.querySelector("b").textContent = c.name;
+      l.querySelector("small").textContent = summary(c);
+      r.addEventListener("change", function () { if (r.checked) setMode(c.id); });
+      cueBox.appendChild(l);
+    });
+  }
+  function clock(sec) { return Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0"); }
+  /* One phrase per group of outlets that share a setting and a time left, e.g.
+     "Return, Powerhead 1, Powerhead 2 Off for 1:40. Skimmer Off for 9:40." */
+  function statusText(c) {
+    var groups = [], seen = {};
+    changed(c).forEach(function (k) {
+      var timed = k in left;
+      if (c.dur[k] && !timed) return; /* its time ran out: back to Normal */
+      var tail = timed ? " for " + clock(left[k]) : " until you tap Normal";
+      var key = (c.out[k] ? "On" : "Off") + tail;
+      if (!(key in seen)) { seen[key] = groups.length; groups.push({ key: key, names: [] }); }
+      groups[seen[key]].names.push(NAME[k]);
+    });
+    var t = groups.map(function (g) { return g.names.join(", ") + " " + g.key + "."; }).join(" ");
+    return c.name + ": " + (t || "Same outlets as Normal.") + (Object.keys(left).length ? " (Demo clock runs 10× fast.)" : "");
+  }
+  function paintLeft() {
+    SWITCHED.forEach(function (o) {
+      var k = o[0];
+      inputs[k].state.textContent = (S.out[k] ? "On" : "Off") + (k in left ? " · " + clock(left[k]) : "");
+    });
+  }
+  function setMode(id) {
+    var c = byId(id) || CUES[0], base = byId("normal").out;
+    S.mode = c.id;
+    var r = cueBox.querySelector('input[value="' + c.id + '"]'); if (r) r.checked = true;
+    clearInterval(cueTimer); cueTimer = null; left = {};
+    SWITCHED.forEach(function (o) { setOutlet(o[0], c.out[o[0]]); });
+    S.heat = c.heat;
+    $("#s-tank").textContent = "Probe 1 · limit " + c.heat.toFixed(1) + " °F";
+    root.classList.toggle("feeding", c.icon === "fish");
+    if (c.icon === "fish") dropFlakes();
+    if (c.id === "normal") { status.textContent = PUMPS.every(function (k) { return c.out[k]; }) ? "Pumps running." : "Normal: pumps Off in your Normal cue."; return; }
+    var ks = changed(c);
+    ks.forEach(function (k) { if (c.dur[k]) left[k] = c.dur[k] * 60; });
+    var allTimed = ks.length > 0 && ks.every(function (k) { return c.dur[k]; });
+    status.textContent = statusText(c); paintLeft();
+    if (!Object.keys(left).length) return;
+    cueTimer = setInterval(function () {
+      if (root.classList.contains("is-paused")) return;
+      Object.keys(left).forEach(function (k) {
+        left[k] = Math.max(0, left[k] - 10);
+        if (!left[k]) { delete left[k]; setOutlet(k, base[k]); }
+      });
+      if (!Object.keys(left).length) {
+        clearInterval(cueTimer); cueTimer = null;
+        if (allTimed) { setMode("normal"); status.textContent = c.name + " done. Back to Normal."; return; }
+      }
+      status.textContent = statusText(c); paintLeft();
+    }, 1000);
+  }
+
+  /* Cue editor (settings) */
+  var dlg = $("#cue-editor"), editing = null;
+  var ceIcons = $("#ce-icons"), ceOut = $("#ce-outlets"), cePick = $("#ce-pick");
+  Object.keys(ICONS).forEach(function (k) {
+    var l = document.createElement("label");
+    l.innerHTML = '<input type="radio" name="ce-icon"><span>' + svg(k) + "</span>";
+    l.querySelector("input").value = k;
+    l.querySelector("input").setAttribute("aria-label", k);
+    ceIcons.appendChild(l);
   });
+  var opts = MINUTES.map(function (m) { return '<option value="' + m + '">' + (m ? m + " min" : "Until Normal") + "</option>"; }).join("");
+  SWITCHED.forEach(function (o) {
+    var li = document.createElement("li");
+    li.innerHTML = '<label class="outlet"><span class="outlet-name"></span><input type="checkbox" switch role="switch"></label><select class="ce-time"></select>';
+    li.querySelector(".outlet-name").textContent = o[1];
+    var sw = li.querySelector("input"), sel = li.querySelector("select");
+    sw.dataset.key = sel.dataset.key = o[0];
+    sel.innerHTML = opts;
+    sel.setAttribute("aria-label", o[1] + ": how long");
+    sw.addEventListener("change", syncTimes);
+    ceOut.appendChild(li);
+  });
+  /* A time only means something when the outlet differs from Normal. */
+  function syncTimes() {
+    var isNormal = editing && editing.id === "normal", base = byId("normal").out;
+    ceOut.classList.toggle("no-times", !!isNormal);
+    ceOut.querySelectorAll("li").forEach(function (li) {
+      var sw = li.querySelector("input"), sel = li.querySelector("select");
+      sel.disabled = isNormal || sw.checked === base[sw.dataset.key];
+      li.classList.toggle("is-changed", !sel.disabled);
+    });
+  }
+  function renderPick() {
+    cePick.textContent = "";
+    CUES.forEach(function (c) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "ce-chip"; b.textContent = c.name;
+      b.setAttribute("role", "radio"); b.setAttribute("aria-checked", String(c === editing));
+      b.addEventListener("click", function () { load(c); });
+      cePick.appendChild(b);
+    });
+  }
+  function load(c) {
+    editing = c;
+    renderPick();
+    $("#ce-name").value = c.name;
+    ceIcons.querySelector('input[value="' + c.icon + '"]').checked = true;
+    ceOut.querySelectorAll("input").forEach(function (i) { i.checked = !!c.out[i.dataset.key]; });
+    ceOut.querySelectorAll("select").forEach(function (s) { s.value = String(c.dur[s.dataset.key] || 0); });
+    $("#ce-heat").value = c.heat;
+    $("#ce-times-hint").hidden = c.id === "normal";
+    $("#ce-delete").hidden = ["normal", "feed", "maint"].indexOf(c.id) > -1;
+    $("#ce-new").disabled = CUES.length >= MAX_CUES;
+    syncTimes();
+  }
+  function save() {
+    if (!editing) return;
+    var c = editing;
+    c.name = $("#ce-name").value.trim() || c.name;
+    c.icon = ceIcons.querySelector("input:checked").value;
+    ceOut.querySelectorAll("input").forEach(function (i) { c.out[i.dataset.key] = i.checked; });
+    ceOut.querySelectorAll("select").forEach(function (s) { c.dur[s.dataset.key] = s.disabled ? 0 : parseInt(s.value, 10) || 0; });
+    var h = parseFloat($("#ce-heat").value); if (h >= 72 && h <= 84) c.heat = Math.round(h * 2) / 2;
+    if (CUES.indexOf(c) < 0) CUES.push(c);
+    renderCues();
+    if (S.mode === c.id) setMode(c.id);
+  }
+  $("#cue-edit-btn").addEventListener("click", function () { load(byId(S.mode) || CUES[0]); dlg.showModal(); });
+  $("#ce-new").addEventListener("click", function () {
+    newId++;
+    var c = cue("c" + newId, "My cue " + newId, "moon", {}, {});
+    c.out = Object.assign({}, byId("normal").out);
+    load(c);
+    $("#ce-delete").hidden = true;
+    $("#ce-name").select();
+  });
+  $("#ce-delete").addEventListener("click", function () {
+    var i = CUES.indexOf(editing); if (i < 0) return;
+    CUES.splice(i, 1);
+    if (S.mode === editing.id) setMode("normal");
+    renderCues(); load(CUES[0]);
+  });
+  dlg.addEventListener("close", function () {
+    if (dlg.returnValue === "save") save();
+    dlg.returnValue = ""; editing = null;
+  });
+  renderCues();
 
   var flakes = $(".flakes");
   function dropFlakes() {
