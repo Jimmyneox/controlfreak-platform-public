@@ -16,30 +16,11 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- Icon sprite and shared ring paint. Sized to zero, not display:none, so gradients and filters still render. -->
+<!-- Shared line icons and a simple corporate red ring. -->
 <svg class="sprite" aria-hidden="true" focusable="false">
   <defs>
-    <linearGradient id="ring-track" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset=".22" stop-color="#8A8D93"/>
-      <stop offset=".5" stop-color="#E6E7E9"/>
-      <stop offset=".75" stop-color="#8A8D93"/>
-      <stop offset="1" stop-color="#F5F5F6"/>
-    </linearGradient>
-    <filter id="disc-lift" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#1C1D20" flood-opacity=".22"/>
-    </filter>
     <symbol id="ring" viewBox="0 0 160 160">
-      <circle cx="80" cy="82" r="65" fill="#C9CBCE" filter="url(#disc-lift)"/>
-      <circle cx="80" cy="80" r="74" fill="none" stroke="#C9CBCE" stroke-width="2"/>
-      <circle cx="80" cy="80" r="70" fill="none" stroke="#FFFFFF" stroke-width="2"/>
-      <circle cx="80" cy="80" r="62" fill="none" stroke="url(#ring-track)" stroke-width="15"/>
-      <circle cx="80" cy="80" r="74" fill="none" stroke="#EE243B" stroke-width="3" pathLength="360" stroke-dasharray="150 360" transform="rotate(-90 80 80)"/>
-      <circle class="arc" cx="80" cy="80" r="63" fill="none" stroke="#EE243B" stroke-width="13" pathLength="360" stroke-dasharray="150 360" transform="rotate(-90 80 80)"/>
-      <circle cx="80" cy="80" r="51" fill="#FFFFFF" filter="url(#disc-lift)"/>
-      <circle cx="80" cy="80" r="50" fill="none" stroke="#E6E7E9" stroke-width="2"/>
-      <circle cx="6" cy="80" r="5" fill="#FFFFFF" stroke="#C9CBCE" stroke-width="2"/>
-      <circle cx="154" cy="80" r="5" fill="#FFFFFF" stroke="#EE243B" stroke-width="2"/>
+      <circle cx="80" cy="80" r="68" fill="none" stroke="#EE243B" stroke-width="3"/>
     </symbol>
     <symbol id="i-local" viewBox="0 0 32 32"><path d="M4.5 15 16 5.5 27.5 15"/><path d="M8 12.5V27h16V12.5"/><rect x="12.5" y="15.5" width="7" height="7" rx="1"/><path d="M14.5 13.5v2M17.5 13.5v2M14.5 22.5v2M17.5 22.5v2"/></symbol>
     <symbol id="i-app" viewBox="0 0 32 32"><rect x="4" y="6.5" width="24" height="19" rx="2.5"/><path d="M4 11.5h24"/><path d="M7.5 9h.01M10 9h.01M12.5 9h.01"/><rect x="8" y="15" width="6.5" height="6.5" rx="1"/><path d="M18 16h6M18 20.5h4"/></symbol>
@@ -69,7 +50,7 @@
       <img src="assets/home/r4-hero.jpg" width="3000" height="2000" alt="A backyard at dusk with a lit pool, a reef aquarium, a planted terrarium tower and a cold plunge tub." fetchpriority="high">
     </picture>
     <div class="wrap hero-copy">
-      <h1><span>Put the</span> <span>Control Freak</span> <em>on it.</em></h1>
+      <h1>Put the Control Freak on it.</h1>
       <p>Smart controllers that run locally, work together in one app, and keep the control with the people who care most.</p>
     </div>
   </section>
@@ -109,33 +90,43 @@
       <div class="wrap"><h2 id="brands-h" class="rule">Our brands</h2></div>
       <ul class="tiles">
         <li class="tile t-pool">
-          <div class="art"><img src="assets/home/r4-pool.webp" alt="" width="1800" height="600" loading="lazy"></div>
-          <div class="body"><h3>Control Freak Pool</h3><p>Pool automation.</p><p class="status">Live.</p>
-          <a class="btn" href="https://controlfreakpool.com" aria-label="Visit Control Freak Pool">Visit</a></div>
+          <div class="body"><h3>Control Freak Pool</h3><p>Pool automation.</p>
+            <div class="actions"><a class="btn" href="https://controlfreakpool.com" aria-label="Learn more about Control Freak Pool">Learn more</a><a class="btn btn-outline" href="#contact">Contact</a></div>
+            <p class="status">Live.</p>
+          </div>
+          <div class="art"><img src="assets/home/r4-pool.webp" alt="A resort pool softly lit at dusk." width="2048" height="683" loading="lazy" decoding="async"></div>
         </li>
         <li class="tile t-reef">
-          <div class="art"><img src="assets/home/r4-reef.webp" alt="" width="1800" height="600" loading="lazy"></div>
-          <div class="body"><h3>Reef Control Pro</h3><p>A reef aquarium controller.</p><p class="status">Live.</p>
-          <a class="btn" href="/reef/" aria-label="Visit Reef Control Pro">Visit</a></div>
+          <div class="body"><h3>Reef Control Pro</h3><p>A reef aquarium controller.</p>
+            <div class="actions"><a class="btn" href="/reef/" aria-label="Learn more about Reef Control Pro">Learn more</a><a class="btn btn-outline" href="/reef/demo/">See the demo</a></div>
+            <p class="status">Live.</p>
+          </div>
+          <div class="art"><img src="assets/home/r4-reef.webp" alt="A glowing reef aquarium filled with coral and fish." width="2048" height="683" loading="lazy" decoding="async"></div>
         </li>
-        <li class="tile t-base">
-          <div class="art"><img src="assets/home/r4-basement.webp" alt="" width="1800" height="600" loading="lazy"></div>
-          <div class="body"><h3>Basement Guard Pro</h3><p>Sump and leak protection.</p><p class="status">Coming soon.</p>
-          <a class="btn" href="/basement-guard/" aria-label="See the Basement Guard Pro demo">See the demo</a></div>
+        <li class="tile t-basement">
+          <div class="body"><h3>Basement Guard Pro</h3><p>Sump and leak protection.</p>
+            <div class="actions"><a class="btn" href="/basement-guard/" aria-label="Learn more about Basement Guard Pro">Learn more</a></div>
+            <p class="status">Coming soon.</p>
+          </div>
+          <div class="art"><img src="assets/home/r4-basement.webp" alt="A clean basement utility corner with a sump pit and pipes." width="2048" height="683" loading="lazy" decoding="async"></div>
         </li>
-        <li class="tile t-terr">
-          <div class="art"><img src="assets/home/r4-terrarium.webp" alt="" width="1800" height="600" loading="lazy"></div>
-          <div class="body"><h3>Terrarium Control Pro</h3><p>Reptile habitats.</p><p class="status">Coming soon.</p>
-          <a class="btn" href="/terrarium/" aria-label="See the Terrarium Control Pro demo">See the demo</a></div>
+        <li class="tile t-terrarium">
+          <div class="body"><h3>Terrarium Control Pro</h3><p>Reptile habitats.</p>
+            <div class="actions"><a class="btn" href="/terrarium/" aria-label="Learn more about Terrarium Control Pro">Learn more</a></div>
+            <p class="status">Coming soon.</p>
+          </div>
+          <div class="art"><img src="assets/home/r4-terrarium.webp" alt="A beautifully lit planted terrarium." width="2048" height="683" loading="lazy" decoding="async"></div>
         </li>
         <li class="tile t-plunge">
-          <div class="art"><img src="assets/home/r4-plunge.webp" alt="" width="1800" height="600" loading="lazy"></div>
-          <div class="body"><h3>Cold Plunge Control Pro</h3><p>Cold plunge.</p><p class="status">Coming soon.</p>
-          <a class="btn" href="/cold-plunge/" aria-label="See the Cold Plunge Control Pro demo">See the demo</a></div>
+          <div class="body"><h3>Cold Plunge Control Pro</h3><p>Cold plunge.</p>
+            <div class="actions"><a class="btn" href="/cold-plunge/" aria-label="Learn more about Cold Plunge Control Pro">Learn more</a></div>
+            <p class="status">Coming soon.</p>
+          </div>
+          <div class="art"><img src="assets/home/r4-plunge.webp" alt="A cold plunge in a warm marble spa room with polished metal fixtures." width="2048" height="683" loading="lazy" decoding="async"></div>
         </li>
         <li class="tile t-more">
-          <div class="art"><img src="assets/home/r4-more.webp" alt="" width="1800" height="600" loading="lazy"></div>
           <div class="body"><h3>More on the way</h3></div>
+          <div class="art"><img src="assets/home/r4-more.webp" alt="" width="2048" height="683" loading="lazy" decoding="async"></div>
         </li>
       </ul>
     </div>

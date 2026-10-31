@@ -5,7 +5,7 @@ Fails on:
   DASH        em/en/figure dashes, minus signs or spaced hyphens in visible text
   ON-THE-BOX  the phrase "on the box" anywhere in visible text
   DIGIT       any digit in visible text (no prices, numbers or statistics)
-  HEX         a CSS/SVG hex color outside the neutral set, the one red, and the brand tile colors
+  HEX         a CSS/SVG hex color outside the neutral set and the corporate red
   LINK        a local href/src/srcset/url() that does not resolve, or a #fragment with no matching id
   BROWSER     console errors, failed requests, or horizontal scroll at phone width (headless Chromium)
 
@@ -37,16 +37,9 @@ ROOT = Path(__file__).resolve().parent.parent
 HTML = ROOT / "index.html"
 CSS = ROOT / "assets" / "home" / "home.css"
 
-NEUTRAL = {"FFFFFF", "F5F5F6", "E6E7E9", "C9CBCE", "8A8D93", "5A5D63", "2B2D31", "1C1D20"}
+NEUTRAL = {"FFFFFF", "F5F5F7", "E6E7E9", "86868B", "6E6E73", "1D1D1F", "1C1D20", "000000"}
 RED = {"EE243B"}
-BRANDS = {
-    "pool": {"0F2E2C", "FBFAF7", "A8834F"},
-    "reef": {"020B1D", "071B33", "F3F8FF", "C3D8EB", "79E8F3"},
-    "basement": {"1B1F24", "262B31", "EEF1F4", "A3ADB8", "2F7CF6"},
-    "terrarium": {"15170F", "24281C", "F3ECDC", "BDB39B", "E9A23B", "1B1306"},
-    "cold plunge": {"F4F2EE", "D8D2CA", "C6B18D", "A9C7C4", "2E3033", "B8BBBE"},
-}
-ALLOWED = NEUTRAL | RED | set().union(*BRANDS.values())
+ALLOWED = NEUTRAL | RED
 
 HEX_RE = re.compile(r"#([0-9a-fA-F]{8}|[0-9a-fA-F]{6}|[0-9a-fA-F]{3,4})\b")
 DASH_RE = re.compile(r"[‒–—―−]|\s-\s|^-\s|\s-$")
@@ -156,7 +149,7 @@ def check_hex(where: str, text: str, out: list[str]) -> None:
         if len(h) in (3, 4):
             h = "".join(c * 2 for c in h[:3])
         if h[:6] not in ALLOWED:
-            out.append(f"HEX        {where}: #{m.group(1)} is not neutral, the red, or a brand tile color")
+            out.append(f"HEX        {where}: #{m.group(1)} is not neutral or the corporate red")
 
 
 def check_link(where: str, base: Path, ref: str, ids: set[str], out: list[str], external: list[str]) -> None:
@@ -214,7 +207,13 @@ const { chromium } = require('playwright');
     await page.evaluate(() => document.fonts.ready);
     const sw = await page.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
     if (sw[0] > sw[1]) out.overflow.push(`${w}: scrollWidth ${sw[0]} > ${sw[1]}`);
-    if (shots) await page.screenshot({ path: `${shots}/${name}`, fullPage: true });
+    if (shots) {
+      await page.evaluate(async () => {
+        document.querySelectorAll('img[loading=lazy]').forEach(i => { i.loading = 'eager'; });
+        for (const i of document.images) { i.scrollIntoView(); await new Promise(r => setTimeout(r, 150)); try { await i.decode(); } catch (e) {} } window.scrollTo(0, 0); await new Promise(r => setTimeout(r, 400));
+      });
+      await page.screenshot({ path: `${shots}/${name}`, fullPage: true });
+    }
     await page.close();
   }
   await browser.close();
@@ -287,7 +286,7 @@ def main() -> int:
     if out:
         print(f"FAIL: {len(out)} finding(s) across {texts} text runs and {links} links")
         return 1
-    print(f"OK: {texts} text runs, {links} links, colors within neutral + red + brand tiles"
+    print(f"OK: {texts} text runs, {links} links, colors within neutral + corporate red"
           + ("" if args.no_browser else ", browser clean at 1440 and 390"))
     return 0
 
