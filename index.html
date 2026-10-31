@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#1C1D20">
-<link rel="preload" as="image" href="assets/home/hero-dusk-backyard-1444.webp" imagesrcset="assets/home/hero-dusk-backyard-960.webp 960w, assets/home/hero-dusk-backyard-1444.webp 1444w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/home/r4-hero.webp" fetchpriority="high">
 <link rel="stylesheet" href="assets/home/home.css">
 </head>
 <body>
@@ -20,19 +20,26 @@
 <svg class="sprite" aria-hidden="true" focusable="false">
   <defs>
     <linearGradient id="ring-track" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#F5F5F6"/>
-      <stop offset="1" stop-color="#C9CBCE"/>
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".22" stop-color="#8A8D93"/>
+      <stop offset=".5" stop-color="#E6E7E9"/>
+      <stop offset=".75" stop-color="#8A8D93"/>
+      <stop offset="1" stop-color="#F5F5F6"/>
     </linearGradient>
     <filter id="disc-lift" x="-30%" y="-30%" width="160%" height="160%">
       <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#1C1D20" flood-opacity=".22"/>
     </filter>
     <symbol id="ring" viewBox="0 0 160 160">
-      <circle cx="80" cy="80" r="74" fill="none" stroke="#E6E7E9" stroke-width="1"/>
-      <circle cx="80" cy="80" r="64" fill="none" stroke="url(#ring-track)" stroke-width="14"/>
-      <circle class="arc" cx="80" cy="80" r="64" fill="none" stroke="#EE243B" stroke-width="14" pathLength="360" stroke-dasharray="125 360" transform="rotate(-90 80 80)"/>
-      <circle cx="80" cy="80" r="50" fill="#FFFFFF" filter="url(#disc-lift)"/>
-      <circle cx="80" cy="80" r="50" fill="none" stroke="#E6E7E9" stroke-width="1.5"/>
-      <circle cx="132.4" cy="116.7" r="5" fill="#FFFFFF" stroke="#EE243B" stroke-width="3"/>
+      <circle cx="80" cy="82" r="65" fill="#C9CBCE" filter="url(#disc-lift)"/>
+      <circle cx="80" cy="80" r="74" fill="none" stroke="#C9CBCE" stroke-width="2"/>
+      <circle cx="80" cy="80" r="70" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+      <circle cx="80" cy="80" r="62" fill="none" stroke="url(#ring-track)" stroke-width="15"/>
+      <circle cx="80" cy="80" r="74" fill="none" stroke="#EE243B" stroke-width="3" pathLength="360" stroke-dasharray="150 360" transform="rotate(-90 80 80)"/>
+      <circle class="arc" cx="80" cy="80" r="63" fill="none" stroke="#EE243B" stroke-width="13" pathLength="360" stroke-dasharray="150 360" transform="rotate(-90 80 80)"/>
+      <circle cx="80" cy="80" r="51" fill="#FFFFFF" filter="url(#disc-lift)"/>
+      <circle cx="80" cy="80" r="50" fill="none" stroke="#E6E7E9" stroke-width="2"/>
+      <circle cx="6" cy="80" r="5" fill="#FFFFFF" stroke="#C9CBCE" stroke-width="2"/>
+      <circle cx="154" cy="80" r="5" fill="#FFFFFF" stroke="#EE243B" stroke-width="2"/>
     </symbol>
     <symbol id="i-local" viewBox="0 0 32 32"><path d="M4.5 15 16 5.5 27.5 15"/><path d="M8 12.5V27h16V12.5"/><rect x="12.5" y="15.5" width="7" height="7" rx="1"/><path d="M14.5 13.5v2M17.5 13.5v2M14.5 22.5v2M17.5 22.5v2"/></symbol>
     <symbol id="i-app" viewBox="0 0 32 32"><rect x="4" y="6.5" width="24" height="19" rx="2.5"/><path d="M4 11.5h24"/><path d="M7.5 9h.01M10 9h.01M12.5 9h.01"/><rect x="8" y="15" width="6.5" height="6.5" rx="1"/><path d="M18 16h6M18 20.5h4"/></symbol>
@@ -58,8 +65,8 @@
 <main id="main">
   <section class="hero" id="top">
     <picture>
-      <source type="image/webp" srcset="assets/home/hero-dusk-backyard-960.webp 960w, assets/home/hero-dusk-backyard-1444.webp 1444w" sizes="100vw">
-      <img src="assets/home/hero-dusk-backyard-1444.jpg" srcset="assets/home/hero-dusk-backyard-960.jpg 960w, assets/home/hero-dusk-backyard-1444.jpg 1444w" sizes="100vw" width="1444" height="964" alt="A backyard at dusk with a lit pool, a reef aquarium, a planted terrarium tower and a cold plunge tub." fetchpriority="high">
+      <source type="image/webp" srcset="assets/home/r4-hero.webp">
+      <img src="assets/home/r4-hero.jpg" width="3000" height="2000" alt="A backyard at dusk with a lit pool, a reef aquarium, a planted terrarium tower and a cold plunge tub." fetchpriority="high">
     </picture>
     <div class="wrap hero-copy">
       <h1><span>Put the</span> <span>Control Freak</span> <em>on it.</em></h1>
@@ -98,36 +105,36 @@
   </section>
 
   <section class="brands" id="brands" aria-labelledby="brands-h">
-    <div class="wrap">
-      <h2 id="brands-h" class="rule">Our brands</h2>
+    <div class="brands-inner">
+      <div class="wrap"><h2 id="brands-h" class="rule">Our brands</h2></div>
       <ul class="tiles">
         <li class="tile t-pool">
-          <div class="art"><img class="pool-mark" src="assets/control-freak-corporate-wordmark-white.svg" alt="" width="1167" height="527"></div>
+          <div class="art"><img src="assets/home/r4-pool.webp" alt="" width="1800" height="600" loading="lazy"></div>
           <div class="body"><h3>Control Freak Pool</h3><p>Pool automation.</p><p class="status">Live.</p>
           <a class="btn" href="https://controlfreakpool.com" aria-label="Visit Control Freak Pool">Visit</a></div>
         </li>
         <li class="tile t-reef">
-          <div class="art"><svg viewBox="0 0 64 64" fill="none" stroke="#F3F8FF" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="6" y="12" width="52" height="38" rx="3"/><path d="M6 22h52" stroke-width="2.4"/><path d="M14 50v-8m0 0-4-5m4 5 4-6M44 50v-10m0 4 5-5" stroke-width="2.4"/><path d="M27 33c4-5 10-5 13 0-3 5-9 5-13 0l-4-3v6z" fill="#79E8F3" stroke="none"/><path d="M14 50v6m36-6v6"/></svg></div>
+          <div class="art"><img src="assets/home/r4-reef.webp" alt="" width="1800" height="600" loading="lazy"></div>
           <div class="body"><h3>Reef Control Pro</h3><p>A reef aquarium controller.</p><p class="status">Live.</p>
           <a class="btn" href="/reef/" aria-label="Visit Reef Control Pro">Visit</a></div>
         </li>
         <li class="tile t-base">
-          <div class="art"><svg viewBox="0 0 64 64" fill="none" stroke="#EEF1F4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M6 22 32 8l26 14"/><path d="M10 22v34h44V22"/><rect x="20" y="34" width="24" height="22" rx="1" stroke-width="2.4"/><path d="M20 47h24" stroke="#2F7CF6" stroke-width="2.4"/><rect x="27" y="24" width="10" height="16" rx="2" fill="#EEF1F4" stroke="none"/><path d="M32 24v-6" stroke-width="2.4"/></svg></div>
+          <div class="art"><img src="assets/home/r4-basement.webp" alt="" width="1800" height="600" loading="lazy"></div>
           <div class="body"><h3>Basement Guard Pro</h3><p>Sump and leak protection.</p><p class="status">Coming soon.</p>
           <a class="btn" href="/basement-guard/" aria-label="See the Basement Guard Pro demo">See the demo</a></div>
         </li>
         <li class="tile t-terr">
-          <div class="art"><svg viewBox="0 0 64 64" fill="none" stroke="#F3ECDC" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="6" y="14" width="52" height="40" rx="2"/><path d="M6 22h52" stroke-width="2.4"/><path d="M38 6v8m-6 0h12" stroke="#E9A23B" stroke-width="2.4"/><path d="M8 54c8-8 14-8 20-4s14 4 28-2" stroke-width="2.4"/><path d="M18 46c0-10 2-14 2-16m0 6 5-4m-5 8-5-3" stroke-width="2.4"/><circle cx="44" cy="40" r="3" fill="#F3ECDC" stroke="none"/><path d="M38 44c3 2 9 2 12-2" stroke-width="2.4"/></svg></div>
+          <div class="art"><img src="assets/home/r4-terrarium.webp" alt="" width="1800" height="600" loading="lazy"></div>
           <div class="body"><h3>Terrarium Control Pro</h3><p>Reptile habitats.</p><p class="status">Coming soon.</p>
           <a class="btn" href="/terrarium/" aria-label="See the Terrarium Control Pro demo">See the demo</a></div>
         </li>
         <li class="tile t-plunge">
-          <div class="art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="12" y="12" width="40" height="40" stroke="#B8BBBE" stroke-width="3"/><path d="M45 3c-1.6 5.5-5 8.8-5.8 13.2-.7 3.6 1.1 5.8-.8 9.6-1.8 3.6-5.2 5.4-6.5 9.4-.8 2.9.1 5-1.2 7.9" stroke="#C6B18D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 40.5h30" stroke="#A9C7C4" stroke-width="3.6" stroke-linecap="round"/></svg></div>
+          <div class="art"><img src="assets/home/r4-plunge.webp" alt="" width="1800" height="600" loading="lazy"></div>
           <div class="body"><h3>Cold Plunge Control Pro</h3><p>Cold plunge.</p><p class="status">Coming soon.</p>
           <a class="btn" href="/cold-plunge/" aria-label="See the Cold Plunge Control Pro demo">See the demo</a></div>
         </li>
         <li class="tile t-more">
-          <div class="art"><svg viewBox="0 0 64 64" fill="none" stroke="#8A8D93" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="32" cy="32" r="22" stroke-dasharray="4 7"/><path d="M32 23v18M23 32h18" stroke="#EE243B"/></svg></div>
+          <div class="art"><img src="assets/home/r4-more.webp" alt="" width="1800" height="600" loading="lazy"></div>
           <div class="body"><h3>More on the way</h3></div>
         </li>
       </ul>
