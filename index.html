@@ -96,7 +96,24 @@
           <div class="art"><img src="assets/home/r4-hydro.webp" alt="Basil, lettuce and herbs growing under warm lights in a dark home cabinet." width="2172" height="724" loading="lazy" decoding="async"></div>
         </li>
 
-      </ul><p class="more">More on the way</p>
+      
+        <li class="tile t-ask">
+          <div class="ask">
+            <div class="ask-copy"><h3 id="ask-h">What do you wish you had more control of?</h3><p>We would love to hear from you. Understanding the real reasons why you need it sharpens our focus to zero in on developing a solution that exceeds your expectations.</p></div>
+            <form class="ask-form" id="ask-form" action="#brands" method="post" novalidate aria-labelledby="ask-h">
+              <div class="hp" aria-hidden="true"><label for="a-website">Leave this field empty</label><input id="a-website" name="website_url" type="text" tabindex="-1" autocomplete="off"></div>
+              <div class="field"><label for="a-what">What do you want to control?</label><input id="a-what" name="idea" type="text" required maxlength="200" aria-describedby="a-what-err"><p class="err" id="a-what-err" hidden>Tell us what you want to control.</p></div>
+              <div class="field"><label for="a-why">Why do you need it?</label><textarea id="a-why" name="why" rows="4" maxlength="2000"></textarea></div>
+              <div class="pair">
+                <div class="field"><label for="a-name">Name</label><input id="a-name" name="name" type="text" autocomplete="name" required aria-describedby="a-name-err"><p class="err" id="a-name-err" hidden>Please enter your name.</p></div>
+                <div class="field"><label for="a-email">Email</label><input id="a-email" name="email" type="email" inputmode="email" autocomplete="email" required aria-describedby="a-email-err"><p class="err" id="a-email-err" hidden>Please enter a valid email address.</p></div>
+              </div>
+              <button class="btn btn-red" type="submit" id="a-submit">Send</button>
+              <div class="ask-done" id="a-done" role="status" aria-live="polite" hidden></div>
+            </form>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -119,5 +136,36 @@
     <p>Home Assistant is a trademark of the Open Home Foundation.</p>
   </div>
 </footer>
+<script>
+/* Idea form: posts to the same Google Apps Script lead endpoint as the Pool quote form, which emails the owner. */
+(function(){
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbxMM2e2IC3GE1hskW4a450hf9x9d8rq9-CvPJZNoUhrK6tUztxRqIqE5SJWrtTqAE0cyQ/exec";
+  var form = document.getElementById('ask-form'); if (!form) return;
+  var submit = document.getElementById('a-submit'), done = document.getElementById('a-done');
+  var checks = [
+    ['a-what', function(v){ return v.trim().length > 0; }],
+    ['a-name', function(v){ return v.trim().length > 0; }],
+    ['a-email', function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }]
+  ];
+  function check(c){ var el = document.getElementById(c[0]), ok = c[1](el.value); el.setAttribute('aria-invalid', String(!ok)); document.getElementById(c[0] + '-err').hidden = ok; return ok; }
+  checks.forEach(function(c){ document.getElementById(c[0]).addEventListener('input', function(){ if (this.getAttribute('aria-invalid') === 'true') check(c); }); });
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var first = null;
+    checks.forEach(function(c){ if (!check(c) && !first) first = document.getElementById(c[0]); });
+    if (first) { done.hidden = true; first.focus(); return; }
+    var data = new FormData(form);
+    if ((data.get('website_url') || '').toString().trim() !== '') { form.reset(); return; }
+    data.delete('website_url');
+    data.set('form', 'idea');
+    data.set('source', 'Corporate home page: What do you wish you had more control of?');
+    submit.disabled = true; var label = submit.textContent; submit.textContent = 'Sending…';
+    fetch(ENDPOINT, {method: 'POST', mode: 'no-cors', body: new URLSearchParams(data)})
+      .then(function(){ done.textContent = 'Thank you. We read every one of these and will reply by email.'; done.hidden = false; form.reset(); })
+      .catch(function(){ done.textContent = 'That did not go through. Check your connection and try again.'; done.hidden = false; })
+      .then(function(){ submit.disabled = false; submit.textContent = label; });
+  });
+})();
+</script>
 </body>
 </html>
