@@ -36,3 +36,7 @@ Photoreal leafy close-up of fresh green tropical foliage beside still water, dar
 
 The first hero was discarded. Final hero prompt: Recreate the attached B-hero composition and camera perspective as a pristine photograph. Remove all text and logos. Preserve navy empty sky upper left, infinity pool foreground, blue reef tank at horizontal center, tall single planted terrarium immediately behind to its right, fully visible square cold plunge far right, low house far left and sunset horizon. Preserve relative sizes and placement; no additional terrarium floors or chambers.
 
+
+### irrigation
+
+Cropped from the Irrigation product hero (products/O14-irrigation/site/assets/hero-dusk-2400.webp, generated 2026-10-31): a 2400 × 800 band resized to 2172 × 724.

@@ -130,3 +130,6 @@ html{scroll-padding-top:108px}
 #app .app-caption{font-size:12px;text-align:center;color:var(--muted);margin-top:24px}
 @media(max-width:800px){#app .app-layout{gap:32px;grid-template-columns:1fr 1fr}}
 @media(max-width:600px){#app{padding-block:64px}#app .app-layout{grid-template-columns:1fr;gap:32px;padding-inline:24px}#app .app-copy>p:last-child{font-size:18px;margin-top:22px}#app .app-eyebrow{margin-bottom:18px}#app .app-selector button{font-size:10px}#app .app-phone{padding-inline:12px}}
+
+.t-more{grid-column:1/-1;min-height:0}
+@media(min-width:735px){.t-more .art{aspect-ratio:3.4}}

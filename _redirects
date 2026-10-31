@@ -15,3 +15,7 @@
 /cold-plunge/demo /cold-plunge/demo/ 301
 /cold-plunge/ /products/C01-cold-plunge/site/ 200
 /cold-plunge/* /products/C01-cold-plunge/site/:splat 200
+/irrigation /irrigation/ 301
+/irrigation/demo /irrigation/demo/ 301
+/irrigation/ /products/O14-irrigation/site/ 200
+/irrigation/* /products/O14-irrigation/site/:splat 200
