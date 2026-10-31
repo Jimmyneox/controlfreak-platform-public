@@ -19,3 +19,7 @@
 /irrigation/demo /irrigation/demo/ 301
 /irrigation/ /products/O14-irrigation/site/ 200
 /irrigation/* /products/O14-irrigation/site/:splat 200
+/hydro /hydro/ 301
+/hydro/demo /hydro/demo/ 301
+/hydro/ /products/O02-hydroponics/site/ 200
+/hydro/* /products/O02-hydroponics/site/:splat 200

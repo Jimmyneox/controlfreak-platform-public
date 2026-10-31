@@ -40,3 +40,7 @@ The first hero was discarded. Final hero prompt: Recreate the attached B-hero co
 ### irrigation
 
 Cropped from the Irrigation product hero (products/O14-irrigation/site/assets/hero-dusk-2400.webp, generated 2026-10-31): a 2400 × 800 band resized to 2172 × 724.
+
+### hydro
+
+Cropped from the Hydro product hero (products/O02-hydroponics/site/assets/hero-night-2400.webp, generated 2026-10-31): a 2400 × 800 band resized to 2172 × 724.
