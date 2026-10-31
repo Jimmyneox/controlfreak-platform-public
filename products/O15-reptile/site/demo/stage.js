@@ -1,18 +1,6 @@
-/* Design demo object (controlfreak-design 0738ffa close-up, inline object-inline.svg, DEMO_OBJECTS.md). SVG is inlined in index.html as svg.cf-demo-object;
-   state is toggled via root classes driven by the demo's existing controls. Simulation only. No network. */
-(function(){var root=document.querySelector(".cfd-device"),st=document.getElementById("cf-stage");if(!root||!st)return;
-var svg=st.querySelector("svg.cf-demo-object"),h=root.querySelector(".cfd-header");
-function on(l){var b=[].filter.call(root.querySelectorAll(".cfd-toggle"),function(x){return x.textContent===l})[0];return !!b&&b.getAttribute("aria-pressed")==="true";}
-function num(s){var e=typeof s==="string"?root.querySelector(s):s;return e?parseFloat(e.textContent):NaN;}
-function gauge(i){return num(root.querySelectorAll(".cfd-gauge-value")[i]);}
-function C(c,v){svg.classList.toggle(c,!!v);}
-function W(k){var w=svg.querySelector("#water");if(w)w.style.transform="scaleY("+k.toFixed(2)+")";}
-function UPDATE(){var D=on("Day light"),U=on("UVB"),Ht=on("Basking lamp")||on("Ceramic emitter")||on("Heat mat"),Mi=on("Mister");
-C("lamp-on",D);C("uvb-on",U);C("heat-on",Ht);C("mist-on",Mi);
-return "Enclosure: lights "+(D?"on":"off")+", UVB "+(U?"on":"off")+", heat "+(Ht?"on":"off")+", mist "+(Mi?"on":"off")+".";}
-var last="";function tick(){var t=UPDATE();if(t!==last){st.querySelector(".stage-cap").textContent=t;svg.setAttribute("aria-label",t);last=t;}}tick();setInterval(tick,250);
+/* Local simulation scene state and embedded height reporting. */
+(function(){var root=document.querySelector('.cfd-device');if(!root)return;
+function update(){var night=document.getElementById('night').getAttribute('aria-pressed')==='true';root.classList.toggle('is-night',night);var mist=Array.from(root.querySelectorAll('.cfd-toggle')).find(function(b){return b.textContent==='Mister'});root.classList.toggle('is-misting',!!mist&&mist.getAttribute('aria-pressed')==='true');}
+new MutationObserver(update).observe(root,{subtree:true,attributes:true,attributeFilter:['aria-pressed']});update();
+if(window.parent===window)return;function report(){window.parent.postMessage({cfDemoHeight:Math.ceil(root.getBoundingClientRect().height+12)},'*')};window.addEventListener('load',report);window.addEventListener('resize',report);if(window.ResizeObserver)new ResizeObserver(report).observe(root);
 })();
-
-/* Report content height to the product-page iframe shell so it never clips (James 2026-10-26). */
-(function(){if(window.parent===window)return;function s(){try{window.parent.postMessage({cfDemoHeight:Math.ceil((document.querySelector('.cfd-device')||document.body).getBoundingClientRect().bottom+window.scrollY+12)},'*')}catch(e){}}
-window.addEventListener('load',s);window.addEventListener('resize',s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.body);setTimeout(s,300)})();

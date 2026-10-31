@@ -27,3 +27,8 @@ html,body{margin:0}
 .cfd-gauge{padding:10px 12px}.cfd-gauge-value{font-size:1.35rem;margin:2px 0}
 .cfd-scenarios{padding:10px 14px;gap:8px 14px}
 @media (max-width:640px){.cfd-phone{max-height:none}.cfd-phone .cfd-screen{overflow:visible}}
+
+/* The standalone simulation shares the product desert background. */
+body{background:var(--desert-bg)!important}
+.cfd-row,.cfd-scenarios{min-width:0}
+.cfd-notify{flex-wrap:wrap;min-width:0}

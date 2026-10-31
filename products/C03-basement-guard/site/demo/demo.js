@@ -39,7 +39,7 @@
     if(n&&C.notify){
       n.querySelector("span").textContent="Notification types (simulated): "+C.notify.channels.join(" · ");
       n.querySelector("button").onclick=function(){
-        t.textContent="SIMULATED · "+C.notify.label+" — example only";
+        t.textContent="SIMULATED · "+C.notify.label+", example only";
         t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3500);};
     }
   });

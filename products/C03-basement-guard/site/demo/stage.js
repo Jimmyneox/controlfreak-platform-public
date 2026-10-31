@@ -11,7 +11,7 @@ function UPDATE(){var l=num("#lvl"),A=on("Pump A"),B=on("Pump B"),pa=root.queryS
 function running(e){return !!e&&/running|pumping|on\b/i.test(e.textContent);}
 var rA=A&&running(pa),rB=B&&running(pb),k=Math.max(.05,Math.min(1,l/18));
 C("pump1-on",rA);C("pump2-on",rB);C("alarm",l>=16);W(k);var f=svg.querySelector("#float");if(f)f.style.transform="translateY("+((1-k)*40).toFixed(1)+"px)";
-return "Sump pit: water "+l.toFixed(1)+" in"+(l>=16?" — HIGH WATER":"")+"; Pump A "+(A?(rA?"running":"ready"):"outlet off")+", Pump B "+(B?(rB?"running":"ready"):"outlet off")+".";}
+return "Sump pit: water "+l.toFixed(1)+" in"+(l>=16?", HIGH WATER":"")+"; Pump A "+(A?(rA?"running":"ready"):"outlet off")+", Pump B "+(B?(rB?"running":"ready"):"outlet off")+".";}
 var last="";function tick(){var t=UPDATE();if(t!==last){st.querySelector(".stage-cap").textContent=t;svg.setAttribute("aria-label",t);last=t;}}tick();setInterval(tick,250);
 })();
 

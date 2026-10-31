@@ -1,0 +1,23 @@
+/* Terrarium desert palette. Shared by the landing page and its local demo. */
+:root{
+  --desert-bg:#21170F;
+  --desert-surface:#302219;
+  --desert-surface-raised:#443124;
+  --desert-accent:#D48A2C;
+  --desert-sand:#E8C98F;
+  --desert-burnt:#8A451F;
+  --desert-text:#FFF4E0;
+  --desert-muted:#D6BE9E;
+  --desert-on-accent:#21170F;
+  --desert-warning:#FF929B;
+  --desert-alarm:#9B2034;
+  --desert-bezel:#160F0A;
+  --desert-line:#967953;
+}
+/* Local fonts match the Reef demo, shared across both Terrarium surfaces. */
+@font-face{font-family:Inter;src:url(demo/assets/fonts/inter-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:Inter;src:url(demo/assets/fonts/inter-latin-500-normal.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:Inter;src:url(demo/assets/fonts/inter-latin-600-normal.woff2) format('woff2');font-weight:600 900;font-display:swap}
+@font-face{font-family:'Space Grotesk';src:url(demo/assets/fonts/space-grotesk-latin-500-normal.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Space Grotesk';src:url(demo/assets/fonts/space-grotesk-latin-700-normal.woff2) format('woff2');font-weight:600 900;font-display:swap}
+:root{--desert-font:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;--desert-heading:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif}

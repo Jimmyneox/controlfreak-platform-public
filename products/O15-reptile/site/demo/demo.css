@@ -1,9 +1,9 @@
 /* Control Freak demo chrome — theme via --cfd-* vars only; don't fork structure. */
 .cfd-device{
-  --cfd-accent:#5b6cff; --cfd-surface:#14161c; --cfd-surface-2:#1e2129;
-  --cfd-text:#f2f3f7; --cfd-muted:#8b90a0; --cfd-ok:#3ccf8e; --cfd-warn:#ffb547;
+  --cfd-accent:var(--desert-accent); --cfd-surface:var(--desert-surface); --cfd-surface-2:var(--desert-surface-raised);
+  --cfd-text:var(--desert-text); --cfd-muted:var(--desert-muted); --cfd-ok:var(--desert-sand); --cfd-warn:var(--desert-warning);
   --cfd-radius:18px; --cfd-font:system-ui,-apple-system,"Segoe UI",sans-serif;
-  --cfd-bezel:#0a0b0e;
+  --cfd-bezel:var(--desert-bezel);
   font-family:var(--cfd-font); color:var(--cfd-text);
   width:340px; max-width:100%; margin:2rem auto; padding:12px;
   background:var(--cfd-bezel); border-radius:44px; box-shadow:0 20px 50px rgba(0,0,0,.35);
@@ -28,7 +28,7 @@
 .cfd-toggle:focus-visible{outline:2px solid var(--cfd-accent)}
 .cfd-notify{margin:6px 14px;padding:10px 12px;border-radius:var(--cfd-radius);border:1px dashed var(--cfd-muted);font-size:.75rem;color:var(--cfd-muted);display:flex;justify-content:space-between;align-items:center;gap:8px}
 .cfd-notify button{all:unset;cursor:pointer;color:var(--cfd-accent);font-weight:600}
-.cfd-toast{margin:0 14px;padding:10px 12px;border-radius:var(--cfd-radius);background:var(--cfd-warn);color:#111;font-size:.78rem;display:none}
+.cfd-toast{margin:0 14px;padding:10px 12px;border-radius:var(--cfd-radius);background:var(--cfd-warn);color:var(--desert-on-accent);font-size:.78rem;display:none}
 .cfd-toast.show{display:block}
 .cfd-footer{margin-top:auto;padding:14px;text-align:center;color:var(--cfd-muted)}
 .cfd-footer img{height:22px;opacity:.8}

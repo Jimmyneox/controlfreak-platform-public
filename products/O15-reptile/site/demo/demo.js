@@ -39,7 +39,7 @@
     if(n&&C.notify){
       n.querySelector("span").textContent="Notification types (simulated): "+C.notify.channels.join(" · ");
       n.querySelector("button").onclick=function(){
-        t.textContent="SIMULATED · "+C.notify.label+" — example only";
+        t.textContent="SIMULATED · "+C.notify.label+". Example only";
         t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3500);};
     }
   });
@@ -192,6 +192,7 @@
       load(c);d(".cfd-ce-del").hidden=true;d(".cfd-ce-name").select();};
     d(".cfd-ce-del").onclick=function(){var i=list.indexOf(editing);if(i<0)return;list.splice(i,1);if(active===editing.id)apply(home.id);render();load(home);};
     dlg.addEventListener("close",function(){if(dlg.returnValue==="save")save();dlg.returnValue="";editing=null;});
+    root.addEventListener("cfd:reset",function(){apply(home.id);});
     render();status.textContent=statusText(home);
   }
 })();

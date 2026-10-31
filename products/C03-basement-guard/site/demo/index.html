@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Basement Guard Pro — demo (simulation)</title>
+<title>Basement Guard Pro demo (simulation)</title>
 <link rel="stylesheet" href="demo.css"><link rel="stylesheet" href="stage.css"><link rel="stylesheet" href="c03.css">
 <style>body{margin:0;background:transparent}</style>
 <script>window.CFD_CONFIG={"product": "Basement Guard Pro", "readouts": [{"label": "Basement", "unit": "°F", "min": 30, "max": 90, "value": 58, "jitter": 0.2}, {"label": "Crawlspace", "unit": "°F", "min": 10, "max": 80, "value": 41, "jitter": 0.2}, {"label": "Outdoor", "unit": "°F", "min": -10, "max": 100, "value": 22, "jitter": 0.3}], "controls": [{"label": "Pump A", "on": true}, {"label": "Pump B", "on": true}, {"label": "Heat tape", "on": false}, {"label": "Dehumidifier", "on": true}], "notify": {"label": "High water in the pit", "channels": ["Push", "Text", "Email", "Alarm"]}, "cues": [{"name": "Normal", "icon": "shield"}, {"name": "Quiet", "icon": "quiet", "set": {"Dehumidifier": false}, "dur": {"Dehumidifier": 60}}, {"name": "Service", "icon": "wrench", "set": {"Pump A": false}, "dur": {"Pump A": 15}}], "cueSkip": []};</script></head><body>
@@ -62,7 +62,7 @@
     <div class="x-status" id="st">Pit at 6 in · Pump A ran 14 times today · both pumps healthy</div>
     <div class="pitw"><svg viewBox="0 0 120 120" class="ring"><circle cx="60" cy="60" r="50" class="bg"/><circle cx="60" cy="60" r="50" class="fg" id="ring"/></svg><div class="pv"><b id="lvl">6.0</b> in<small id="rate">steady</small><small>start 10 in · high water 16 in</small></div>
       <div class="pumps"><span class="x-pill" id="pa">Pump A <b>Lead · last run 42 min ago</b></span><span class="x-pill off" id="pb">Pump B <b>Standby</b></span></div></div>
-    <p class="x-cap">Never starts both pumps at once — the second waits its turn. If the controller is ever off, both pumps still run on their own floats.</p>
+    <p class="x-cap">Never starts both pumps at once. The second waits its turn. If the controller is ever off, both pumps still run on their own floats.</p>
     <section class="cfd-readouts" aria-label="Readouts"></section>
     <div class="x-row"><span class="x-pill" id="ph">Pump health <b>Both healthy</b></span><span class="x-pill" id="lkp">Leak · water heater / washer <b>Dry</b></span><span class="x-pill">High-water float <b>Clear</b></span></div>
     <div class="x-row"><span class="x-pill off" id="ht">Heat tape <b>Off · on below 35 °F</b></span><span class="x-pill">Dehumidifier <b>On schedule</b></span></div>
