@@ -382,3 +382,28 @@
   paintOutlets();
   paintWater();
 })();
+
+// When embedded on the product page, report the content height so the iframe fits it.
+// Sums in-flow content only: main and the fixed caption stretch with the iframe height.
+(function () {
+  if (window.parent === window) return;
+  var panel = document.querySelector(".cfd-device");
+  var caption = document.querySelector(".caption");
+  if (!panel) return;
+  var last = 0;
+  function send() {
+    var main = panel.parentElement;
+    var bottom = panel.getBoundingClientRect().bottom + parseFloat(getComputedStyle(main).paddingBottom);
+    if (caption && getComputedStyle(caption).position === "static") {
+      bottom = Math.max(bottom, caption.getBoundingClientRect().bottom);
+    }
+    var h = Math.ceil(bottom + window.scrollY);
+    if (Math.abs(h - last) < 2) return;
+    last = h;
+    try { window.parent.postMessage({ cfDemoHeight: h }, "*"); } catch (e) {}
+  }
+  addEventListener("load", send);
+  addEventListener("resize", send);
+  if (window.ResizeObserver) new ResizeObserver(send).observe(panel);
+  send();
+})();
