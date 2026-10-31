@@ -39,9 +39,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.045em;line-height:1.08;text-wrap:balan
 .stand .rule{max-width:800px;margin-inline:auto}
 .rings{list-style:none;margin:64px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px 48px}
 .rings li{min-width:0;position:relative;--dial-size:190px;--dial-gap:48px}
-/* Three-column checkerboard also applies to the tablet layout. */
-.rings li:nth-child(odd){--dial-segment:url(#dial-red);--dial-accent:#EE243B}
-.rings li:nth-child(even){--dial-segment:url(#dial-graphite);--dial-accent:#86868B}
+/* Each knob sets its own product color inline in index.html (#stand). */
 /* Connections end exactly at the dial's outer node centers. */
 .rings li:not(:nth-child(3n))::before{content:'';position:absolute;top:calc(var(--dial-size)/2);left:calc(50% + var(--dial-size)*.41);width:calc(100% + var(--dial-gap) - var(--dial-size)*.82);height:2px;transform:translateY(-50%);background:linear-gradient(to right,#86868B,#E6E7E9,#86868B)}
 .rings li:not(:nth-child(3n))::after{content:'';position:absolute;top:calc(var(--dial-size)/2);left:calc(100% + var(--dial-gap)/2);width:11px;height:11px;border:2px solid #86868B;border-radius:50%;background:var(--light);transform:translate(-50%,-50%)}
@@ -90,9 +88,6 @@ html{scroll-padding-top:108px}
 .hero{height:660px;min-height:0}.hero-copy{padding-top:48px}.hero h1{font-size:44px}.hero p{font-size:17px;margin-top:18px}.hero picture img{object-position:58% bottom}
 .story{padding-block:68px}.story p{font-size:17px;line-height:1.65}.story .kicker{font-size:25px;margin-top:24px}.story-grid>div{margin-top:26px}
 .stand{padding-block:64px}.stand .rule{font-size:34px}
-/* Two-column checkerboard: red 1, 4, 5; graphite 2, 3, 6. */
-.rings li:nth-child(n){--dial-segment:url(#dial-graphite);--dial-accent:#86868B}
-.rings li:nth-child(4n+1),.rings li:nth-child(4n){--dial-segment:url(#dial-red);--dial-accent:#EE243B}
 .rings{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:40px;gap:36px 20px}.rings li{--dial-size:144px}.ring{margin-bottom:18px}.rings li::before,.rings li::after,.dial-nodes{display:none}.rings h3{font-size:18px}.rings p{font-size:13px;line-height:1.55;margin-top:10px}
 .brands{padding-top:64px}.brands .rule{margin-bottom:30px}
 .tiles{grid-template-columns:minmax(0,1fr);padding:8px;gap:8px}.tile{min-height:520px}.tile .body{padding:38px 20px 26px;min-height:270px}.tile h3{font-size:34px}.tile p{font-size:19px}.tile .art{aspect-ratio:1.45}.actions{gap:10px;margin-top:20px}.btn{font-size:13px;padding-inline:20px}.tile .status{font-size:12px}

@@ -40,8 +40,10 @@ CSS = ROOT / "assets" / "home" / "home.css"
 NEUTRAL = {"FFFFFF", "F5F5F7", "E6E7E9", "86868B", "6E6E73", "1D1D1F", "1C1D20", "000000"}
 RED = {"EE243B"}
 ALLOWED = NEUTRAL | RED
-# Only HTML descendants of section#app may use these demo product accents and digits.
+# Only HTML descendants of section#app may use digits. Product accents are allowed in
+# section#app and section#stand (the six knobs use one product color each).
 # home.css remains corporate-only; keep product colors inline in section#app.
+ACCENT_SECTIONS = {"app", "stand"}
 APP_ACCENTS = {"24BFD3", "123C89", "B698E9", "D48A2C", "A9C7C4", "C6B18D", "B8BBBE", "2F7CF6"}
 VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 
@@ -63,19 +65,23 @@ class Page(HTMLParser):
         self.links: list[tuple[int, str]] = []
         self.ids: set[str] = set()
         self._in: str | None = None
-        self._stack: list[tuple[str, bool]] = []
+        self._stack: list[tuple[str, str]] = []
         self.app_texts: list[tuple[int, str]] = []
         self.app_colors: list[tuple[int, str]] = []
 
     @property
     def in_app(self) -> bool:
-        return any(app for _, app in self._stack)
+        return any(s == "app" for _, s in self._stack)
+
+    @property
+    def in_accent(self) -> bool:
+        return any(s in ACCENT_SECTIONS for _, s in self._stack)
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         line = self.getpos()[0]
         a = {k: v or "" for k, v in attrs}
         if tag not in VOID_TAGS:
-            self._stack.append((tag, tag == "section" and a.get("id") == "app"))
+            self._stack.append((tag, a.get("id", "") if tag == "section" else ""))
         if a.get("id"):
             self.ids.add(a["id"])
         for k in VISIBLE_ATTRS:
@@ -84,10 +90,10 @@ class Page(HTMLParser):
         if tag == "meta" and a.get("name") == "description":
             (self.app_texts if self.in_app else self.texts).append((line, a.get("content", "")))
         if tag == "meta" and a.get("name") == "theme-color":
-            (self.app_colors if self.in_app else self.colors).append((line, a.get("content", "")))
+            (self.app_colors if self.in_accent else self.colors).append((line, a.get("content", "")))
         for k in COLOR_ATTRS:
             if a.get(k):
-                (self.app_colors if self.in_app else self.colors).append((line, a[k]))
+                (self.app_colors if self.in_accent else self.colors).append((line, a[k]))
         for k in LINK_ATTRS:
             if a.get(k):
                 self.links.append((line, a[k]))

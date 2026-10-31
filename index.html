@@ -110,8 +110,17 @@
   <section class="stand" id="stand" aria-labelledby="stand-h">
     <div class="wrap">
       <h2 id="stand-h" class="rule">What every Control Freak does for you</h2>
+      <svg class="sprite" aria-hidden="true" focusable="false"><defs>
+      <!-- One product color per knob: corporate red, Pool, Terrarium, Reef, Cold Plunge gold, Reef violet. -->
+        <linearGradient id="dial-red-seg" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#EE243B"/><stop offset=".68" stop-color="#EE243B"/><stop offset="1" stop-color="#EE243B" stop-opacity=".82"/></linearGradient>
+        <linearGradient id="dial-pool-seg" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#24BFD3"/><stop offset=".68" stop-color="#24BFD3"/><stop offset="1" stop-color="#24BFD3" stop-opacity=".82"/></linearGradient>
+        <linearGradient id="dial-terrarium-seg" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#D48A2C"/><stop offset=".68" stop-color="#D48A2C"/><stop offset="1" stop-color="#D48A2C" stop-opacity=".82"/></linearGradient>
+        <linearGradient id="dial-reef-seg" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#123C89"/><stop offset=".68" stop-color="#123C89"/><stop offset="1" stop-color="#123C89" stop-opacity=".82"/></linearGradient>
+        <linearGradient id="dial-plunge-seg" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#C6B18D"/><stop offset=".68" stop-color="#C6B18D"/><stop offset="1" stop-color="#C6B18D" stop-opacity=".82"/></linearGradient>
+        <linearGradient id="dial-reefviolet-seg" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#B698E9"/><stop offset=".68" stop-color="#B698E9"/><stop offset="1" stop-color="#B698E9" stop-opacity=".82"/></linearGradient>
+      </defs></svg>
       <ol class="rings">
-        <li><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+        <li style="--dial-segment:url(#dial-red-seg);--dial-accent:#EE243B"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
           <!-- Dial 1: independently phased band, outer opening and dot trail. -->
           <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
           <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
@@ -135,7 +144,7 @@
           <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
           </svg>
           <h3>Privacy built in</h3><p>Your data stays in your home. Flip a switch to share one signal, like low chlorine, with a provider you choose. Only that signal, only that provider. No toilet paper company tracking your bathroom trips.</p></li>
-        <li><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+        <li style="--dial-segment:url(#dial-pool-seg);--dial-accent:#24BFD3"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
           <!-- Dial 2: independently phased band, outer opening and dot trail. -->
           <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
           <path d="M167.959 102.373 A68 68 0 1 1 95.257 32.166" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
@@ -160,7 +169,7 @@
           <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
           </svg>
           <h3>One app, unify your devices</h3><p>Home Assistant is built into every controller, so your pool, reef, lights, thermostat and cameras all live in one app. No more opening five apps to check on one house.</p></li>
-        <li><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+        <li style="--dial-segment:url(#dial-terrarium-seg);--dial-accent:#D48A2C"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
           <!-- Dial 3: independently phased band, outer opening and dot trail. -->
           <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
           <path d="M119.881 165.029 A68 68 0 1 1 152.846 57.206" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
@@ -183,7 +192,7 @@
           <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
           </svg>
           <h3>No subscription.</h3><p>Buy the controller once and it's yours. Every feature in the app works without a monthly fee. Optional services, like chlorine delivery, are yours to choose, never required.</p></li>
-        <li><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+        <li style="--dial-segment:url(#dial-reef-seg);--dial-accent:#123C89"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
           <!-- Dial 4: independently phased band, outer opening and dot trail. -->
           <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
           <path d="M44.987 139.969 A68 68 0 1 1 165.366 118.743" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
@@ -208,7 +217,7 @@
           <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
           </svg>
           <h3>Reliability built in</h3><p>The internet goes down, your home doesn't. Schedules and safety rules run right in the controller, so a storm that knocks out the internet for two weeks never knocks out your control.</p></li>
-        <li><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+        <li style="--dial-segment:url(#dial-plunge-seg);--dial-accent:#C6B18D"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
           <!-- Dial 5: independently phased band, outer opening and dot trail. -->
           <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
           <path d="M44.298 60.997 A68 68 0 1 1 122.139 164.295" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
@@ -232,7 +241,7 @@
           <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
           </svg>
           <h3>One-tap routines</h3><p>Spa Night on the pool, Feed Mode on the reef. One tap runs several steps, then hands control back. More than an on/off switch.</p></li>
-        <li><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+        <li style="--dial-segment:url(#dial-reefviolet-seg);--dial-accent:#B698E9"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
           <!-- Dial 6: independently phased band, outer opening and dot trail. -->
           <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
           <path d="M118.743 34.634 A68 68 0 1 1 60.031 155.013" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
