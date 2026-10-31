@@ -16,61 +16,7 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- Shared line icons and dimensional dial materials. -->
-<svg class="sprite" aria-hidden="true" focusable="false">
-  <defs>
-    <!-- Shared materials use a fixed light source above and left of every dial. -->
-    <linearGradient id="dial-band" gradientUnits="userSpaceOnUse" x1="40" y1="30" x2="155" y2="175">
-      <stop stop-color="#FFFFFF"/><stop offset=".24" stop-color="#E6E7E9"/><stop offset=".65" stop-color="#86868B"/><stop offset="1" stop-color="#6E6E73"/>
-    </linearGradient>
-    <!-- Contrasting seats keep the neutral segments distinct at normal size. -->
-    <linearGradient id="dial-band-dark" gradientUnits="userSpaceOnUse" x1="40" y1="30" x2="155" y2="175">
-      <stop stop-color="#86868B"/><stop offset=".45" stop-color="#6E6E73"/><stop offset="1" stop-color="#1D1D1F"/>
-    </linearGradient>
-    <linearGradient id="dial-band-light" gradientUnits="userSpaceOnUse" x1="40" y1="30" x2="155" y2="175">
-      <stop stop-color="#FFFFFF"/><stop offset=".65" stop-color="#F5F5F7"/><stop offset="1" stop-color="#E6E7E9"/>
-    </linearGradient>
-    <linearGradient id="dial-bevel" x2=".8" y2="1">
-      <stop stop-color="#FFFFFF"/><stop offset=".45" stop-color="#E6E7E9"/><stop offset="1" stop-color="#6E6E73"/>
-    </linearGradient>
-    <radialGradient id="dial-face" cx=".28" cy=".2" r=".88">
-      <stop stop-color="#FFFFFF"/><stop offset=".58" stop-color="#F5F5F7"/><stop offset="1" stop-color="#E6E7E9"/>
-    </radialGradient>
-    <linearGradient id="dial-rim" x2=".7" y2="1">
-      <stop stop-color="#FFFFFF"/><stop offset=".4" stop-color="#FFFFFF"/><stop offset="1" stop-color="#86868B" stop-opacity=".55"/>
-    </linearGradient>
-    <linearGradient id="dial-red" x2=".8" y2="1">
-      <stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#EE243B"/><stop offset=".68" stop-color="#EE243B"/><stop offset="1" stop-color="#1D1D1F"/>
-    </linearGradient>
-    <linearGradient id="dial-graphite" x2=".8" y2="1">
-      <stop stop-color="#E6E7E9"/><stop offset=".35" stop-color="#86868B"/><stop offset="1" stop-color="#6E6E73"/>
-    </linearGradient>
-    <linearGradient id="dial-silver" x2=".8" y2="1">
-      <stop stop-color="#FFFFFF"/><stop offset=".45" stop-color="#E6E7E9"/><stop offset="1" stop-color="#86868B"/>
-    </linearGradient>
-    <linearGradient id="dial-gray" x2=".8" y2="1">
-      <stop stop-color="#E6E7E9"/><stop offset=".4" stop-color="#86868B"/><stop offset="1" stop-color="#1D1D1F"/>
-    </linearGradient>
-    <filter id="dial-shadow" x="-45%" y="-45%" width="200%" height="210%" color-interpolation-filters="sRGB">
-      <feDropShadow dx="7" dy="10" stdDeviation="7" flood-color="#000000" flood-opacity=".28"/>
-      <feDropShadow dx="2" dy="3" stdDeviation="1.4" flood-color="#1D1D1F" flood-opacity=".18"/>
-    </filter>
-    <filter id="dial-lift" x="-50%" y="-50%" width="210%" height="220%" color-interpolation-filters="sRGB">
-      <feDropShadow dx="7" dy="12" stdDeviation="11" flood-color="#1D1D1F" flood-opacity=".22"/>
-    </filter>
-    <filter id="dial-segment-shadow" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
-      <feDropShadow dx="1.5" dy="2.5" stdDeviation="1.5" flood-color="#000000" flood-opacity=".25"/>
-    </filter>
-    <symbol id="i-local" viewBox="0 0 32 32"><path d="M4.5 15 16 5.5 27.5 15"/><path d="M8 12.5V27h16V12.5"/><rect x="12.5" y="15.5" width="7" height="7" rx="1"/><path d="M14.5 13.5v2M17.5 13.5v2M14.5 22.5v2M17.5 22.5v2"/></symbol>
-    <symbol id="i-app" viewBox="0 0 32 32"><rect x="4" y="6.5" width="24" height="19" rx="2.5"/><path d="M4 11.5h24"/><path d="M7.5 9h.01M10 9h.01M12.5 9h.01"/><rect x="8" y="15" width="6.5" height="6.5" rx="1"/><path d="M18 16h6M18 20.5h4"/></symbol>
-    <symbol id="i-nosub" viewBox="0 0 32 32"><path d="M23.5 11.5a8.5 8.5 0 0 0-15 .5"/><path d="M8 7.5V12h4.5"/><path d="M8.5 20.5a8.5 8.5 0 0 0 15-.5"/><path d="M24 24.5V20h-4.5"/><path d="M5.5 5.5l21 21"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 32 32"><path d="M16 4l10 4v7c0 6.5-4.2 11-10 13C10.2 26 6 21.5 6 15V8z"/><path d="M11.5 16l3.2 3.2 6-6.4"/></symbol>
-    <symbol id="i-tap" viewBox="0 0 32 32"><path d="M13 28.5v-4l-3.4-4a1.8 1.8 0 0 1 2.6-2.4l1.8 1.9V12.5a1.75 1.75 0 0 1 3.5 0V17l5 .9c1.4.25 2.3 1.5 2.1 2.9l-1.1 7.7"/><path d="M11.75 9.5a4 4 0 0 1 8 0"/><path d="M8.75 8a7 7 0 0 1 14 0"/></symbol>
-    <symbol id="i-plug" viewBox="0 0 32 32"><path d="M12 4v6M20 4v6"/><path d="M9 10h14v5a7 7 0 0 1-14 0z"/><path d="M16 22v6"/></symbol>
-  </defs>
-</svg>
-
-<header class="site-head">
+<svg class="sprite" aria-hidden="true"><defs><symbol id="i-local" viewBox="0 0 32 32"><path d="M4.5 15 16 5.5 27.5 15"/><path d="M8 12.5V27h16V12.5"/><rect x="12.5" y="15.5" width="7" height="7" rx="1"/><path d="M14.5 13.5v2M17.5 13.5v2M14.5 22.5v2M17.5 22.5v2"/></symbol><symbol id="i-app" viewBox="0 0 32 32"><rect x="4" y="6.5" width="24" height="19" rx="2.5"/><path d="M4 11.5h24"/><path d="M7.5 9h.01M10 9h.01M12.5 9h.01"/><rect x="8" y="15" width="6.5" height="6.5" rx="1"/><path d="M18 16h6M18 20.5h4"/></symbol><symbol id="i-nosub" viewBox="0 0 32 32"><path d="M23.5 11.5a8.5 8.5 0 0 0-15 .5"/><path d="M8 7.5V12h4.5"/><path d="M8.5 20.5a8.5 8.5 0 0 0 15-.5"/><path d="M24 24.5V20h-4.5"/><path d="M5.5 5.5l21 21"/></symbol><symbol id="i-shield" viewBox="0 0 32 32"><path d="M16 4l10 4v7c0 6.5-4.2 11-10 13C10.2 26 6 21.5 6 15V8z"/><path d="M11.5 16l3.2 3.2 6-6.4"/></symbol><symbol id="i-tap" viewBox="0 0 32 32"><path d="M13 28.5v-4l-3.4-4a1.8 1.8 0 0 1 2.6-2.4l1.8 1.9V12.5a1.75 1.75 0 0 1 3.5 0V17l5 .9c1.4.25 2.3 1.5 2.1 2.9l-1.1 7.7"/><path d="M11.75 9.5a4 4 0 0 1 8 0"/><path d="M8.75 8a7 7 0 0 1 14 0"/></symbol><symbol id="i-plug" viewBox="0 0 32 32"><path d="M12 4v6M20 4v6"/><path d="M9 10h14v5a7 7 0 0 1-14 0z"/><path d="M16 22v6"/></symbol></defs></svg><header class="site-head">
   <div class="wrap head-row">
     <a class="logo" href="#top" aria-label="Control Freak home"><img src="assets/control-freak-corporate-wordmark-white.svg" alt="Control Freak" width="1167" height="527"></a>
     <nav aria-label="Main">
@@ -89,226 +35,51 @@
       <img src="assets/home/r4-hero.jpg" width="3000" height="2000" alt="A backyard at dusk with a lit pool, a reef aquarium, a planted terrarium tower and a cold plunge tub." fetchpriority="high">
     </picture>
     <div class="wrap hero-copy">
-      <h1>Put the Control Freak on it.</h1>
+      <h1>Put the<br>Control Freak<br>on it<span class="red">.</span></h1>
       <p>Smart controllers that run locally, unify your devices, and keep the control with the people who care most.</p>
     </div>
   </section>
 
-  <section class="story" id="story" aria-labelledby="story-h">
-    <div class="wrap story-grid">
-      <h2 id="story-h" class="rule">Our story</h2>
-      <div>
-        <p>Control Freak started with my own pool. When I looked at what was out there for automating it, I found only a few products, and none of them met my needs. They fell short on features, on looks, or on a price I could justify.</p>
-        <p>So we designed our own custom circuit board, user interface and platform, built to be mass produced, so other people could solve the same problem I set out to solve.</p>
-        <p>Along the way we added features nobody else offered and brought the cost way down. A fraction of the price, twice the options.</p>
-        <p>Got another idea for something big business has a lock on? Put Control Freak on it.</p>
-        <p class="kicker">We put the power back in your hands, with features that enrich your life, not our pockets.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="stand" id="stand" aria-labelledby="stand-h">
-    <div class="wrap">
-      <h2 id="stand-h" class="rule">What every Control Freak does for you</h2>
-      <svg class="sprite" aria-hidden="true" focusable="false"><defs>
-      <!-- One product color per knob: corporate red, Pool, Terrarium, Reef, Cold Plunge gold, Reef violet. -->
-        <linearGradient id="dial-red-seg" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#EE243B"/><stop offset=".68" stop-color="#EE243B"/><stop offset="1" stop-color="#EE243B" stop-opacity=".82"/></linearGradient>
-        <linearGradient id="dial-pool-seg" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#24BFD3"/><stop offset=".68" stop-color="#24BFD3"/><stop offset="1" stop-color="#24BFD3" stop-opacity=".82"/></linearGradient>
-        <linearGradient id="dial-terrarium-seg" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#D48A2C"/><stop offset=".68" stop-color="#D48A2C"/><stop offset="1" stop-color="#D48A2C" stop-opacity=".82"/></linearGradient>
-        <linearGradient id="dial-reef-seg" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#123C89"/><stop offset=".68" stop-color="#123C89"/><stop offset="1" stop-color="#123C89" stop-opacity=".82"/></linearGradient>
-        <linearGradient id="dial-plunge-seg" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#C6B18D"/><stop offset=".68" stop-color="#C6B18D"/><stop offset="1" stop-color="#C6B18D" stop-opacity=".82"/></linearGradient>
-        <linearGradient id="dial-reefviolet-seg" x2=".8" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#B698E9"/><stop offset=".68" stop-color="#B698E9"/><stop offset="1" stop-color="#B698E9" stop-opacity=".82"/></linearGradient>
-      </defs></svg>
-      <ol class="rings">
-        <li style="--dial-segment:url(#dial-red-seg);--dial-accent:#EE243B"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
-          <!-- Dial 1: independently phased band, outer opening and dot trail. -->
-          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
-          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
-          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" fill="none" stroke="var(--dial-segment)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
-          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M19.246 85.761 A82 82 0 1 1 32.830 147.033" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
-          <path d="M30.460 56.547 A82 82 0 0 1 128.046 22.945" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
-          <circle cx="75.930" cy="189.831" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
-          <circle cx="62.173" cy="184.960" r="1.23" fill="var(--dial-accent)" opacity="0.46"/>
-          <circle cx="49.349" cy="177.996" r="1.36" fill="var(--dial-accent)" opacity="0.57"/>
-          <circle cx="37.771" cy="169.112" r="1.49" fill="var(--dial-accent)" opacity="0.68"/>
-          <circle cx="27.725" cy="158.527" r="1.62" fill="var(--dial-accent)" opacity="0.78"/>
-          <circle cx="19.460" cy="146.500" r="1.75" fill="var(--dial-accent)" opacity="0.89"/>
-          <circle cx="13.177" cy="133.328" r="1.88" fill="var(--dial-accent)" opacity="1.00"/>
-          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
-          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
-          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
-          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
-          <use class="icon" href="#i-local" x="76" y="76" width="48" height="48"/>
-          <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
-          </svg>
-          <h3>Privacy built in</h3><p>Your data stays in your home. Flip a switch to share one signal, like low chlorine, with a provider you choose. Only that signal, only that provider. No toilet paper company tracking your bathroom trips.</p></li>
-        <li style="--dial-segment:url(#dial-pool-seg);--dial-accent:#24BFD3"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
-          <!-- Dial 2: independently phased band, outer opening and dot trail. -->
-          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
-          <path d="M167.959 102.373 A68 68 0 1 1 95.257 32.166" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
-          <path d="M167.959 102.373 A68 68 0 1 1 95.257 32.166" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M100.000 32.000 A68 68 0 0 1 167.959 97.627" fill="none" stroke="var(--dial-segment)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
-          <path d="M100.000 32.000 A68 68 0 0 1 167.959 97.627" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M35.383 49.516 A82 82 0 1 1 18.000 100.000" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
-          <path d="M95.708 18.112 A82 82 0 0 1 181.988 101.431" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
-          <circle cx="15.713" cy="139.303" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
-          <circle cx="10.603" cy="125.634" r="1.23" fill="var(--dial-accent)" opacity="0.44"/>
-          <circle cx="7.693" cy="111.334" r="1.36" fill="var(--dial-accent)" opacity="0.54"/>
-          <circle cx="7.057" cy="96.754" r="1.49" fill="var(--dial-accent)" opacity="0.63"/>
-          <circle cx="8.709" cy="82.255" r="1.62" fill="var(--dial-accent)" opacity="0.72"/>
-          <circle cx="12.609" cy="68.192" r="1.75" fill="var(--dial-accent)" opacity="0.81"/>
-          <circle cx="18.660" cy="54.913" r="1.88" fill="var(--dial-accent)" opacity="0.91"/>
-          <circle cx="26.715" cy="42.743" r="2.01" fill="var(--dial-accent)" opacity="1.00"/>
-          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
-          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
-          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
-          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
-          <use class="icon" href="#i-app" x="76" y="76" width="48" height="48"/>
-          <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
-          </svg>
-          <h3>One app, unify your devices</h3><p>Home Assistant is built into every controller, so your pool, reef, lights, thermostat and cameras all live in one app. No more opening five apps to check on one house.</p></li>
-        <li style="--dial-segment:url(#dial-terrarium-seg);--dial-accent:#D48A2C"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
-          <!-- Dial 3: independently phased band, outer opening and dot trail. -->
-          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
-          <path d="M119.881 165.029 A68 68 0 1 1 152.846 57.206" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
-          <path d="M119.881 165.029 A68 68 0 1 1 152.846 57.206" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M155.702 60.997 A68 68 0 0 1 124.369 163.483" fill="none" stroke="var(--dial-segment)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
-          <path d="M155.702 60.997 A68 68 0 0 1 124.369 163.483" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M78.777 20.794 A82 82 0 1 1 25.683 65.345" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
-          <path d="M164.617 49.516 A82 82 0 0 1 125.339 177.987" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
-          <circle cx="23.819" cy="46.657" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
-          <circle cx="33.101" cy="35.397" r="1.23" fill="var(--dial-accent)" opacity="0.48"/>
-          <circle cx="44.031" cy="25.727" r="1.36" fill="var(--dial-accent)" opacity="0.61"/>
-          <circle cx="56.339" cy="17.886" r="1.49" fill="var(--dial-accent)" opacity="0.74"/>
-          <circle cx="69.722" cy="12.067" r="1.62" fill="var(--dial-accent)" opacity="0.87"/>
-          <circle cx="83.851" cy="8.413" r="1.75" fill="var(--dial-accent)" opacity="1.00"/>
-          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
-          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
-          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
-          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
-          <use class="icon" href="#i-nosub" x="76" y="76" width="48" height="48"/>
-          <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
-          </svg>
-          <h3>No subscription.</h3><p>Buy the controller once and it's yours. Every feature in the app works without a monthly fee. Optional services, like chlorine delivery, are yours to choose, never required.</p></li>
-        <li style="--dial-segment:url(#dial-reef-seg);--dial-accent:#123C89"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
-          <!-- Dial 4: independently phased band, outer opening and dot trail. -->
-          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
-          <path d="M44.987 139.969 A68 68 0 1 1 165.366 118.743" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
-          <path d="M44.987 139.969 A68 68 0 1 1 165.366 118.743" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M163.899 123.257 A68 68 0 0 1 47.909 143.710" fill="none" stroke="var(--dial-segment)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
-          <path d="M163.899 123.257 A68 68 0 0 1 47.909 143.710" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M180.990 112.828 A82 82 0 1 1 167.170 52.967" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
-          <path d="M178.417 123.974 A82 82 0 0 1 34.512 149.349" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
-          <circle cx="124.070" cy="10.169" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
-          <circle cx="137.827" cy="15.040" r="1.23" fill="var(--dial-accent)" opacity="0.44"/>
-          <circle cx="150.651" cy="22.004" r="1.36" fill="var(--dial-accent)" opacity="0.54"/>
-          <circle cx="162.229" cy="30.888" r="1.49" fill="var(--dial-accent)" opacity="0.63"/>
-          <circle cx="172.275" cy="41.473" r="1.62" fill="var(--dial-accent)" opacity="0.72"/>
-          <circle cx="180.540" cy="53.500" r="1.75" fill="var(--dial-accent)" opacity="0.81"/>
-          <circle cx="186.823" cy="66.672" r="1.88" fill="var(--dial-accent)" opacity="0.91"/>
-          <circle cx="190.968" cy="80.664" r="2.01" fill="var(--dial-accent)" opacity="1.00"/>
-          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
-          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
-          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
-          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
-          <use class="icon" href="#i-shield" x="76" y="76" width="48" height="48"/>
-          <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
-          </svg>
-          <h3>Reliability built in</h3><p>The internet goes down, your home doesn't. Schedules and safety rules run right in the controller, so a storm that knocks out the internet for two weeks never knocks out your control.</p></li>
-        <li style="--dial-segment:url(#dial-plunge-seg);--dial-accent:#C6B18D"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
-          <!-- Dial 5: independently phased band, outer opening and dot trail. -->
-          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
-          <path d="M44.298 60.997 A68 68 0 1 1 122.139 164.295" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
-          <path d="M44.298 60.997 A68 68 0 1 1 122.139 164.295" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M117.600 165.683 A68 68 0 0 1 41.713 64.977" fill="none" stroke="var(--dial-segment)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
-          <path d="M117.600 165.683 A68 68 0 0 1 41.713 64.977" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M165.488 149.349 A82 82 0 1 1 179.206 78.777" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
-          <path d="M125.339 177.987 A82 82 0 0 1 32.019 54.146" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
-          <circle cx="189.831" cy="75.930" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
-          <circle cx="192.491" cy="90.279" r="1.23" fill="var(--dial-accent)" opacity="0.46"/>
-          <circle cx="192.873" cy="104.867" r="1.36" fill="var(--dial-accent)" opacity="0.57"/>
-          <circle cx="190.968" cy="119.336" r="1.49" fill="var(--dial-accent)" opacity="0.68"/>
-          <circle cx="186.823" cy="133.328" r="1.62" fill="var(--dial-accent)" opacity="0.78"/>
-          <circle cx="180.540" cy="146.500" r="1.75" fill="var(--dial-accent)" opacity="0.89"/>
-          <circle cx="172.275" cy="158.527" r="1.88" fill="var(--dial-accent)" opacity="1.00"/>
-          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
-          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
-          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
-          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
-          <use class="icon" href="#i-tap" x="76" y="76" width="48" height="48"/>
-          <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
-          </svg>
-          <h3>One-tap routines</h3><p>Spa Night on the pool, Feed Mode on the reef. One tap runs several steps, then hands control back. More than an on/off switch.</p></li>
-        <li style="--dial-segment:url(#dial-reefviolet-seg);--dial-accent:#B698E9"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
-          <!-- Dial 6: independently phased band, outer opening and dot trail. -->
-          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
-          <path d="M118.743 34.634 A68 68 0 1 1 60.031 155.013" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
-          <path d="M118.743 34.634 A68 68 0 1 1 60.031 155.013" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M56.290 152.091 A68 68 0 0 1 114.138 33.486" fill="none" stroke="var(--dial-segment)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
-          <path d="M56.290 152.091 A68 68 0 0 1 114.138 33.486" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M157.983 157.983 A82 82 0 1 1 181.688 107.147" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
-          <path d="M50.651 165.488 A82 82 0 0 1 121.223 20.794" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
-          <circle cx="165.761" cy="165.761" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
-          <circle cx="154.664" cy="175.239" r="1.23" fill="var(--dial-accent)" opacity="0.43"/>
-          <circle cx="142.221" cy="182.864" r="1.36" fill="var(--dial-accent)" opacity="0.51"/>
-          <circle cx="128.739" cy="188.448" r="1.49" fill="var(--dial-accent)" opacity="0.59"/>
-          <circle cx="114.548" cy="191.855" r="1.62" fill="var(--dial-accent)" opacity="0.68"/>
-          <circle cx="100.000" cy="193.000" r="1.75" fill="var(--dial-accent)" opacity="0.76"/>
-          <circle cx="85.452" cy="191.855" r="1.88" fill="var(--dial-accent)" opacity="0.84"/>
-          <circle cx="71.261" cy="188.448" r="2.01" fill="var(--dial-accent)" opacity="0.92"/>
-          <circle cx="57.779" cy="182.864" r="2.14" fill="var(--dial-accent)" opacity="1.00"/>
-          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
-          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
-          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
-          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
-          <use class="icon" href="#i-plug" x="76" y="76" width="48" height="48"/>
-          <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
-          </svg>
-          <h3>Plug and play kit</h3><p>Every sensor and pump connects with a keyed, color-coded plug that only fits one way. Scan the QR code, follow the app, and you're running. It's plug and play, not plug and pray.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="brands" id="brands" aria-labelledby="brands-h">
-    <div class="brands-inner">
-      <div class="wrap"><h2 id="brands-h" class="rule">Our brands</h2></div>
+<section class="story numbered" id="story" aria-labelledby="story-h"><div class="wrap story-grid">
+<div class="story-photo"><img src="assets/home/r4-pool.webp" width="2172" height="724" alt="A resort pool softly lit at dusk." loading="lazy"></div>
+<div class="story-copy"><h2 id="story-h" class="section-heading">Our story</h2><p>Control Freak started with my own pool. When I looked at what was out there for automating it, I found only a few products, and none of them met my needs. They fell short on features, on looks, or on a price I could justify.</p><p>So we designed our own custom circuit board, user interface and platform, built to be mass produced, so other people could solve the same problem I set out to solve.</p><p>Along the way we added features nobody else offered and brought the cost way down. A fraction of the price, twice the options.</p><p class="kicker">We put the power back in your hands, with features that enrich your life, not our pockets.</p><p>Got another idea for something big business has a lock on? Put Control Freak on it.</p></div><blockquote><span class="quote-mark" aria-hidden="true">“</span>We put the power back in <span class="red">your hands.</span></blockquote></div></section><section class="stand numbered" id="stand" aria-labelledby="stand-h"><div class="wrap"><h2 id="stand-h" class="section-heading">What every Control Freak does for you</h2><ol class="promises"><li><svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-local"/></svg><h3>Privacy built in</h3><p>Your data stays in your home. Flip a switch to share one signal, like low chlorine, with a provider you choose. Only that signal, only that provider. No toilet paper company tracking your bathroom trips.</p></li><li><svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-app"/></svg><h3>One app, unify your devices</h3><p>Home Assistant is built into every controller, so your pool, reef, lights, thermostat and cameras all live in one app. No more opening five apps to check on one house.</p></li><li><svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-nosub"/></svg><h3>No subscription.</h3><p>Buy the controller once and it's yours. Every feature in the app works without a monthly fee. Optional services, like chlorine delivery, are yours to choose, never required.</p></li><li><svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-shield"/></svg><h3>Reliability built in</h3><p>The internet goes down, your home doesn't. Schedules and safety rules run right in the controller, so a storm that knocks out the internet for two weeks never knocks out your control.</p></li><li><svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-tap"/></svg><h3>One-tap routines</h3><p>Spa Night on the pool, Feed Mode on the reef. One tap runs several steps, then hands control back. More than an on/off switch.</p></li><li><svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-plug"/></svg><h3>Plug and play kit</h3><p>Every sensor and pump connects with a keyed, color-coded plug that only fits one way. Scan the QR code, follow the app, and you're running. It's plug and play, not plug and pray.</p></li></ol></div></section>  <section class="brands numbered" id="brands" aria-labelledby="brands-h">
+    <div class="brands-inner wrap">
+      <div><h2 id="brands-h" class="section-heading">Our brands</h2></div>
       <ul class="tiles">
         <li class="tile t-pool">
           <div class="body"><h3>Control Freak Pool</h3><p>Pool automation.</p>
             <div class="actions"><a class="btn" href="https://controlfreakpool.com" aria-label="Learn more about Control Freak Pool">Learn more</a></div>
-            <p class="status">Live.</p>
+            <p class="status live">Live.</p>
           </div>
-          <div class="art"><img src="assets/home/r4-pool.webp" alt="A resort pool softly lit at dusk." width="2048" height="683" loading="lazy" decoding="async"></div>
+          <div class="art"><img src="assets/home/r4-pool.webp" alt="A resort pool softly lit at dusk." width="2172" height="724" loading="lazy" decoding="async"></div>
         </li>
         <li class="tile t-reef">
           <div class="body"><h3>Reef Control Pro</h3><p>A reef aquarium controller.</p>
             <div class="actions"><a class="btn" href="/reef/" aria-label="Learn more about Reef Control Pro">Learn more</a><a class="btn btn-outline" href="/reef/demo/">See the demo</a></div>
-            <p class="status">Live.</p>
+            <p class="status live">Live.</p>
           </div>
-          <div class="art"><img src="assets/home/r4-reef.webp" alt="A glowing reef aquarium filled with coral and fish." width="2048" height="683" loading="lazy" decoding="async"></div>
+          <div class="art"><img src="assets/home/r4-reef.webp" alt="A glowing reef aquarium filled with coral and fish." width="2172" height="724" loading="lazy" decoding="async"></div>
         </li>
         <li class="tile t-basement">
           <div class="body"><h3>Basement Guard Pro</h3><p>Sump and leak protection.</p>
             <div class="actions"><a class="btn" href="/basement-guard/" aria-label="Learn more about Basement Guard Pro">Learn more</a></div>
             <p class="status">Coming soon.</p>
           </div>
-          <div class="art"><img src="assets/home/r4-basement.webp" alt="A clean basement utility corner with a sump pit and pipes." width="2048" height="683" loading="lazy" decoding="async"></div>
+          <div class="art"><img src="assets/home/r4-basement.webp" alt="A clean basement utility corner with a sump pit and pipes." width="2172" height="724" loading="lazy" decoding="async"></div>
         </li>
         <li class="tile t-terrarium">
           <div class="body"><h3>Terrarium Control Pro</h3><p>Reptile habitats.</p>
             <div class="actions"><a class="btn" href="/terrarium/" aria-label="Learn more about Terrarium Control Pro">Learn more</a></div>
             <p class="status">Coming soon.</p>
           </div>
-          <div class="art"><img src="assets/home/r4-terrarium.webp" alt="A beautifully lit planted terrarium." width="2048" height="683" loading="lazy" decoding="async"></div>
+          <div class="art"><img src="assets/home/r4-terrarium.webp" alt="A beautifully lit planted terrarium." width="2164" height="727" loading="lazy" decoding="async"></div>
         </li>
         <li class="tile t-plunge">
           <div class="body"><h3>Cold Plunge Control Pro</h3><p>Cold plunge.</p>
             <div class="actions"><a class="btn" href="/cold-plunge/" aria-label="Learn more about Cold Plunge Control Pro">Learn more</a></div>
             <p class="status">Coming soon.</p>
           </div>
-          <div class="art"><img src="assets/home/r4-plunge.webp" alt="A cold plunge in a warm marble spa room with polished metal fixtures." width="2048" height="683" loading="lazy" decoding="async"></div>
+          <div class="art"><img src="assets/home/r4-plunge.webp" alt="A cold plunge in a warm marble spa room with polished metal fixtures." width="2172" height="724" loading="lazy" decoding="async"></div>
         </li>
         <li class="tile t-irrigation">
           <div class="body"><h3>Control Freak Irrigation</h3><p>Pool and yard on one controller.</p>
@@ -317,190 +88,18 @@
           </div>
           <div class="art"><img src="assets/home/r4-irrigation.webp" alt="A lit pool at dusk with sprinklers watering the lawn beyond." width="2172" height="724" loading="lazy" decoding="async"></div>
         </li>
-        <li class="tile t-more">
-          <div class="body"><h3>More on the way</h3></div>
-          <div class="art"><img src="assets/home/r4-more.webp" alt="" width="2048" height="683" loading="lazy" decoding="async"></div>
-        </li>
-      </ul>
+
+      </ul><p class="more">More on the way</p>
     </div>
   </section>
 
-  <section id="app" aria-labelledby="app-h">
-    <div class="wrap app-layout">
-      <div class="app-copy"><p class="app-eyebrow">App preview</p><h2 id="app-h">Control you<br>can feel.</h2>
-        <p>One app for every Control Freak product. Tap + and scan the QR code to add the next one. Each product gets its own tab. No account needed.</p>
-      </div>
-      <div class="app-preview">
-        <div class="app-selector" role="tablist" aria-label="Preview a product">
-          <button type="button" role="tab" id="app-tab-0" aria-controls="app-panel-0" aria-selected="true" tabindex="0">Pool</button>
-          <button type="button" role="tab" id="app-tab-1" aria-controls="app-panel-1" aria-selected="false" tabindex="-1">Reef</button>
-          <button type="button" role="tab" id="app-tab-2" aria-controls="app-panel-2" aria-selected="false" tabindex="-1">Terrarium</button>
-          <button type="button" role="tab" id="app-tab-3" aria-controls="app-panel-3" aria-selected="false" tabindex="-1">Cold Plunge</button>
-          <button type="button" role="tab" id="app-tab-4" aria-controls="app-panel-4" aria-selected="false" tabindex="-1">Basement Guard</button>
-        </div>
-        <div class="app-phone">
-          <div role="tabpanel" id="app-panel-0" aria-labelledby="app-tab-0" tabindex="0" style="--dial-accent:#24BFD3;--app-color:#24BFD3">
-            <p class="app-product">Control Freak Pool</p><p class="app-demo">Demo · example readings</p><div class="app-knob"><svg class="app-dial" viewBox="0 0 200 200" aria-hidden="true">
-
-          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
-          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
-          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" fill="none" stroke="url(#app-segment-0)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
-          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M19.246 85.761 A82 82 0 1 1 32.830 147.033" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
-          <path d="M30.460 56.547 A82 82 0 0 1 128.046 22.945" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
-          <circle cx="75.930" cy="189.831" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
-          <circle cx="62.173" cy="184.960" r="1.23" fill="var(--dial-accent)" opacity="0.46"/>
-          <circle cx="49.349" cy="177.996" r="1.36" fill="var(--dial-accent)" opacity="0.57"/>
-          <circle cx="37.771" cy="169.112" r="1.49" fill="var(--dial-accent)" opacity="0.68"/>
-          <circle cx="27.725" cy="158.527" r="1.62" fill="var(--dial-accent)" opacity="0.78"/>
-          <circle cx="19.460" cy="146.500" r="1.75" fill="var(--dial-accent)" opacity="0.89"/>
-          <circle cx="13.177" cy="133.328" r="1.88" fill="var(--dial-accent)" opacity="1.00"/>
-          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
-          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
-          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
-          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
-
-
-          <defs><linearGradient id="app-segment-0" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".22" stop-color="#24BFD3"/><stop offset=".7" stop-color="#24BFD3"/><stop offset="1" stop-color="#1D1D1F"/></linearGradient></defs></svg><div class="app-reading"><strong>84°F</strong><span>Water temperature</span></div></div><dl class="app-metrics"><div><dt>Chlorine</dt><dd>3 ppm</dd></div><div><dt>pH</dt><dd>7.4</dd></div></dl><p class="app-pool-note">Pool preview</p></div>
-          <div role="tabpanel" id="app-panel-1" aria-labelledby="app-tab-1" tabindex="0" style="--dial-accent:#B698E9;--app-color:#123C89" hidden>
-            <p class="app-product">Reef Control Pro</p><p class="app-demo">Demo · example readings</p><div class="app-knob"><svg class="app-dial" viewBox="0 0 200 200" aria-hidden="true">
-
-          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
-          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
-          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" fill="none" stroke="url(#app-segment-1)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
-          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M19.246 85.761 A82 82 0 1 1 32.830 147.033" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
-          <path d="M30.460 56.547 A82 82 0 0 1 128.046 22.945" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
-          <circle cx="75.930" cy="189.831" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
-          <circle cx="62.173" cy="184.960" r="1.23" fill="var(--dial-accent)" opacity="0.46"/>
-          <circle cx="49.349" cy="177.996" r="1.36" fill="var(--dial-accent)" opacity="0.57"/>
-          <circle cx="37.771" cy="169.112" r="1.49" fill="var(--dial-accent)" opacity="0.68"/>
-          <circle cx="27.725" cy="158.527" r="1.62" fill="var(--dial-accent)" opacity="0.78"/>
-          <circle cx="19.460" cy="146.500" r="1.75" fill="var(--dial-accent)" opacity="0.89"/>
-          <circle cx="13.177" cy="133.328" r="1.88" fill="var(--dial-accent)" opacity="1.00"/>
-          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
-          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
-          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
-          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
-
-
-          <defs><linearGradient id="app-segment-1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".22" stop-color="#123C89"/><stop offset=".7" stop-color="#123C89"/><stop offset="1" stop-color="#1D1D1F"/></linearGradient></defs></svg><div class="app-reading"><strong>78.4°F</strong><span>Tank temperature</span></div></div><dl class="app-metrics"><div><dt>Sump</dt><dd>77.9°F</dd></div><div><dt>pH (Pro)</dt><dd>8.2</dd></div></dl><a class="btn app-explore" href="/reef/demo/">Explore the app</a></div>
-          <div role="tabpanel" id="app-panel-2" aria-labelledby="app-tab-2" tabindex="0" style="--dial-accent:#D48A2C;--app-color:#D48A2C" hidden>
-            <p class="app-product">Terrarium Control Pro</p><p class="app-demo">Demo · example readings</p><div class="app-knob"><svg class="app-dial" viewBox="0 0 200 200" aria-hidden="true">
-
-          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
-          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
-          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" fill="none" stroke="url(#app-segment-2)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
-          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M19.246 85.761 A82 82 0 1 1 32.830 147.033" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
-          <path d="M30.460 56.547 A82 82 0 0 1 128.046 22.945" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
-          <circle cx="75.930" cy="189.831" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
-          <circle cx="62.173" cy="184.960" r="1.23" fill="var(--dial-accent)" opacity="0.46"/>
-          <circle cx="49.349" cy="177.996" r="1.36" fill="var(--dial-accent)" opacity="0.57"/>
-          <circle cx="37.771" cy="169.112" r="1.49" fill="var(--dial-accent)" opacity="0.68"/>
-          <circle cx="27.725" cy="158.527" r="1.62" fill="var(--dial-accent)" opacity="0.78"/>
-          <circle cx="19.460" cy="146.500" r="1.75" fill="var(--dial-accent)" opacity="0.89"/>
-          <circle cx="13.177" cy="133.328" r="1.88" fill="var(--dial-accent)" opacity="1.00"/>
-          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
-          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
-          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
-          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
-
-
-          <defs><linearGradient id="app-segment-2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".22" stop-color="#D48A2C"/><stop offset=".7" stop-color="#D48A2C"/><stop offset="1" stop-color="#1D1D1F"/></linearGradient></defs></svg><div class="app-reading"><strong>105°F</strong><span>Basking</span></div></div><dl class="app-metrics"><div><dt>Cool side</dt><dd>78°F</dd></div><div><dt>Hot side</dt><dd>92°F</dd></div></dl><a class="btn app-explore" href="/terrarium/demo/">Explore the app</a></div>
-          <div role="tabpanel" id="app-panel-3" aria-labelledby="app-tab-3" tabindex="0" style="--dial-accent:#C6B18D;--app-color:#A9C7C4" hidden>
-            <p class="app-product">Cold Plunge Control Pro</p><p class="app-demo">Demo · example readings</p><div class="app-knob"><svg class="app-dial" viewBox="0 0 200 200" aria-hidden="true">
-
-          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
-          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
-          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" fill="none" stroke="url(#app-segment-3)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
-          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M19.246 85.761 A82 82 0 1 1 32.830 147.033" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
-          <path d="M30.460 56.547 A82 82 0 0 1 128.046 22.945" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
-          <circle cx="75.930" cy="189.831" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
-          <circle cx="62.173" cy="184.960" r="1.23" fill="var(--dial-accent)" opacity="0.46"/>
-          <circle cx="49.349" cy="177.996" r="1.36" fill="var(--dial-accent)" opacity="0.57"/>
-          <circle cx="37.771" cy="169.112" r="1.49" fill="var(--dial-accent)" opacity="0.68"/>
-          <circle cx="27.725" cy="158.527" r="1.62" fill="var(--dial-accent)" opacity="0.78"/>
-          <circle cx="19.460" cy="146.500" r="1.75" fill="var(--dial-accent)" opacity="0.89"/>
-          <circle cx="13.177" cy="133.328" r="1.88" fill="var(--dial-accent)" opacity="1.00"/>
-          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
-          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
-          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
-          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
-
-
-          <defs><linearGradient id="app-segment-3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".22" stop-color="#A9C7C4"/><stop offset=".7" stop-color="#A9C7C4"/><stop offset="1" stop-color="#1D1D1F"/></linearGradient></defs></svg><div class="app-reading"><strong>39°F</strong><span>Water temperature</span></div></div><dl class="app-metrics"><div><dt>Target</dt><dd>39°F</dd></div><div><dt>Ready by</dt><dd>6:30</dd></div><div><dt>Flow</dt><dd>OK</dd></div></dl><a class="btn app-explore" href="/cold-plunge/demo/">Explore the app</a></div>
-          <div role="tabpanel" id="app-panel-4" aria-labelledby="app-tab-4" tabindex="0" style="--dial-accent:#2F7CF6;--app-color:#B8BBBE" hidden>
-            <p class="app-product">Basement Guard Pro</p><p class="app-demo">Demo · example readings</p><div class="app-knob"><svg class="app-dial" viewBox="0 0 200 200" aria-hidden="true">
-
-          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
-          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
-          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" fill="none" stroke="url(#app-segment-4)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
-          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
-          <path d="M19.246 85.761 A82 82 0 1 1 32.830 147.033" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
-          <path d="M30.460 56.547 A82 82 0 0 1 128.046 22.945" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
-          <circle cx="75.930" cy="189.831" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
-          <circle cx="62.173" cy="184.960" r="1.23" fill="var(--dial-accent)" opacity="0.46"/>
-          <circle cx="49.349" cy="177.996" r="1.36" fill="var(--dial-accent)" opacity="0.57"/>
-          <circle cx="37.771" cy="169.112" r="1.49" fill="var(--dial-accent)" opacity="0.68"/>
-          <circle cx="27.725" cy="158.527" r="1.62" fill="var(--dial-accent)" opacity="0.78"/>
-          <circle cx="19.460" cy="146.500" r="1.75" fill="var(--dial-accent)" opacity="0.89"/>
-          <circle cx="13.177" cy="133.328" r="1.88" fill="var(--dial-accent)" opacity="1.00"/>
-          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
-          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
-          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
-          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
-
-
-          <defs><linearGradient id="app-segment-4" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".22" stop-color="#B8BBBE"/><stop offset=".7" stop-color="#B8BBBE"/><stop offset="1" stop-color="#1D1D1F"/></linearGradient></defs></svg><div class="app-reading"><strong>6.0 in</strong><span>Pit level</span></div></div><dl class="app-metrics"><div><dt>Pump health</dt><dd>Both healthy</dd></div><div><dt>Leak</dt><dd>Dry</dd></div></dl><a class="btn app-explore" href="/basement-guard/demo/">Explore the app</a></div>
-            <nav class="app-bottom" aria-label="Products in the app"><button type="button" data-app="0" aria-pressed="true">Pool</button><button type="button" data-app="1" aria-pressed="false">Reef</button><button type="button" data-app="2" aria-pressed="false">Terrarium</button><button type="button" data-app="3" aria-pressed="false">Cold Plunge</button><button type="button" data-app="4" aria-pressed="false">Basement Guard</button><button type="button" class="app-add" aria-label="How to add a product" aria-expanded="false" aria-controls="app-add-help">+</button></nav>
-          <p id="app-add-help" hidden>In the app, tap + and scan your product’s QR code to add its tab.</p>
-        </div><p class="app-caption">Choose a product to preview its controls.</p>
-      </div>
-    </div>
-    <script>
-    (() => {
-      const root = document.querySelector('#app');
-      const tabs = [...root.querySelectorAll('[role="tab"]')];
-      const panels = [...root.querySelectorAll('[role="tabpanel"]')];
-      const bottom = [...root.querySelectorAll('[data-app]')];
-      function select(i) {
-        tabs.forEach((tab, n) => { tab.setAttribute('aria-selected', n === i); tab.tabIndex = n === i ? 0 : -1; panels[n].hidden = n !== i; bottom[n].setAttribute('aria-pressed', n === i); });
-      }
-      tabs.forEach((tab, i) => {
-        tab.addEventListener('click', () => select(i));
-        tab.addEventListener('keydown', e => {
-          let n = i;
-          if (e.key === 'ArrowRight') n = (i + 1) % tabs.length;
-          else if (e.key === 'ArrowLeft') n = (i + tabs.length - 1) % tabs.length;
-          else if (e.key === 'Home') n = 0;
-          else if (e.key === 'End') n = tabs.length - 1;
-          else return;
-          e.preventDefault(); select(n); tabs[n].focus();
-        });
-        bottom[i].addEventListener('click', () => select(i));
-      });
-      root.querySelector('.app-add').addEventListener('click', e => {
-        const help = root.querySelector('#app-add-help');
-        help.hidden = !help.hidden; e.currentTarget.setAttribute('aria-expanded', !help.hidden);
-      });
-    })();
-    </script>
-  </section>
-
-  <section class="closing" id="contact" aria-labelledby="closing-h">
+<section id="app" aria-labelledby="app-h"><div class="wrap app-layout"><div class="app-copy"><p class="eyebrow">App preview</p><h2 id="app-h">Control you can feel.</h2><p>One app for every Control Freak product. Tap + and scan the QR code to add the next one. Each product gets its own tab. No account needed.</p><p class="app-help">In the app, tap + and scan your product’s QR code to add its tab.</p></div><div class="app-preview"><div class="phones" aria-label="Product app previews"><a class="phone phone-terrarium" href="/terrarium/demo/" style="--accent:#D48A2C"><span class="phone-speaker" aria-hidden="true"></span><h3>Terrarium Control Pro</h3><div class="screen-photo"><img src="assets/home/r4-terrarium.webp" alt="" width="2164" height="727" loading="lazy"></div><div class="reading"><strong>105°F</strong><span>Basking</span></div><svg class="spark" viewBox="0 0 180 40" aria-hidden="true"><path d="M0 35C30 35 35 5 70 12S110 38 135 18S160 4 180 10"/></svg><dl><div><dt>Cool side</dt><dd>78°F</dd></div><div><dt>Hot side</dt><dd>92°F</dd></div></dl><span class="phone-link">Explore the app</span></a><a class="phone phone-reef" href="/reef/demo/" style="--accent:#B698E9"><span class="phone-speaker" aria-hidden="true"></span><h3>Reef Control Pro</h3><div class="screen-photo"><img src="assets/home/r4-reef.webp" alt="" width="2172" height="724" loading="lazy"></div><div class="reading"><strong>78.4°F</strong><span>Tank temperature</span></div><svg class="spark" viewBox="0 0 180 40" aria-hidden="true"><path d="M0 35C30 35 35 5 70 12S110 38 135 18S160 4 180 10"/></svg><dl><div><dt>Sump</dt><dd>77.9°F</dd></div><div><dt>pH (Pro)</dt><dd>8.2</dd></div></dl><span class="phone-link">Explore the app</span></a><a class="phone phone-pool" href="https://controlfreakpool.com" style="--accent:#24BFD3"><span class="phone-speaker" aria-hidden="true"></span><h3>Control Freak Pool</h3><div class="screen-photo"><img src="assets/home/r4-pool.webp" alt="" width="2172" height="724" loading="lazy"></div><div class="reading"><strong>84°F</strong><span>Water temperature</span></div><svg class="spark" viewBox="0 0 180 40" aria-hidden="true"><path d="M0 35C30 35 35 5 70 12S110 38 135 18S160 4 180 10"/></svg><dl><div><dt>Chlorine</dt><dd>3 ppm</dd></div><div><dt>pH</dt><dd>7.4</dd></div></dl><span class="phone-link">Pool preview</span></a><a class="phone phone-plunge" href="/cold-plunge/demo/" style="--accent:#A9C7C4"><span class="phone-speaker" aria-hidden="true"></span><h3>Cold Plunge Control Pro</h3><div class="screen-photo"><img src="assets/home/r4-plunge.webp" alt="" width="2172" height="724" loading="lazy"></div><div class="reading"><strong>39°F</strong><span>Water temperature</span></div><svg class="spark" viewBox="0 0 180 40" aria-hidden="true"><path d="M0 35C30 35 35 5 70 12S110 38 135 18S160 4 180 10"/></svg><dl><div><dt>Target</dt><dd>39°F</dd></div><div><dt>Ready by</dt><dd>6:30</dd></div><div><dt>Flow</dt><dd>OK</dd></div></dl><span class="phone-link">Explore the app</span></a><a class="phone phone-basement" href="/basement-guard/demo/" style="--accent:#2F7CF6"><span class="phone-speaker" aria-hidden="true"></span><h3>Basement Guard Pro</h3><div class="screen-photo"><img src="assets/home/r4-basement.webp" alt="" width="2172" height="724" loading="lazy"></div><div class="reading"><strong>6.0 in</strong><span>Pit level</span></div><svg class="spark" viewBox="0 0 180 40" aria-hidden="true"><path d="M0 35C30 35 35 5 70 12S110 38 135 18S160 4 180 10"/></svg><dl><div><dt>Pump health</dt><dd>Both healthy</dd></div><div><dt>Leak</dt><dd>Dry</dd></div></dl><span class="phone-link">Explore the app</span></a></div><p class="app-caption">Demo, example readings</p></div>  <section class="closing" id="contact" aria-labelledby="closing-h">
     <div class="wrap">
       <h2 id="closing-h">Home Assistant is built into every controller.</h2>
       <a class="btn btn-red" href="mailto:?subject=Control%20Freak">Contact</a>
     </div>
   </section>
-</main>
+</div></section></main>
 
 <footer class="site-foot">
   <div class="wrap foot-row">
