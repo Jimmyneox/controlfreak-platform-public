@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Control Freak | Smart controllers that run locally</title>
-<meta name="description" content="Smart controllers that run locally, work together in one app, and keep the control with the people who care most.">
+<meta name="description" content="Smart controllers that run locally, unify your devices, and keep the control with the people who care most.">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -16,12 +16,51 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- Shared line icons and a simple corporate red ring. -->
+<!-- Shared line icons and dimensional dial materials. -->
 <svg class="sprite" aria-hidden="true" focusable="false">
   <defs>
-    <symbol id="ring" viewBox="0 0 160 160">
-      <circle cx="80" cy="80" r="68" fill="none" stroke="#EE243B" stroke-width="3"/>
-    </symbol>
+    <!-- Shared materials use a fixed light source above and left of every dial. -->
+    <linearGradient id="dial-band" gradientUnits="userSpaceOnUse" x1="40" y1="30" x2="155" y2="175">
+      <stop stop-color="#FFFFFF"/><stop offset=".24" stop-color="#E6E7E9"/><stop offset=".65" stop-color="#86868B"/><stop offset="1" stop-color="#6E6E73"/>
+    </linearGradient>
+    <!-- Contrasting seats keep the neutral segments distinct at normal size. -->
+    <linearGradient id="dial-band-dark" gradientUnits="userSpaceOnUse" x1="40" y1="30" x2="155" y2="175">
+      <stop stop-color="#86868B"/><stop offset=".45" stop-color="#6E6E73"/><stop offset="1" stop-color="#1D1D1F"/>
+    </linearGradient>
+    <linearGradient id="dial-band-light" gradientUnits="userSpaceOnUse" x1="40" y1="30" x2="155" y2="175">
+      <stop stop-color="#FFFFFF"/><stop offset=".65" stop-color="#F5F5F7"/><stop offset="1" stop-color="#E6E7E9"/>
+    </linearGradient>
+    <linearGradient id="dial-bevel" x2=".8" y2="1">
+      <stop stop-color="#FFFFFF"/><stop offset=".45" stop-color="#E6E7E9"/><stop offset="1" stop-color="#6E6E73"/>
+    </linearGradient>
+    <radialGradient id="dial-face" cx=".28" cy=".2" r=".88">
+      <stop stop-color="#FFFFFF"/><stop offset=".58" stop-color="#F5F5F7"/><stop offset="1" stop-color="#E6E7E9"/>
+    </radialGradient>
+    <linearGradient id="dial-rim" x2=".7" y2="1">
+      <stop stop-color="#FFFFFF"/><stop offset=".4" stop-color="#FFFFFF"/><stop offset="1" stop-color="#86868B" stop-opacity=".55"/>
+    </linearGradient>
+    <linearGradient id="dial-red" x2=".8" y2="1">
+      <stop stop-color="#FFFFFF"/><stop offset=".2" stop-color="#EE243B"/><stop offset=".68" stop-color="#EE243B"/><stop offset="1" stop-color="#1D1D1F"/>
+    </linearGradient>
+    <linearGradient id="dial-graphite" x2=".8" y2="1">
+      <stop stop-color="#86868B"/><stop offset=".48" stop-color="#1C1D20"/><stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <linearGradient id="dial-silver" x2=".8" y2="1">
+      <stop stop-color="#FFFFFF"/><stop offset=".45" stop-color="#E6E7E9"/><stop offset="1" stop-color="#86868B"/>
+    </linearGradient>
+    <linearGradient id="dial-gray" x2=".8" y2="1">
+      <stop stop-color="#E6E7E9"/><stop offset=".4" stop-color="#86868B"/><stop offset="1" stop-color="#1D1D1F"/>
+    </linearGradient>
+    <filter id="dial-shadow" x="-45%" y="-45%" width="200%" height="210%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="7" dy="10" stdDeviation="7" flood-color="#000000" flood-opacity=".28"/>
+      <feDropShadow dx="2" dy="3" stdDeviation="1.4" flood-color="#1D1D1F" flood-opacity=".18"/>
+    </filter>
+    <filter id="dial-lift" x="-50%" y="-50%" width="210%" height="220%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="7" dy="12" stdDeviation="11" flood-color="#1D1D1F" flood-opacity=".22"/>
+    </filter>
+    <filter id="dial-segment-shadow" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="1.5" dy="2.5" stdDeviation="1.5" flood-color="#000000" flood-opacity=".25"/>
+    </filter>
     <symbol id="i-local" viewBox="0 0 32 32"><path d="M4.5 15 16 5.5 27.5 15"/><path d="M8 12.5V27h16V12.5"/><rect x="12.5" y="15.5" width="7" height="7" rx="1"/><path d="M14.5 13.5v2M17.5 13.5v2M14.5 22.5v2M17.5 22.5v2"/></symbol>
     <symbol id="i-app" viewBox="0 0 32 32"><rect x="4" y="6.5" width="24" height="19" rx="2.5"/><path d="M4 11.5h24"/><path d="M7.5 9h.01M10 9h.01M12.5 9h.01"/><rect x="8" y="15" width="6.5" height="6.5" rx="1"/><path d="M18 16h6M18 20.5h4"/></symbol>
     <symbol id="i-nosub" viewBox="0 0 32 32"><path d="M23.5 11.5a8.5 8.5 0 0 0-15 .5"/><path d="M8 7.5V12h4.5"/><path d="M8.5 20.5a8.5 8.5 0 0 0 15-.5"/><path d="M24 24.5V20h-4.5"/><path d="M5.5 5.5l21 21"/></symbol>
@@ -51,7 +90,7 @@
     </picture>
     <div class="wrap hero-copy">
       <h1>Put the Control Freak on it.</h1>
-      <p>Smart controllers that run locally, work together in one app, and keep the control with the people who care most.</p>
+      <p>Smart controllers that run locally, unify your devices, and keep the control with the people who care most.</p>
     </div>
   </section>
 
@@ -59,8 +98,11 @@
     <div class="wrap story-grid">
       <h2 id="story-h" class="rule">Our story</h2>
       <div>
-        <p>Control Freak started in pools, where the big systems charged a premium for boards you couldn't change. We built one that put control back in the owner's hands. Now the same controller runs reef tanks, basements, terrariums and cold plunges.</p>
-        <p class="kicker">We're not the control freaks. You are.</p>
+        <p>Control Freak started with my own pool. When I looked at what was out there for automating it, I found only a few products, and none of them met my needs. They fell short on features, on looks, or on a price I could justify.</p>
+        <p>So we designed our own custom circuit board, user interface and platform, built to be mass produced, so other people could solve the same problem I set out to solve.</p>
+        <p>Along the way we added features nobody else offered and brought the cost way down. A fraction of the price, twice the options.</p>
+        <p>Got another idea for something big business has a lock on? Put Control Freak on it.</p>
+        <p class="kicker">We put the power back in your hands, with features that enrich your life, not our pockets.</p>
       </div>
     </div>
   </section>
@@ -69,18 +111,153 @@
     <div class="wrap">
       <h2 id="stand-h" class="rule">What every Control Freak does for you</h2>
       <ol class="rings">
-        <li><svg class="ring" viewBox="0 0 160 160" aria-hidden="true"><use href="#ring"/><use class="icon" href="#i-local" x="56" y="56" width="48" height="48"/></svg>
-          <h3>Local control</h3><p>The brains are in the controller, not on someone's server.</p></li>
-        <li><svg class="ring" viewBox="0 0 160 160" aria-hidden="true"><use href="#ring"/><use class="icon" href="#i-app" x="56" y="56" width="48" height="48"/></svg>
-          <h3>One app</h3><p>Home Assistant built in, for the whole home.</p></li>
-        <li><svg class="ring" viewBox="0 0 160 160" aria-hidden="true"><use href="#ring"/><use class="icon" href="#i-nosub" x="56" y="56" width="48" height="48"/></svg>
-          <h3>No subscription.</h3></li>
-        <li><svg class="ring" viewBox="0 0 160 160" aria-hidden="true"><use href="#ring"/><use class="icon" href="#i-shield" x="56" y="56" width="48" height="48"/></svg>
-          <h3>Safety rules built in</h3><p>They keep working when the internet doesn't.</p></li>
-        <li><svg class="ring" viewBox="0 0 160 160" aria-hidden="true"><use href="#ring"/><use class="icon" href="#i-tap" x="56" y="56" width="48" height="48"/></svg>
+        <li><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+          <!-- Dial 1: independently phased band, outer opening and dot trail. -->
+          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
+          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
+          <path d="M124.369 36.517 A68 68 0 1 1 41.713 64.977" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
+          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" fill="none" stroke="var(--dial-segment)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
+          <path d="M44.298 60.997 A68 68 0 0 1 119.881 34.971" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
+          <path d="M19.246 85.761 A82 82 0 1 1 32.830 147.033" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
+          <path d="M30.460 56.547 A82 82 0 0 1 128.046 22.945" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
+          <circle cx="75.930" cy="189.831" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
+          <circle cx="62.173" cy="184.960" r="1.23" fill="var(--dial-accent)" opacity="0.46"/>
+          <circle cx="49.349" cy="177.996" r="1.36" fill="var(--dial-accent)" opacity="0.57"/>
+          <circle cx="37.771" cy="169.112" r="1.49" fill="var(--dial-accent)" opacity="0.68"/>
+          <circle cx="27.725" cy="158.527" r="1.62" fill="var(--dial-accent)" opacity="0.78"/>
+          <circle cx="19.460" cy="146.500" r="1.75" fill="var(--dial-accent)" opacity="0.89"/>
+          <circle cx="13.177" cy="133.328" r="1.88" fill="var(--dial-accent)" opacity="1.00"/>
+          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
+          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
+          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
+          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
+          <use class="icon" href="#i-local" x="76" y="76" width="48" height="48"/>
+          <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
+          </svg>
+          <h3>Privacy built in</h3><p>Your data stays in your home. Flip a switch to share one signal, like low chlorine, with a provider you choose. Only that signal, only that provider. No toilet paper company tracking your bathroom trips.</p></li>
+        <li><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+          <!-- Dial 2: independently phased band, outer opening and dot trail. -->
+          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
+          <path d="M167.959 102.373 A68 68 0 1 1 95.257 32.166" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
+          <path d="M167.959 102.373 A68 68 0 1 1 95.257 32.166" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
+          <path d="M100.000 32.000 A68 68 0 0 1 167.959 97.627" fill="none" stroke="var(--dial-segment)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
+          <path d="M100.000 32.000 A68 68 0 0 1 167.959 97.627" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
+          <path d="M35.383 49.516 A82 82 0 1 1 18.000 100.000" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
+          <path d="M95.708 18.112 A82 82 0 0 1 181.988 101.431" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
+          <circle cx="15.713" cy="139.303" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
+          <circle cx="10.603" cy="125.634" r="1.23" fill="var(--dial-accent)" opacity="0.44"/>
+          <circle cx="7.693" cy="111.334" r="1.36" fill="var(--dial-accent)" opacity="0.54"/>
+          <circle cx="7.057" cy="96.754" r="1.49" fill="var(--dial-accent)" opacity="0.63"/>
+          <circle cx="8.709" cy="82.255" r="1.62" fill="var(--dial-accent)" opacity="0.72"/>
+          <circle cx="12.609" cy="68.192" r="1.75" fill="var(--dial-accent)" opacity="0.81"/>
+          <circle cx="18.660" cy="54.913" r="1.88" fill="var(--dial-accent)" opacity="0.91"/>
+          <circle cx="26.715" cy="42.743" r="2.01" fill="var(--dial-accent)" opacity="1.00"/>
+          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
+          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
+          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
+          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
+          <use class="icon" href="#i-app" x="76" y="76" width="48" height="48"/>
+          <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
+          </svg>
+          <h3>One app, unify your devices</h3><p>Home Assistant is built into every controller, so your pool, reef, lights, thermostat and cameras all live in one app. No more opening five apps to check on one house.</p></li>
+        <li><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+          <!-- Dial 3: independently phased band, outer opening and dot trail. -->
+          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
+          <path d="M119.881 165.029 A68 68 0 1 1 152.846 57.206" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
+          <path d="M119.881 165.029 A68 68 0 1 1 152.846 57.206" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
+          <path d="M155.702 60.997 A68 68 0 0 1 124.369 163.483" fill="none" stroke="var(--dial-segment)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
+          <path d="M155.702 60.997 A68 68 0 0 1 124.369 163.483" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
+          <path d="M78.777 20.794 A82 82 0 1 1 25.683 65.345" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
+          <path d="M164.617 49.516 A82 82 0 0 1 125.339 177.987" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
+          <circle cx="23.819" cy="46.657" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
+          <circle cx="33.101" cy="35.397" r="1.23" fill="var(--dial-accent)" opacity="0.48"/>
+          <circle cx="44.031" cy="25.727" r="1.36" fill="var(--dial-accent)" opacity="0.61"/>
+          <circle cx="56.339" cy="17.886" r="1.49" fill="var(--dial-accent)" opacity="0.74"/>
+          <circle cx="69.722" cy="12.067" r="1.62" fill="var(--dial-accent)" opacity="0.87"/>
+          <circle cx="83.851" cy="8.413" r="1.75" fill="var(--dial-accent)" opacity="1.00"/>
+          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
+          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
+          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
+          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
+          <use class="icon" href="#i-nosub" x="76" y="76" width="48" height="48"/>
+          <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
+          </svg>
+          <h3>No subscription.</h3><p>Buy the controller once and it's yours. Every feature in the app works without a monthly fee. Optional services, like chlorine delivery, are yours to choose, never required.</p></li>
+        <li><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+          <!-- Dial 4: independently phased band, outer opening and dot trail. -->
+          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
+          <path d="M44.987 139.969 A68 68 0 1 1 165.366 118.743" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
+          <path d="M44.987 139.969 A68 68 0 1 1 165.366 118.743" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
+          <path d="M163.899 123.257 A68 68 0 0 1 47.909 143.710" fill="none" stroke="var(--dial-segment)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
+          <path d="M163.899 123.257 A68 68 0 0 1 47.909 143.710" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
+          <path d="M180.990 112.828 A82 82 0 1 1 167.170 52.967" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
+          <path d="M178.417 123.974 A82 82 0 0 1 34.512 149.349" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
+          <circle cx="124.070" cy="10.169" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
+          <circle cx="137.827" cy="15.040" r="1.23" fill="var(--dial-accent)" opacity="0.44"/>
+          <circle cx="150.651" cy="22.004" r="1.36" fill="var(--dial-accent)" opacity="0.54"/>
+          <circle cx="162.229" cy="30.888" r="1.49" fill="var(--dial-accent)" opacity="0.63"/>
+          <circle cx="172.275" cy="41.473" r="1.62" fill="var(--dial-accent)" opacity="0.72"/>
+          <circle cx="180.540" cy="53.500" r="1.75" fill="var(--dial-accent)" opacity="0.81"/>
+          <circle cx="186.823" cy="66.672" r="1.88" fill="var(--dial-accent)" opacity="0.91"/>
+          <circle cx="190.968" cy="80.664" r="2.01" fill="var(--dial-accent)" opacity="1.00"/>
+          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
+          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
+          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
+          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
+          <use class="icon" href="#i-shield" x="76" y="76" width="48" height="48"/>
+          <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
+          </svg>
+          <h3>Reliability built in</h3><p>The internet goes down, your home doesn't. Schedules and safety rules run right in the controller, so a storm that knocks out the internet for two weeks never knocks out your control.</p></li>
+        <li><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+          <!-- Dial 5: independently phased band, outer opening and dot trail. -->
+          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
+          <path d="M44.298 60.997 A68 68 0 1 1 122.139 164.295" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
+          <path d="M44.298 60.997 A68 68 0 1 1 122.139 164.295" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
+          <path d="M117.600 165.683 A68 68 0 0 1 41.713 64.977" fill="none" stroke="var(--dial-segment)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
+          <path d="M117.600 165.683 A68 68 0 0 1 41.713 64.977" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
+          <path d="M165.488 149.349 A82 82 0 1 1 179.206 78.777" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
+          <path d="M125.339 177.987 A82 82 0 0 1 32.019 54.146" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
+          <circle cx="189.831" cy="75.930" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
+          <circle cx="192.491" cy="90.279" r="1.23" fill="var(--dial-accent)" opacity="0.46"/>
+          <circle cx="192.873" cy="104.867" r="1.36" fill="var(--dial-accent)" opacity="0.57"/>
+          <circle cx="190.968" cy="119.336" r="1.49" fill="var(--dial-accent)" opacity="0.68"/>
+          <circle cx="186.823" cy="133.328" r="1.62" fill="var(--dial-accent)" opacity="0.78"/>
+          <circle cx="180.540" cy="146.500" r="1.75" fill="var(--dial-accent)" opacity="0.89"/>
+          <circle cx="172.275" cy="158.527" r="1.88" fill="var(--dial-accent)" opacity="1.00"/>
+          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
+          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
+          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
+          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
+          <use class="icon" href="#i-tap" x="76" y="76" width="48" height="48"/>
+          <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
+          </svg>
           <h3>One-tap routines</h3><p>Spa Night on the pool, Feed Mode on the reef. One tap runs several steps, then hands control back. More than an on/off switch.</p></li>
-        <li><svg class="ring" viewBox="0 0 160 160" aria-hidden="true"><use href="#ring"/><use class="icon" href="#i-plug" x="56" y="56" width="48" height="48"/></svg>
-          <h3>Plug and play kit</h3><p>Keyed plugs fit one way.</p></li>
+        <li><svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+          <!-- Dial 6: independently phased band, outer opening and dot trail. -->
+          <circle cx="100" cy="103" r="68" fill="none" stroke="url(#dial-bevel)" stroke-width="18" filter="url(#dial-lift)"/>
+          <path d="M118.743 34.634 A68 68 0 1 1 60.031 155.013" fill="none" stroke="url(#dial-band-light)" stroke-width="16"/>
+          <path d="M118.743 34.634 A68 68 0 1 1 60.031 155.013" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
+          <path d="M56.290 152.091 A68 68 0 0 1 114.138 33.486" fill="none" stroke="var(--dial-segment)" stroke-width="16" filter="url(#dial-segment-shadow)"/>
+          <path d="M56.290 152.091 A68 68 0 0 1 114.138 33.486" transform="translate(-.5 -1)" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="1"/>
+          <path d="M157.983 157.983 A82 82 0 1 1 181.688 107.147" fill="none" stroke="#86868B" stroke-opacity=".55" stroke-width="1.5"/>
+          <path d="M50.651 165.488 A82 82 0 0 1 121.223 20.794" fill="none" stroke="var(--dial-accent)" stroke-width="2"/>
+          <circle cx="165.761" cy="165.761" r="1.10" fill="var(--dial-accent)" opacity="0.35"/>
+          <circle cx="154.664" cy="175.239" r="1.23" fill="var(--dial-accent)" opacity="0.43"/>
+          <circle cx="142.221" cy="182.864" r="1.36" fill="var(--dial-accent)" opacity="0.51"/>
+          <circle cx="128.739" cy="188.448" r="1.49" fill="var(--dial-accent)" opacity="0.59"/>
+          <circle cx="114.548" cy="191.855" r="1.62" fill="var(--dial-accent)" opacity="0.68"/>
+          <circle cx="100.000" cy="193.000" r="1.75" fill="var(--dial-accent)" opacity="0.76"/>
+          <circle cx="85.452" cy="191.855" r="1.88" fill="var(--dial-accent)" opacity="0.84"/>
+          <circle cx="71.261" cy="188.448" r="2.01" fill="var(--dial-accent)" opacity="0.92"/>
+          <circle cx="57.779" cy="182.864" r="2.14" fill="var(--dial-accent)" opacity="1.00"/>
+          <!-- Recessed seat, then the elevated face and its crisp light-catching rim. -->
+          <circle cx="100" cy="101" r="59.5" fill="none" stroke="#1D1D1F" stroke-opacity=".22" stroke-width="3"/>
+          <circle cx="100" cy="100" r="58" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="1.5" filter="url(#dial-shadow)"/>
+          <path d="M44 96 A56 56 0 0 1 129 52" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1"/>
+          <use class="icon" href="#i-plug" x="76" y="76" width="48" height="48"/>
+          <g class="dial-nodes" fill="#F5F5F7" stroke="#1D1D1F" stroke-width="2"><circle cx="18" cy="100" r="4"/><circle cx="182" cy="100" r="4"/></g>
+          </svg>
+          <h3>Plug and play kit</h3><p>Every sensor and pump connects with a keyed, color-coded plug that only fits one way. Scan the QR code, follow the app, and you're running. It's plug and play, not plug and pray.</p></li>
       </ol>
     </div>
   </section>
