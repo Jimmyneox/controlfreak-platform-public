@@ -4,8 +4,8 @@
 Fails on:
   DASH        em/en/figure dashes, minus signs or spaced hyphens in visible text
   ON-THE-BOX  the phrase "on the box" anywhere in visible text
-  DIGIT       any digit in visible text (no prices, numbers or statistics)
-  HEX         a CSS/SVG hex color outside the neutral set and the corporate red
+  DIGIT       any digit in visible text outside section#app
+  HEX         a CSS/SVG hex color outside the corporate palette (explicit app accents only in section#app)
   LINK        a local href/src/srcset/url() that does not resolve, or a #fragment with no matching id
   BROWSER     console errors, failed requests, or horizontal scroll at phone width (headless Chromium)
 
@@ -40,6 +40,10 @@ CSS = ROOT / "assets" / "home" / "home.css"
 NEUTRAL = {"FFFFFF", "F5F5F7", "E6E7E9", "86868B", "6E6E73", "1D1D1F", "1C1D20", "000000"}
 RED = {"EE243B"}
 ALLOWED = NEUTRAL | RED
+# Only HTML descendants of section#app may use these demo product accents and digits.
+# home.css remains corporate-only; keep product colors inline in section#app.
+APP_ACCENTS = {"24BFD3", "123C89", "B698E9", "D48A2C", "A9C7C4", "C6B18D", "B8BBBE", "2F7CF6"}
+VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 
 HEX_RE = re.compile(r"#([0-9a-fA-F]{8}|[0-9a-fA-F]{6}|[0-9a-fA-F]{3,4})\b")
 DASH_RE = re.compile(r"[‒–—―−]|\s-\s|^-\s|\s-$")
@@ -59,22 +63,31 @@ class Page(HTMLParser):
         self.links: list[tuple[int, str]] = []
         self.ids: set[str] = set()
         self._in: str | None = None
+        self._stack: list[tuple[str, bool]] = []
+        self.app_texts: list[tuple[int, str]] = []
+        self.app_colors: list[tuple[int, str]] = []
+
+    @property
+    def in_app(self) -> bool:
+        return any(app for _, app in self._stack)
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         line = self.getpos()[0]
         a = {k: v or "" for k, v in attrs}
+        if tag not in VOID_TAGS:
+            self._stack.append((tag, tag == "section" and a.get("id") == "app"))
         if a.get("id"):
             self.ids.add(a["id"])
         for k in VISIBLE_ATTRS:
             if a.get(k):
-                self.texts.append((line, a[k]))
+                (self.app_texts if self.in_app else self.texts).append((line, a[k]))
         if tag == "meta" and a.get("name") == "description":
-            self.texts.append((line, a.get("content", "")))
+            (self.app_texts if self.in_app else self.texts).append((line, a.get("content", "")))
         if tag == "meta" and a.get("name") == "theme-color":
-            self.colors.append((line, a.get("content", "")))
+            (self.app_colors if self.in_app else self.colors).append((line, a.get("content", "")))
         for k in COLOR_ATTRS:
             if a.get(k):
-                self.colors.append((line, a[k]))
+                (self.app_colors if self.in_app else self.colors).append((line, a[k]))
         for k in LINK_ATTRS:
             if a.get(k):
                 self.links.append((line, a[k]))
@@ -87,10 +100,13 @@ class Page(HTMLParser):
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         self.handle_starttag(tag, attrs)
-        if tag in ("script", "style"):
-            self._in = None
+        self.handle_endtag(tag)
 
     def handle_endtag(self, tag: str) -> None:
+        for i in range(len(self._stack) - 1, -1, -1):
+            if self._stack[i][0] == tag:
+                del self._stack[i:]
+                break
         if tag in ("script", "style"):
             self._in = None
 
@@ -99,7 +115,7 @@ class Page(HTMLParser):
         if self._in == "style":
             self.styles.append((line, data))
         elif self._in is None and data.strip():
-            self.texts.append((line, data))
+            (self.app_texts if self.in_app else self.texts).append((line, data))
 
 
 def load_redirects() -> list[tuple[str, str, int]]:
@@ -131,24 +147,24 @@ def resolve_url_path(url_path: str, depth: int = 0) -> Path | None:
     return f if f.is_file() else None
 
 
-def check_text(where: str, text: str, out: list[str]) -> None:
+def check_text(where: str, text: str, out: list[str], allow_digits: bool = False) -> None:
     for line in text.splitlines() or [text]:
         s = line.strip()
         if DASH_RE.search(s):
             out.append(f"DASH       {where}: {s[:110]}")
         if BOX_RE.search(s):
             out.append(f"ON-THE-BOX {where}: {s[:110]}")
-        if DIGIT_RE.search(s):
+        if not allow_digits and DIGIT_RE.search(s):
             out.append(f"DIGIT      {where}: {s[:110]}")
 
 
-def check_hex(where: str, text: str, out: list[str]) -> None:
+def check_hex(where: str, text: str, out: list[str], allowed: set[str] = ALLOWED) -> None:
     text = re.sub(r"/\*.*?\*/", "", text, flags=re.S)
     for m in HEX_RE.finditer(text):
         h = m.group(1).upper()
         if len(h) in (3, 4):
             h = "".join(c * 2 for c in h[:3])
-        if h[:6] not in ALLOWED:
+        if h[:6] not in allowed:
             out.append(f"HEX        {where}: #{m.group(1)} is not neutral or the corporate red")
 
 
@@ -261,6 +277,10 @@ def main() -> int:
     page.feed(HTML.read_text())
     for line, text in page.texts:
         check_text(f"index.html:{line}", text, out)
+    for line, text in page.app_texts:
+        check_text(f"index.html:{line} #app", text, out, allow_digits=True)
+    for line, val in page.app_colors:
+        check_hex(f"index.html:{line} #app", val, out, ALLOWED | APP_ACCENTS)
     for line, css in page.styles:
         check_hex(f"index.html:{line} <style>", css, out)
     for line, val in page.colors:
@@ -281,12 +301,12 @@ def main() -> int:
         print(f)
     for e in sorted(set(external)):
         print(f"external   {e} (not fetched)")
-    texts = len(page.texts)
+    texts = len(page.texts) + len(page.app_texts)
     links = len(page.links)
     if out:
         print(f"FAIL: {len(out)} finding(s) across {texts} text runs and {links} links")
         return 1
-    print(f"OK: {texts} text runs, {links} links, colors within neutral + corporate red"
+    print(f"OK: {texts} text runs, {links} links, colors within corporate palette + scoped app accents"
           + ("" if args.no_browser else ", browser clean at 1440 and 390"))
     return 0
 
