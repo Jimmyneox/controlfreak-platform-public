@@ -210,7 +210,7 @@ const { chromium } = require('playwright');
     if (shots) {
       await page.evaluate(async () => {
         document.querySelectorAll('img[loading=lazy]').forEach(i => { i.loading = 'eager'; });
-        for (const i of document.images) { i.scrollIntoView(); await new Promise(r => setTimeout(r, 150)); try { await i.decode(); } catch (e) {} } window.scrollTo(0, 0); await new Promise(r => setTimeout(r, 400));
+        for (const i of document.images) { i.scrollIntoView(); await new Promise(r => setTimeout(r, 150)); try { await i.decode(); } catch (e) {} } window.scrollTo(0, 0); await new Promise(r => setTimeout(r, 400)); const h = document.querySelector(".site-head"); if (h) h.style.position = "absolute";
       });
       await page.screenshot({ path: `${shots}/${name}`, fullPage: true });
     }
